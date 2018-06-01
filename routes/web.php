@@ -12,8 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('backend/dashboard');
+    return view('welcome');
 });
+
+//category Route Start
+Route::get('add-category','CategoryController@add_category')->name('add-category');
+Route::post('save-category','CategoryController@save_category')->name('save-category');
+Route::get('category-list','CategoryController@category_list')->name('category-list');
+Route::get('delete-category/{id}','CategoryController@category_delete')->name('delete-category');
+Route::get('edit-category/{id}','CategoryController@category_edit')->name('edit-category');
+Route::post('update-category','CategoryController@category_update')->name('update-category');
+//category Route End
 
 
 
