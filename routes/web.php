@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//Admin Panel Routes//
 
 //category Route Start
 Route::get('add-category','CategoryController@add_category')->name('add-category');
@@ -33,5 +34,6 @@ Route::get('edit-sub-category/{id}','SubCategoryController@category_edit')->name
 Route::post('update-sub-category','SubCategoryController@category_update')->name('update-sub-category');
 //category Route End
 
+//Admin panel Route End//
 
 
