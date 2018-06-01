@@ -61,6 +61,13 @@
                         <li><i class="fa fa-id-badge"></i><a href="{{url('/category-list')}}">Category List</a></li>
                     </ul>
                 </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Sub Category</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-puzzle-piece"></i><a href="{{url('/add-sub-category')}}">Add Sub Category</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="{{url('/sub-category-list')}}">Sub Category List</a></li>
+                    </ul>
+                </li>
 
 
                 <h3 class="menu-title">Icons</h3><!-- /.menu-title -->
