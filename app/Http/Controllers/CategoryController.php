@@ -35,6 +35,7 @@ class CategoryController extends Controller
         $category->cat_title = $request->cat_title;
         $category->cat_name = $request->cat_name;
         $category->cat_image = $cat_image;
+        $category->cat_major = $request->cat_major;
         $category->save();
         return redirect('/add-category')->with('message_success','Category Added Successfully');
     }
@@ -59,7 +60,7 @@ class CategoryController extends Controller
         $request->validate([
             'cat_title' => 'required|max:255|min:2',
             'cat_name' => 'required|max:255|min:2',
-            'cat_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|required'
+            'cat_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         $category = Category::where('id',$request->id)->first();
@@ -77,6 +78,7 @@ class CategoryController extends Controller
         $category->cat_title = $request->cat_title;
         $category->cat_name = $request->cat_name;
         $category->cat_image = $cat_image;
+        $category->cat_major = $request->cat_major;
         $category->save();
         return redirect('/edit-category/'.$category->id)->with('message_success','Category Updated Successfully');
     }
