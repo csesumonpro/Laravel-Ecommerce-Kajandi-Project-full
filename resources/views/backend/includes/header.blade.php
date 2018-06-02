@@ -82,13 +82,13 @@
                     </ul>
                 </li>
 
-                <h3 class="menu-title">Icons</h3><!-- /.menu-title -->
+                <h3 class="menu-title">Product Part</h3><!-- /.menu-title -->
 
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Products</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font Awesome</a></li>
-                        <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
+                        <li><i class="fa fa-puzzle-piece"></i><a href="{{url('/add-product')}}">Add Product </a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="{{url('/product-list')}}">Product List</a></li>
                     </ul>
                 </li>
                 <li>

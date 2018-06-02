@@ -1,6 +1,6 @@
-@extends('BackEnd.admin_master')
-@section('page-title','Product List')
-@section('content')
+@extends('backend.admin_master')
+@section('page_title','Product List')
+@section('admin_content')
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
@@ -15,11 +15,11 @@
                 <thead>
                 <tr>
                     <th width="5%">SL</th>
-                    <th width="50%">Title</th>
+                    <th width="45%">Title</th>
                     <th width="10%">Price</th>
                     <th width="10%">Quantity</th>
                     <th width="10%">Image</th>
-                    <th width="15%">Action</th>
+                    <th width="20%">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,13 +28,14 @@
                     <?php $i++;?>
                 <tr>
                     <td>{{$i}}</td>
-                    <td>{{$product->product_name}}</td>
-                    <td>{{$product->product_price}}</td>
-                    <td>{{$product->product_qty}}</td>
-                    <td><img src="{{$product->product_image}}" alt="" width="50" height="40"></td>
+                    <td>{{$product->name}}</td>
+                    <td>{{$product->price}}</td>
+                    <td>{{$product->qty}}</td>
+                    <td><img src="{{$product->image}}" alt="" width="50" height="40"></td>
                     <td>
                         <a class="btn btn-primary" href="{{url('/edit-product/'.$product->id)}}"><i class="fa fa-edit"></i></a>
                         <a class="btn btn-danger" href="{{url('/delete-product/'.$product->id)}}"><i class="fa fa-trash-o"></i></a>
+                        <a class="btn btn-info" href="{{url('/product-view/'.$product->id)}}"><i class="fa fa-info"></i></a>
                     </td>
                 </tr>
                 @endforeach

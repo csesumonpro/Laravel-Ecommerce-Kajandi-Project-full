@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 // Admin Panel Route
 Route::GET('admin/home','AdminController@index');
 Route::GET('admin/editor','EditorController@index');
@@ -65,8 +70,13 @@ Route::get('edit-model/{id}','ProductModelController@model_edit')->name('edit-mo
 Route::post('update-model','ProductModelController@model_update')->name('update-model');
 //Product Model Route End
 
+//Product  Route Start
+Route::get('add-product','ProductController@add_product')->name('add-product');
+Route::post('save-product','ProductController@save_product')->name('save-product');
+Route::get('product-list','ProductController@product_list')->name('product-list');
+Route::get('product-view/{id}','ProductController@product_view')->name('product-view');
+Route::get('delete-product/{id}','ProductController@product_delete')->name('delete-product');
+Route::get('edit-product/{id}','ProductController@product_edit')->name('edit-product');
+Route::post('update-product','ProductController@product_update')->name('update-product');
+//Product  Route End
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
