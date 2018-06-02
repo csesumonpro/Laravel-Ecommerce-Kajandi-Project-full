@@ -10,16 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//==========================Front End ==========================//
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.front_view.main_page.index');
 });
 
-
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
+//==========================Front End ==========================//
+//==========================BackEnd Start ==========================//
 // Admin Panel Route
 Route::GET('admin/home','AdminController@index');
 Route::GET('admin/editor','EditorController@index');
@@ -80,3 +79,4 @@ Route::get('edit-product/{id}','ProductController@product_edit')->name('edit-pro
 Route::post('update-product','ProductController@product_update')->name('update-product');
 //Product  Route End
 
+//==========================BackEnd Start ==========================//

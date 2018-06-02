@@ -1,0 +1,136 @@
+.small-device {
+	display:none;
+}
+
+	/* 
+	Generic Styling, for Desktops/Laptops 
+	*/
+	table { 
+		width: 100%; 
+		border-collapse: collapse; 
+	}
+	/* Zebra striping */
+	tr:nth-of-type(odd) { 
+		background: #eee; 
+	}
+
+	th {
+    background: #CE3F51;
+    color: white;
+    font-weight: bold;
+    padding: 10px 8px !important;
+	}
+	td, th { 
+		padding: 6px; 
+		border: 1px solid #ccc; 
+		text-align: center; 
+	}
+	span.right {
+		float:right;
+	}
+	span.left {
+		float:left;
+	}
+	.left {
+		width:30%;
+		float:left;
+	}
+	.right {
+		width:70%;
+		float:left;
+	}
+	.right span.qty input,.middle span.qty input{
+		height:37px;
+		width:30px;
+		text-align:center;
+	}
+	.right span.qty button, .middle span.qty button {
+		padding: 10px 8px;
+	}
+	.left-2 {
+		width:20%;
+		float:left;
+	}
+	.right-2 {
+		width:20%;
+		float:left;
+	}
+	.middle {
+		width:60%;
+		float:left;
+	}
+	span.right {
+	text-align:right;}
+	
+	/* 
+	Max width before this PARTICULAR table gets nasty
+	This query will take effect for any screen smaller than 760px
+	and also iPads specifically.
+	*/
+	@media 
+	only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px)  {
+	
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr { 
+			display: block; 
+		}
+		
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr { 
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+		
+		tr { border: 1px solid #ccc; }
+		
+		td { 
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee; 
+			position: relative;
+			padding-left: 50%; 
+		}
+		
+		td:before { 
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 6px;
+			left: 6px;
+			width: 45%; 
+			padding-right: 10px; 
+			white-space: nowrap;
+		}
+		
+		/*
+		Label the data
+		*/
+		td:nth-of-type(1):before { content: "Prod. #"; }
+		td:nth-of-type(2):before { content: "Lenth"; }
+		td:nth-of-type(3):before { content: "Buy Each"; }
+		td:nth-of-type(4):before { content: "Buy Bag & QTY"; }
+		td:nth-of-type(5):before { content: "Buy Bulk & QTY"; }
+		
+	}
+	
+
+	
+	
+	@media only screen and (max-width: 768px) {
+		.large-device{
+		display:none;}
+		.left {
+		width:100%;
+		float:none;
+	}
+	.right {
+		width:100%;
+		float:none;
+	}
+	.small-device {
+	display:inherit !important;}
+	
+	
+	}
