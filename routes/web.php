@@ -14,7 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
-//Admin Panel Routes//
+
+// Admin Panel Route
+Route::GET('admin/home','AdminController@index');
+Route::GET('admin/editor','EditorController@index');
+Route::GET('admin/test','EditorController@test');
+Route::GET('admin','Admin\LoginController@showLoginForm')->name('admin.login');
+Route::POST('admin','Admin\LoginController@login');
+
+Route::POST('admin-password/email','Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+Route::GET('admin-password/reset','Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+Route::POST('admin-password/reset','Admin\ResetPasswordController@reset');
+Route::GET('admin-password/reset/{token}','Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
+//End Admin Panel Route
+
 
 //category Route Start
 Route::get('add-category','CategoryController@add_category')->name('add-category');
@@ -34,6 +47,9 @@ Route::get('edit-sub-category/{id}','SubCategoryController@category_edit')->name
 Route::post('update-sub-category','SubCategoryController@category_update')->name('update-sub-category');
 //category Route End
 
-//Admin panel Route End//
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

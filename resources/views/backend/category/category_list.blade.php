@@ -15,8 +15,7 @@
                 <thead>
                 <tr>
                     <th width="10%">SL</th>
-                    <th width="20%">Title</th>
-                    <th width="10%">Major Category</th>
+                    <th width="30%">Title</th>
                     <th width="20%">Name</th>
                     <th width="20%">Image</th>
                     <th width="20%">Action</th>
@@ -29,15 +28,8 @@
                 <tr>
                     <td>{{$i}}</td>
                     <td>{{$category->cat_title}}</td>
-                    <td>
-                        @if($category->cat_major=='1')
-                            Yes
-                            @else
-                        No
-                            @endif
-                    </td>
                     <td>{{$category->cat_name}}</td>
-                    <td><img width="60" height="80" src="{{asset($category->cat_image)}}" alt="{{$category->cat_title}}"></td>
+                    <td><img width="100" height="100" src="{{asset($category->cat_image)}}" alt="{{$category->cat_title}}"></td>
                     <td>
                         <a class="btn btn-primary" href="{{url('/edit-category/'.$category->id)}}"><i class="fa fa-edit"></i>Edit</a>
                         <a class="btn btn-danger" href="{{url('/delete-category/'.$category->id)}}"><i class="fa fa-trash-o"></i>Delete </a>

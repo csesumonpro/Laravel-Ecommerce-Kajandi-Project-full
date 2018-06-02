@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use App\Category;
 class CategoryController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth:admin');
+      $this->middleware('admin');
+  }
     public function add_category(){
         return view('backend.category.add_category');
     }
     public function save_category(Request $request){
-
          $request->validate([
             'cat_title' => 'required|max:255|min:2',
             'cat_name' => 'required|max:255|min:2',
@@ -31,16 +35,11 @@ class CategoryController extends Controller
         $category->cat_title = $request->cat_title;
         $category->cat_name = $request->cat_name;
         $category->cat_image = $cat_image;
-        if($request->cat_major!=NULL){
-            $category->cat_major = $request->cat_major;
-        }else{
-            $category->cat_major='0';
-        }
         $category->save();
         return redirect('/add-category')->with('message_success','Category Added Successfully');
     }
     public function category_list(){
-        $category_list = Category::orderBy('id','desc')->get();
+        $category_list = Category::all();
         return view('backend.category.category_list')->with(compact('category_list'));
     }
     public function category_delete($id){
@@ -60,7 +59,7 @@ class CategoryController extends Controller
         $request->validate([
             'cat_title' => 'required|max:255|min:2',
             'cat_name' => 'required|max:255|min:2',
-            'cat_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'cat_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|required'
         ]);
 
         $category = Category::where('id',$request->id)->first();
@@ -78,11 +77,6 @@ class CategoryController extends Controller
         $category->cat_title = $request->cat_title;
         $category->cat_name = $request->cat_name;
         $category->cat_image = $cat_image;
-        if($request->cat_major!=NULL){
-            $category->cat_major = $request->cat_major;
-        }else{
-            $category->cat_major='0';
-        }
         $category->save();
         return redirect('/edit-category/'.$category->id)->with('message_success','Category Updated Successfully');
     }
