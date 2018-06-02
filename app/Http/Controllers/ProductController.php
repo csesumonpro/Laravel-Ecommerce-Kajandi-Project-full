@@ -109,11 +109,13 @@ class productController extends Controller {
 
         return redirect('/edit-product/'.$product->id)->with('message_success','product Updated Successfully');
     }
-////	FrontEnd Function Start
-//    public function product_details($id){
-//        $product_by_id = product::where('id',$id)->first();
+//	FrontEnd Function Start
+///
+    public function product_details($id){
+        $product_by_id = Product::find($id);
+        return $id;
 //        return view('FrontEnd.product.product_single')->with(compact('product_by_id'));
-//    }
+    }
 //    public function product_by_menu($id){
 //        $all_product = product::where('menu_id',$id)->paginate(12);
 //        return view('FrontEnd.product.shop_content')->with(compact('all_product'));
@@ -131,7 +133,8 @@ class productController extends Controller {
 //        return view('FrontEnd.product.shop_content')->with(compact('all_product'));
 //    }
 //
-////	FrontEnd Function End
+
+//	FrontEnd Function End
 
 
 

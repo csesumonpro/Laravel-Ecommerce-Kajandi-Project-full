@@ -227,7 +227,7 @@ hr {
   padding: 15px;
 }
 .navbar-brand > img {
-  width: 90px;
+  width: 30px;
 }
 .navbar-item-top {
   margin-top: 12px;
@@ -895,11 +895,77 @@ hr {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
 }
+/*Footer 1*/
+.footer-contact i{
+	margin-right:10px;
+}
+.home-newsletter {
+padding-top: 80px;
+padding-bottom: 20px ;
+background: #262626;
+color:#fff;
+}
+
+.home-newsletter .single {
+max-width: 650px;
+margin: 0 auto;
+text-align: center;
+position: relative;
+z-index: 2; }
+
+.home-newsletter .single h2 {
+font-size: 22px;
+color: white;
+text-transform: uppercase;
+margin-bottom: 40px;
+ }
+
+.home-newsletter .single .form-control {
+    height: 50px;
+    background: rgba(0, 0, 0, 0.58);
+    border-color: #b3585885;
+}
+.home-newsletter .single .form-control:focus {
+box-shadow: none;
+border-color: #243c4f; }
+.home-newsletter .single .btn {
+min-height: 50px; 
+color: #fff;
+}
+p.subs-info {
+    font-size: 12px;
+    color: #A0A2AD;
+    margin-top: 10px;
+}
+h3.footer-title {
+	font-size:16px;
+	margin:20px 0px;
+}
+#app {
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.app-txt {
+	display:table;
+	margin:auto;
+}
+.app-txt .app-image {
+	margin-left:10px;
+}
+.app-txt .app-image img{
+	transition:.3s;
+}
+.app-txt .app-image img:hover{
+
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+/*Footer 2*/
 .main-footer {
   position: relative;
   background: #262626;
   padding-top: 30px;
-  border-top: 2px solid #ce3f51;
+  border-top: 2px solid #2b2b2b;
   color: #fff;
 }
 .main-footer .widget-title-sm {

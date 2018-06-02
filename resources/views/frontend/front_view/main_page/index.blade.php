@@ -23,7 +23,7 @@
                 </p>
   <p class="price">$33</p>
             </div>
-            <img class="banner-img" src="img/home/vests-t-shirts.png" alt="Image Alternative text" title="Image Title" style="bottom: -8px; right: -32px;">
+            <img class="banner-img" src="{{asset('public/frontend/img/')}}/home/vests-t-shirts.png" alt="Image Alternative text" title="Image Title" style="bottom: -8px; right: -32px;">
         </div>
     </div>
     <div class="col-md-4">
@@ -36,7 +36,7 @@
                 </p>
   <p class="price">$33</p>
             </div>
-            <img class="banner-img" src="img/home/tig_welding.png" alt="Image Alternative text" title="Image Title" style="bottom: -22px; left: 0; width: 235px;">
+            <img class="banner-img" src="{{asset('public/frontend/img/')}}/home/tig_welding.png" alt="Image Alternative text" title="Image Title" style="bottom: -22px; left: 0; width: 235px;">
         </div>
     </div>
     <div class="col-md-4">
@@ -49,7 +49,7 @@
                 </p>
   <p class="price">$33</p>
             </div>
-            <img class="banner-img" src="img/home/Tipo-Paquete-Condensado-por-Aire-Marca-Trane-de-5-TR-en-adelante.png" alt="Image Alternative text" title="Image Title" style="top: -4px; right: -15px; width: 220px;">
+            <img class="banner-img" src="{{asset('public/frontend/img/')}}/home/Tipo-Paquete-Condensado-por-Aire-Marca-Trane-de-5-TR-en-adelante.png" alt="Image Alternative text" title="Image Title" style="top: -4px; right: -15px; width: 220px;">
         </div>
     </div>
 </div>
@@ -60,7 +60,7 @@
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
-                <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
 
             </div>
             <a class="product-link" href="#"></a>
@@ -89,7 +89,7 @@
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
-                <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -115,7 +115,7 @@
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
-                <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -141,7 +141,7 @@
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
-                <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -167,7 +167,7 @@
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
-                <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -193,7 +193,7 @@
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
-                <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -219,7 +219,7 @@
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
-                <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -245,7 +245,7 @@
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
-                <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -271,7 +271,7 @@
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
-                <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -297,7 +297,7 @@
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
-                <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -334,8 +334,8 @@
                 <li>stuff pick</li>
             </ul>
             <div class="product-img-wrap">
-                <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -366,8 +366,8 @@
                 <li>hot</li>
             </ul>
             <div class="product-img-wrap">
-                <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -398,8 +398,8 @@
                 <li>-50%</li>
             </ul>
             <div class="product-img-wrap">
-                <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -433,8 +433,8 @@
                 <li>-20%</li>
             </ul>
             <div class="product-img-wrap">
-                <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -466,8 +466,8 @@
                 <li>stuff pick</li>
             </ul>
             <div class="product-img-wrap">
-                <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -499,8 +499,8 @@
                 <li>hot</li>
             </ul>
             <div class="product-img-wrap">
-                <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="img/490x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/490x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -532,8 +532,8 @@
                 <li>hot</li>
             </ul>
             <div class="product-img-wrap">
-                <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -564,8 +564,8 @@
         <div class="product ">
             <ul class="product-labels"></ul>
             <div class="product-img-wrap">
-                <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -596,8 +596,8 @@
                 <li>hot</li>
             </ul>
             <div class="product-img-wrap">
-                <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -628,8 +628,8 @@
                 <li>stuff pick</li>
             </ul>
             <div class="product-img-wrap">
-                <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -658,8 +658,8 @@
         <div class="product ">
             <ul class="product-labels"></ul>
             <div class="product-img-wrap">
-                <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
+                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
             </div>
             <a class="product-link" href="#"></a>
             <div class="product-caption">
@@ -698,7 +698,7 @@
                 </p>
   <p class="price">$100</p>
             </div>
-            <img class="banner-img" src="img/home/airqual2.png" alt="Image Alternative text" title="Image Title" style="bottom: -8px; right: 11px; width: 238px;">
+            <img class="banner-img" src="{{asset('public/frontend/img/')}}/home/airqual2.png" alt="Image Alternative text" title="Image Title" style="bottom: -8px; right: 11px; width: 238px;">
         </div>
     </div>
     <div class="col-md-6">
@@ -711,7 +711,7 @@
                 </p>
   <p class="price">$200</p>
             </div>
-            <img class="banner-img" src="img/home/p-KSN770-list-300x215.png" alt="Image Alternative text" title="Image Title" style="bottom: 0px; right: -20px; width: 326px;">
+            <img class="banner-img" src="{{asset('public/frontend/img/')}}/home/p-KSN770-list-300x215.png" alt="Image Alternative text" title="Image Title" style="bottom: 0px; right: -20px; width: 326px;">
         </div>
     </div>
 </div>
@@ -720,92 +720,23 @@
 <div class="container">
 <h3 class="widget-title-lg">Shop by Category</h3>
 <div class="row row-sm-gap" data-gutter="15">
+    @foreach($all_category as $category)
     <div class="col-md-2">
         <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Home & Garden</h5>
-            <p class="banner-category-desc">152 products</p>
+            <img class="banner-category-img" src="{{asset($category->cat_image)}}" alt="{{$category->cat_title}}" title="{{$category->cat_title}}" width="100" height="60" />
+            <h5 class="banner-category-title">{{$category->cat_name}}</h5>
+          {{--Query for count category by product--}}
+            <?php
+            $count = DB::table('products')->where('cat_id',$category->id)->count();
+            ?>
+            <p class="banner-category-desc">{{$count}} products</p>
 
         </a>
     </div>
-    <div class="col-md-2">
-        <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Jewelry</h5>
-            <p class="banner-category-desc">663 products</p>
-        </a>
-    </div>
-    <div class="col-md-2">
-        <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Toy & Kids</h5>
-            <p class="banner-category-desc">615 products</p>
-        </a>
-    </div>
-    <div class="col-md-2">
-        <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Electronics</h5>
-            <p class="banner-category-desc">100 products</p>
-        </a>
-    </div>
-    <div class="col-md-2">
-        <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Clothes & Shoes</h5>
-            <p class="banner-category-desc">229 products</p>
-        </a>
-    </div>
-    <div class="col-md-2">
-        <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Sports</h5>
-            <p class="banner-category-desc">212 products</p>
-        </a>
-    </div>
-    <div class="col-md-2">
-        <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Entertaiment</h5>
-            <p class="banner-category-desc">535 products</p>
-        </a>
-    </div>
-    <div class="col-md-2">
-        <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Travel</h5>
-            <p class="banner-category-desc">626 products</p>
-        </a>
-    </div>
-    <div class="col-md-2">
-        <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Art & Design</h5>
-            <p class="banner-category-desc">391 products</p>
-        </a>
-    </div>
-    <div class="col-md-2">
-        <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Motors</h5>
-            <p class="banner-category-desc">622 products</p>
-        </a>
-    </div>
-    <div class="col-md-2">
-        <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Tools</h5>
-            <p class="banner-category-desc">385 products</p>
-        </a>
-    </div>
-    <div class="col-md-2">
-        <a class="banner-category" href="#">
-            <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-            <h5 class="banner-category-title">Hobbies & DIY</h5>
-            <p class="banner-category-desc">381 products</p>
-        </a>
-    </div>
+    @endforeach
 </div>
 </div>
 <div class="gap"></div>
+</div>
+    @include('frontend.front_view.includes.newsfeed')
 @endsection

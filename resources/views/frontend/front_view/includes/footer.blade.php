@@ -1,7 +1,28 @@
 <footer class="main-footer">
     <div class="container">
-        <div class="row row-col-gap" data-gutter="60">
-            <div class="col-md-3">
+
+
+        <div class="row" id="app">
+
+            <div class="col-md-6 col-sm-6">
+                <div class="app-txt">
+                    <span class="donload-text">Download:</span>
+                    <span class="app-image"><a href="#" data-target="_blank"><img src="{{asset('public/frontend/img/')}}/app-store.png" alt="apple store"></a></span>
+                    <span class="app-image"><a href="#" data-target="_blank"><img src="{{asset('public/frontend/img/')}}/play-store.png" alt="apple store"></a></span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="app-txt">
+                    <span class="donload-text">Download TradeManager:</span>
+                    <span class="app-image"><a href="#" data-target="_blank"><img src="{{asset('public/frontend/img/')}}/trend.png" alt="apple store"></a></span>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" >
+            <div class="col-md-4 col-sm-4">
                 <h4 class="widget-title-sm">TheBox Shop</h4>
                 <p>Nullam magnis magnis maecenas neque ut purus condimentum semper senectus feugiat et</p>
                 <ul class="main-footer-social-list">
@@ -22,7 +43,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4 col-sm-4">
                 <h4 class="widget-title-sm">Popular Tags</h4>
                 <ul class="main-footer-tag-list">
                     <li><a href="#">New Season</a>
@@ -49,15 +70,14 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-3">
-                <h4 class="widget-title-sm">Newsletter</h4>
-                <form>
-                    <div class="form-group">
-                        <label>Sign up to the newsletter</label>
-                        <input class="newsletter-input form-control" placeholder="Your e-mail address" type="text" />
-                    </div>
-                    <input class="btn btn-primary" type="submit" value="Sign up" />
-                </form>
+            <div class="col-md-4 col-sm-4">
+                <h4 class="widget-title-sm">Contact us</h4>
+                <div class="footer-contact">
+                    <p><i class="fa fa-map-marker"></i>London C/45, Eastern Housing, Mirpur-1200</p>
+                    <p><i class="fa fa-phone"></i>012-3456789</p>
+                    <p><i class="fa fa-envelope-open"></i>info@kajdia.com</p>
+                </div>
+
             </div>
         </div>
         <ul class="main-footer-links-list">
@@ -90,28 +110,31 @@
             <div class="col-md-6">
                 <p class="copyright-text">Copyright &copy; <a href="#">TheBox</a> 2014. Designed my remtsoy. All rights reseved</p>
             </div>
+
+
             <div class="col-md-6">
                 <ul class="payment-icons-list">
                     <li>
-                        <img src="{{asset('public/frontend/img/payment/visa-straight-32px.png')}}" alt="Image Alternative text" title="Pay with Visa" />
+                        <img src="{{asset('public/frontend/img/')}}/payment/visa-straight-32px.png" alt="Image Alternative text" title="Pay with Visa" />
                     </li>
                     <li>
-                        <img src="{{asset('public/frontend/img/payment/mastercard-straight-32px.png')}}" alt="Image Alternative text" title="Pay with Mastercard" />
+                        <img src="{{asset('public/frontend/img/')}}/payment/mastercard-straight-32px.png" alt="Image Alternative text" title="Pay with Mastercard" />
                     </li>
                     <li>
-                        <img src="{{asset('public/frontend/img/payment/paypal-straight-32px.png')}}" alt="Image Alternative text" title="Pay with Paypal" />
+                        <img src="{{asset('public/frontend/img/')}}/payment/paypal-straight-32px.png" alt="Image Alternative text" title="Pay with Paypal" />
                     </li>
                     <li>
-                        <img src="{{asset('public/frontend/img/payment/visa-electron-straight-32px.png')}}" alt="Image Alternative text" title="Pay with Visa-electron" />
+                        <img src="{{asset('public/frontend/img/')}}/payment/visa-electron-straight-32px.png" alt="Image Alternative text" title="Pay with Visa-electron" />
                     </li>
                     <li>
-                        <img src="{{asset('public/frontend/img/payment/maestro-straight-32px.png')}}" alt="Image Alternative text" title="Pay with Maestro" />
+                        <img src="{{asset('public/frontend/img/')}}/payment/maestro-straight-32px.png" alt="Image Alternative text" title="Pay with Maestro" />
                     </li>
                     <li>
-                        <img src="{{asset('public/frontend/img/payment/discover-straight-32px.png')}}" alt="Image Alternative text" title="Pay with Discover" />
+                        <img src="{{asset('public/frontend/img/')}}/payment/discover-straight-32px.png" alt="Image Alternative text" title="Pay with Discover" />
                     </li>
                 </ul>
             </div>
+
         </div>
     </div>
 </div>

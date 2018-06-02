@@ -17,7 +17,26 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/product-details/{id}','ProductController@product_details')->name('product-single');
+
+
+
+
+
+
+
+
 //==========================Front End ==========================//
+
+
+
+
+
+
+
+
+
 //==========================BackEnd Start ==========================//
 // Admin Panel Route
 Route::GET('admin/home','AdminController@index');
@@ -79,4 +98,4 @@ Route::get('edit-product/{id}','ProductController@product_edit')->name('edit-pro
 Route::post('update-product','ProductController@product_update')->name('update-product');
 //Product  Route End
 
-//==========================BackEnd Start ==========================//
+//==========================BackEnd End ==========================//
