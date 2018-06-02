@@ -38,6 +38,15 @@ Route::get('edit-category/{id}','CategoryController@category_edit')->name('edit-
 Route::post('update-category','CategoryController@category_update')->name('update-category');
 //category Route End
 
+//Manufacter Route Start
+Route::get('add-manufacturer','ManufacturerController@add_manufacturer')->name('add-manufacturer');
+Route::post('save-manufacturer','ManufacturerController@save_manufacturer')->name('save-manufacturer');
+Route::get('manufacturer-list','ManufacturerController@manufacturer_list')->name('manufacturer-list');
+Route::get('delete-manufacturer/{id}','ManufacturerController@manufacturer_delete')->name('delete-manufacturer');
+Route::get('edit-manufacturer/{id}','ManufacturerController@manufacturer_edit')->name('edit-manufacturer');
+Route::post('update-manufacturer','ManufacturerController@manufacturer_update')->name('update-manufacturer');
+//manufacter Route End
+
 //category Route Start
 Route::get('add-sub-category','SubCategoryController@add_category')->name('add-sub-category');
 Route::post('save-sub-category','SubCategoryController@save_category')->name('save-sub-category');
@@ -47,6 +56,14 @@ Route::get('edit-sub-category/{id}','SubCategoryController@category_edit')->name
 Route::post('update-sub-category','SubCategoryController@category_update')->name('update-sub-category');
 //category Route End
 
+//Product Model Route Start
+Route::get('add-model','ProductModelController@add_model')->name('add-model');
+Route::post('save-model','ProductModelController@save_model')->name('save-model');
+Route::get('model-list','ProductModelController@model_list')->name('model-list');
+Route::get('delete-model/{id}','ProductModelController@model_delete')->name('delete-model');
+Route::get('edit-model/{id}','ProductModelController@model_edit')->name('edit-model');
+Route::post('update-model','ProductModelController@model_update')->name('update-model');
+//Product Model Route End
 
 
 

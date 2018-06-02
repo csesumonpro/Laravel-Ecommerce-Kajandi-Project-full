@@ -53,7 +53,13 @@
                     <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                 </li>
                 <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
-
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Manufacturer</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-puzzle-piece"></i><a href="{{url('/add-manufacturer')}}">Add Manufacturer</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="{{url('/manufacturer-list')}}">Manufacturer List</a></li>
+                    </ul>
+                </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Category</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -68,7 +74,13 @@
                         <li><i class="fa fa-id-badge"></i><a href="{{url('/sub-category-list')}}">Sub Category List</a></li>
                     </ul>
                 </li>
-
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Product Model</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-puzzle-piece"></i><a href="{{url('/add-model')}}">Add Product Model</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="{{url('/model-list')}}">Product Model List</a></li>
+                    </ul>
+                </li>
 
                 <h3 class="menu-title">Icons</h3><!-- /.menu-title -->
 
