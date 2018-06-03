@@ -1,4 +1,6 @@
-@extends('frontend.front_view.front_master')
+@extends('frontend.front_view.front_index_master')
+
+
 
 @section('page-title',  'Global Source || Main')
 
@@ -222,4 +224,5 @@
 <div class="gap"></div>
 </div>
     @include('frontend.front_view.includes.newsfeed')
+
 @endsection
