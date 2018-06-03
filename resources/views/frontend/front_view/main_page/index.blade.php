@@ -57,41 +57,16 @@
 <div class="gap"></div>
 <h3 class="widget-title">Today Featured</h3>
 <div class="owl-carousel owl-loaded owl-nav-out" data-options='{"items":5,"loop":true,"nav":true}'>
+    <?php
+    $feature_product = DB::table('products')->where('hot','HOT')->take('16')->orderBY('id','desc')->get();
+    ?>
+    @foreach($feature_product as $product)
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
-                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-
+                <img width="250" height="150" class="product-img" src="{{asset($product->image)}}" alt="{{$product->name}}" title="{{$product->name}}" />
             </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Hamilton Beach 49996 FlexBrew Single-Serve Coffeemaker with Removable Reservoir</h5>
-                <div class="product-caption-price">
-    <span class="product-caption-price-old">$147</span><span class="product-caption-price-new">$133</span>
-    <a class="wishlist98" href="#"><i class="fa fa-heart"></i></a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="owl-item">
-        <div class="product  owl-item-slide">
-            <div class="product-img-wrap">
-                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
+            <a class="product-link" href="{{url('/product-details/'.$product->id)}}"></a>
             <div class="product-caption">
                 <ul class="product-caption-rating">
                     <li class="rated"><i class="fa fa-star"></i>
@@ -105,221 +80,14 @@
                     <li class="rated"><i class="fa fa-star"></i>
                     </li>
                 </ul>
-                <h5 class="product-caption-title">Google Nexus 6 XT1103 4G LTE - 32GB - Blue Factory Unlocked GSM</h5>
-                <div class="product-caption-price"><span class="product-caption-price-old">$147</span><span class="product-caption-price-new">$45</span>
+                <h5 class="product-caption-title">{{$product->name}}</h5>
+                <div class="product-caption-price"><span class="product-caption-price-new">${{$product->price}}</span>
   <a class="wishlist98" href="#"><i class="fa fa-heart"></i></a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="owl-item">
-        <div class="product  owl-item-slide">
-            <div class="product-img-wrap">
-                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">New Authentic Gucci Patent Leather Open Toe Platform Pump,Gren, 309984 3125</h5>
-                <div class="product-caption-price"><span class="product-caption-price-old">$66</span><span class="product-caption-price-new">$33</span>
-  <a class="wishlist98" href="#"><i class="fa fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="owl-item">
-        <div class="product  owl-item-slide">
-            <div class="product-img-wrap">
-                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">New Asus X551MAV 15.6" HD N2830 2.16GHz 4GB 500GB Windows 8 Laptop Notebook</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$149</span>
-  <a class="wishlist98" href="#"><i class="fa fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="owl-item">
-        <div class="product  owl-item-slide">
-            <div class="product-img-wrap">
-                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">FootJoy Contour Casual Spikeless Golf Shoes Black Mens Closeout 54284 New</h5>
-                <div class="product-caption-price"><span class="product-caption-price-old">$129</span><span class="product-caption-price-new">$117</span>
-  <a class="wishlist98" href="#"><i class="fa fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="owl-item">
-        <div class="product  owl-item-slide">
-            <div class="product-img-wrap">
-                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">RK7241S Table Saw with Laser by Rockwell</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$150</span>
-  <a class="wishlist98" href="#"><i class="fa fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="owl-item">
-        <div class="product  owl-item-slide">
-            <div class="product-img-wrap">
-                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Sterling Tools 31 Piece Ratchet Screwdriver Wrench Set</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$81</span>
-  <a class="wishlist98" href="#"><i class="fa fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="owl-item">
-        <div class="product  owl-item-slide">
-            <div class="product-img-wrap">
-                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Samsung Galaxy S6 Edge+ Factory Unlocked GSM 32GB</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$88</span>
-  <a class="wishlist98" href="#"><i class="fa fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="owl-item">
-        <div class="product  owl-item-slide">
-            <div class="product-img-wrap">
-                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Black 1000-Watt 6-Quart Electric Pressure Cooker Brushed Stainless and Matte 603</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$98</span>
-  <a class="wishlist98" href="#"><i class="fa fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="owl-item">
-        <div class="product  owl-item-slide">
-            <div class="product-img-wrap">
-                <img class="product-img" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Dyson DC50 Animal Compact Upright Vacuum</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$95</span>
-  <a class="wishlist98" href="#"><i class="fa fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>
 
 </div>
@@ -327,365 +95,80 @@
  <div class="gap"></div>
 <div class="container">
 <h3 class="widget-title-lg">Best of Tech</h3>
-<div class="row" data-gutter="15">
-    <div class="col-md-4">
-        <div class="product ">
-            <ul class="product-labels">
-                <li>stuff pick</li>
-            </ul>
-            <div class="product-img-wrap">
-                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
+   {{--@foreach()--}}
+    <div class="row" data-gutter="15">
+        <?php
+        $home_page_product = DB::table('products')->take('8')->orderBY('id','desc')->get();
+        ?>
+        @foreach($home_page_product as $product)
+        <div class="col-md-3">
+            <div class="product ">
+                <ul class="product-labels">
+                    @if($product->hot!=NULL && $product->stuff_pick!=NULL)
+                    <li>stuff pick</li>
+                        <li>hot</li>
+                        @elseif($product->hot!=NULL && $product->discount_price!=NULL)
+                        <li>hot</li>
+                        <li>
+                            <?php
+                                if($product->discount_price!=NULL && $product->discount_price<$product->price){
+                                $discount = $product->price - $product->discount_price;
+                                $main_price = $product->price;
+                              $percentage = 100*($discount/$main_price);
+                              echo $percentage."%";
+                                }
+                            ?>
+                        </li>
+                    @elseif($product->hot!=NULL)
+                        <li>hot</li>
+                        @elseif($product->stuff_pick!=NULL)
+                        <li>stuff pick</li>
+                        @elseif($product->discount_price!=NULL)
+                        <li>-30</li>
+                    @endif
                 </ul>
-                <h5 class="product-caption-title">LG G3 VS985 - 32GB - Verizon Smartphone - Metallic Black or Silk White - Great</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$141</span>
+                <div class="product-img-wrap">
+                    <img class="product-img-primary" width="253" height="253" src="{{asset($product->image)}}" alt="{{$product->name}}" title="{{$product->name}}" />
+                    <img class="product-img-alt" width="253" height="253" src="{{asset($product->image)}}" alt="{{$product->name}}" title="{{$product->name}}" />
                 </div>
-                <ul class="product-caption-feature-list">
-                    <li>Free Shipping</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="product ">
-            <ul class="product-labels">
-                <li>hot</li>
-            </ul>
-            <div class="product-img-wrap">
-                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">HTC One M8 32GB Factory Unlocked Smartphone  Gold / Silver Gray</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$71</span>
-                </div>
-                <ul class="product-caption-feature-list">
-                    <li>Free Shipping</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="product ">
-            <ul class="product-labels">
-                <li>-50%</li>
-            </ul>
-            <div class="product-img-wrap">
-                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Apple 11.6" MacBook Air Notebook Computer MJVM2LL/A (Early 2015)</h5>
-                <div class="product-caption-price"><span class="product-caption-price-old">$84</span><span class="product-caption-price-new">$42</span>
-                </div>
-                <ul class="product-caption-feature-list">
-                    <li>1 left</li>
-                    <li>Free Shipping</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row" data-gutter="15">
-    <div class="col-md-3">
-        <div class="product ">
-            <ul class="product-labels">
-                <li>-20%</li>
-            </ul>
-            <div class="product-img-wrap">
-                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Samsung Chromebook 11.6" LED HD 16GB 1.7GHz Webcam Notebook Laptop -XE303C12-A01</h5>
-                <div class="product-caption-price"><span class="product-caption-price-old">$56</span><span class="product-caption-price-new">$45</span>
-                </div>
-                <ul class="product-caption-feature-list">
-                    <li>2 left</li>
-                    <li>Free Shipping</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product ">
-            <ul class="product-labels">
-                <li>stuff pick</li>
-            </ul>
-            <div class="product-img-wrap">
-                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Apple iPhone 4S 16GB Factory Unlocked Black and White Smartphone</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$123</span>
-                </div>
-                <ul class="product-caption-feature-list">
-                    <li>Free Shipping</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product ">
-            <ul class="product-labels">
-                <li>-60%</li>
-                <li>hot</li>
-            </ul>
-            <div class="product-img-wrap">
-                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/490x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Motorola XT1096 Moto X 2nd Generation 16GB Verizon Wireless gsm unlocked</h5>
-                <div class="product-caption-price"><span class="product-caption-price-old">$112</span><span class="product-caption-price-new">$45</span>
-                </div>
-                <ul class="product-caption-feature-list">
-                    <li>Free Shipping</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product ">
-            <ul class="product-labels">
-                <li>-10%</li>
-                <li>hot</li>
-            </ul>
-            <div class="product-img-wrap">
-                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">LG G Flex D959 - 32GB - Titan Silver GSM Unlocked Android Smartphone (B)</h5>
-                <div class="product-caption-price"><span class="product-caption-price-old">$65</span><span class="product-caption-price-new">$59</span>
-                </div>
-                <ul class="product-caption-feature-list">
-                    <li>Free Shipping</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row" data-gutter="15">
-    <div class="col-md-3">
-        <div class="product ">
-            <ul class="product-labels"></ul>
-            <div class="product-img-wrap">
-                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">LG G3 VS985 - 32GB - Verizon Smartphone - Metallic Black or Silk White - Great</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$66</span>
-                </div>
-                <ul class="product-caption-feature-list">
-                    <li>Free Shipping</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product ">
-            <ul class="product-labels">
-                <li>hot</li>
-            </ul>
-            <div class="product-img-wrap">
-                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Apple iPhone 5s 16GB Factory Unlocked Smartphone Space Gray / Silver / Gold</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$67</span>
-                </div>
-                <ul class="product-caption-feature-list">
-                    <li>Free Shipping</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product ">
-            <ul class="product-labels">
-                <li>stuff pick</li>
-            </ul>
-            <div class="product-img-wrap">
-                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                    <li><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Google Nexus 6 XT1103 4G LTE - 32GB - Blue Factory Unlocked GSM</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$76</span>
-                </div>
-                <ul class="product-caption-feature-list">
-                    <li>Free Shipping</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product ">
-            <ul class="product-labels"></ul>
-            <div class="product-img-wrap">
-                <img class="product-img-primary" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-                <img class="product-img-alt" src="{{asset('public/frontend/img/')}}/500x500.png" alt="Image Alternative text" title="Image Title" />
-            </div>
-            <a class="product-link" href="#"></a>
-            <div class="product-caption">
-                <ul class="product-caption-rating">
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                    <li class="rated"><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <h5 class="product-caption-title">Samsung Galaxy Note 4 IV 4G FACTORY UNLOCKED Black or White</h5>
-                <div class="product-caption-price"><span class="product-caption-price-new">$56</span>
-                </div>
-                <ul class="product-caption-feature-list">
-                    <li>Free Shipping</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+                <a class="product-link" href="{{url('/product-details/'.$product->id)}}"></a>
+                <div class="product-caption">
+                    <ul class="product-caption-rating">
+                        <li class="rated"><i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated"><i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated"><i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated"><i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated"><i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                    <h5 class="product-caption-title">{{$product->name}}</h5>
+                    <div class="product-caption-price">
 
+
+                       <span class="product-caption-price-new">
+                          @if($product->discount_price==NULL)
+                             $ {{$product->price}}
+                              @endif
+                        </span>
+                        @if($product->discount_price!=NULL)
+                            <span class="product-caption-price-old">${{$product->price}}</span>
+                            <span class="product-caption-price-new">${{$product->discount_price}}</span>
+                        @endif
+                    </div>
+                    <ul class="product-caption-feature-list">
+                        <li>{{$product->qty}} left</li>
+                        <li>Free Shipping</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            @endforeach
+    </div>
+{{--@endforeach--}}
 <div class="gap"></div>
 <div class="row" data-gutter="15">
     <div class="col-md-6">

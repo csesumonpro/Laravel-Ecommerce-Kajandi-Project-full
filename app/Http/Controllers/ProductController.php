@@ -45,6 +45,9 @@ class productController extends Controller {
         $product->length = $request->length;
         $product->partnumber = $request->partnumber;
         $product->slider = $request->slider;
+        $product->hot = $request->hot;
+        $product->stuff_pick = $request->stuff_pick;
+        $product->discount_price = $request->discount_price;
         $product->image = $product_image;
         $product->save();
         return redirect('/add-product')->with('message_success','product Added Successfully');
@@ -104,6 +107,9 @@ class productController extends Controller {
         $product->length = $request->length;
         $product->partnumber = $request->partnumber;
         $product->slider = $request->slider;
+        $product->hot = $request->hot;
+        $product->stuff_pick = $request->stuff_pick;
+        $product->discount_price = $request->discount_price;
         $product->image = $product_image;
         $product->save();
 

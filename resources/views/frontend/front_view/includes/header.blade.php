@@ -162,43 +162,14 @@
                 <form class="navbar-form navbar-left navbar-main-search navbar-main-search-category" role="search">
                     <select class="navbar-main-search-category-select">
                         <option>All Departmens</option>
-                        <option>Appilances</option>
-                        <option>Apps & Games</option>
-                        <option>Arts, Crafts & Sewing</option>
-                        <option>Automotive</option>
-                        <option>Baby</option>
-                        <option>Books</option>
-                        <option>CDs & Vinyl</option>
-                        <option>Cell Phones & Accessories</option>
-                        <option>Clothing, Shoes & Jewelry</option>
-                        <option>&nbsp;&nbsp;&nbsp;Woman</option>
-                        <option>&nbsp;&nbsp;&nbsp;Men</option>
-                        <option>&nbsp;&nbsp;&nbsp;Girls</option>
-                        <option>&nbsp;&nbsp;&nbsp;Baby</option>
-                        <option>Collectibles & Fine Art</option>
-                        <option>Computers</option>
-                        <option>Credit and Payment Cards</option>
-                        <option>Digital Music</option>
-                        <option>Electronics</option>
-                        <option>Gift Cards</option>
-                        <option>Grocery & Gourmet</option>
-                        <option>Health & Personal Care</option>
-                        <option>Home & Kitchen</option>
-                        <option>Industrial & Scientific</option>
-                        <option>Luggage & Travel</option>
-                        <option>Luxury Beauty</option>
-                        <option>Magazine Subscribtions</option>
-                        <option>Movies & TV</option>
-                        <option>Musical Instuments</option>
-                        <option>Office Products</option>
-                        <option>Patio, Lawn & Garden</option>
-                        <option>Pet Supplies</option>
-                        <option>Software</option>
-                        <option>Sports & Outdoors</option>
-                        <option>Tools & Home Improvement</option>
-                        <option>Toys & Games</option>
-                        <option>Video Games</option>
-                        <option>Wine</option>
+                        @foreach($all_category as $category)
+                        <option value="">{{$category->cat_name}}</option>
+                            @foreach($all_sub_category as $sub_category)
+                                @if($sub_category->cat_id==$category->id)
+                                    <option value=""> &nbsp;&nbsp;&nbsp;{{$sub_category->sub_cat_name}}</option>
+                                @endif
+                            @endforeach
+                        @endforeach
                     </select>
                     <div class="form-group">
                         <input class="form-control searchbox" id="searchbox" type="text" placeholder="Search the Entire Store..." />

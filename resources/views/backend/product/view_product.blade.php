@@ -154,7 +154,38 @@
 
                     </div>
                 </div>
-
+                <div class="form-check" style="margin-top: 15px">
+                    <h6 class="text-left"> <i class="fa fa-check-square-o"></i>Check Product Type</h6>
+                    <div class="checkbox">
+                        <label for="checkbox2" class="form-check-label ">
+                            <input type="checkbox" id="checkbox2" name="hot" value="HOT" class="form-check-input"
+                                   @if($product_by_id->hot=='HOT')
+                                   checked
+                            > HOT
+                            @else
+                                <input type="checkbox" id="checkbox2" name="hot" value="HOT" class="form-check-input"> HOT
+                            @endif
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label for="checkbox3" class="form-check-label ">
+                            <input type="checkbox" id="checkbox3" name="stuff_pick" value="SALE" class="form-check-input"
+                                   @if($product_by_id->stuff_pick=='SALE')
+                                   checked
+                            > SALE
+                            @else
+                                <input type="checkbox" id="checkbox3" name="stuff_pick" value="STUFF_PICK" class="form-check-input"> STUFF PICK
+                            @endif
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cc-payment" class="control-label mb-1">Discount Price</label>
+                    <input readonly id="cc-payment" name="discount_price" type="number" class="form-control" aria-required="true" aria-invalid="false" value="{{$product_by_id->discount_price}}">
+                    @if ($errors->has('discount_price'))
+                        <div class="error">{{ $errors->first('discount_price') }}</div>
+                    @endif
+                </div>
                 <div class="form-group">
                     <label for="file-input readonly" class=" form-control-label">Product Image</label>
 

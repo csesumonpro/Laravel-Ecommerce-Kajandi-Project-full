@@ -123,7 +123,26 @@
                             </label>
                         </div>
                     </div>
-
+                    <div class="form-check" style="margin-top: 15px">
+                        <h6 class="text-left"> <i class="fa fa-check-square-o"></i>Check Product Type</h6>
+                        <div class="checkbox">
+                            <label for="checkbox2" class="form-check-label ">
+                                <input type="checkbox" id="checkbox2" name="hot" value="HOT" class="form-check-input"> HOT
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label for="checkbox3" class="form-check-label ">
+                                <input type="checkbox" id="checkbox3" name="stuff_pick" value="STUFF_PICK" class="form-check-input"> Stuff Pick
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cc-payment" class="control-label mb-1">Discount Price</label>
+                        <input id="cc-payment" name="discount_price" type="number" class="form-control" aria-required="true" aria-invalid="false" placeholder="Enter Product Price If You Want">
+                        @if ($errors->has('discount_price'))
+                            <div class="error">{{ $errors->first('discount_price') }}</div>
+                        @endif
+                    </div>
                     <div class="form-group">
                         <label for="file-input" class=" form-control-label">Product Image</label>
                         <input type="file" id="file-input" name="image" class="form-control-file">

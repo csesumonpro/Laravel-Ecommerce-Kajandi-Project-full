@@ -3,6 +3,7 @@
 namespace App\Providers;
 use App\Category;
 use App\Manufacter;
+use App\Product;
 use App\ProductModel;
 use App\Subcategory;
 use View;
@@ -21,6 +22,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        //Category  Start
+        View::composer('*', function($View){
+            $data = Product::all();
+            $View->with('all_product', $data);
+        });
+        //Category End
         //Category  Start
         View::composer('*', function($View){
             $data = Category::all();

@@ -29,6 +29,9 @@ class CreateProductsTable extends Migration
             $table->string('weight')->nullable();
             $table->string('length')->nullable();
             $table->boolean('slider')->nullable()->comment('1 for set 0 unset');
+            $table->float('discount_price',8,2)->nullable();
+            $table->string('hot',5)->nullable();
+            $table->string('stuff_pick',12)->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
