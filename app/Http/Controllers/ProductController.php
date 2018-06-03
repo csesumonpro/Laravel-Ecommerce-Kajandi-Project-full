@@ -119,8 +119,7 @@ class productController extends Controller {
 ///
     public function product_details($id){
         $product_by_id = Product::find($id);
-        return $id;
-//        return view('FrontEnd.product.product_single')->with(compact('product_by_id'));
+        return view('frontend.product.product_single')->with(compact('product_by_id'));
     }
 //    public function product_by_menu($id){
 //        $all_product = product::where('menu_id',$id)->paginate(12);

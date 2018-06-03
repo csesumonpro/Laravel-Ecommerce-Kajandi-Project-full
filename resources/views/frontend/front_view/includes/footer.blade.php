@@ -150,6 +150,16 @@
 <script src="{{asset('public/frontend/js/magnific.js')}}"></script>
 <script src="{{asset('public/frontend/js/custom.js')}}"></script>
 <script src="{{asset('public/frontend/js/script.js')}}"></script>
+<script type="text/javascript" src="{{asset('public/frontend/js/')}}/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="{{asset('public/frontend/js/')}}/dataTables.bootstrap.min.js"></script>
+<script src="{{asset('public/frontend/js/')}}/star-rating.min.js" type="text/javascript"></script>
+<script src="{{asset('public/frontend/js/')}}/locales/de.js"></script>
+
+<script type="text/javascript">
+    $(document).on('ready', function(){
+        $('.input-3').rating({displayOnly: true, step: 0.1});
+    });
+</script>
 
 
 
