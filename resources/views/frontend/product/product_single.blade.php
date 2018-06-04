@@ -4,13 +4,11 @@
 
     <header class="page-header">
         <h1 class="page-title">
-
-                @foreach($all_category as $category)
-                    @if($category->id == $product_by_id->cat_id)
-                    {{$category->cat_name}}
-                    @endif
-                @endforeach
-
+            @foreach($all_category as $category)
+                @if($category->id == $product_by_id->cat_id)
+                {{$category->cat_name}}
+                @endif
+            @endforeach
         </h1>
         <ol class="breadcrumb page-breadcrumb">
             <li><a href="{{url('/')}}">Home</a>

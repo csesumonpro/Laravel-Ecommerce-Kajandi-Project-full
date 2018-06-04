@@ -1,6 +1,47 @@
 @extends('frontend.front_view.front_master')
 
 @section('main_content')
+ <header class="page-header">
+        <h1 class="page-title">Welding &amp; Fabrication</h1>
+        <ol class="breadcrumb page-breadcrumb">
+            <li><a href="../index.html">Home</a>
+            </li>
+            <li><a href="#">Welding &amp; Fabrication</a>
+            </li>
+        </ol>
+        <ul class="category-selections clearfix">
+            <li>
+                <a class="fa fa-th-large category-selections-icon active" href="#"></a>
+            </li>
+            <li>
+                <a class="fa fa-th-list category-selections-icon" href="#"></a>
+            </li>
+            <li><span class="category-selections-sign">Sort by :</span>
+              {!! Form::open(['url'=>'product-sorting','method'=>'GET']) !!}
+                <select onchange="this.form.submit()" class="category-selections-select" name="product_sort">
+                    <option selected disabled>--Default--</option>
+                    <option value="new_est">Newest First</option>
+                    <option value="best_rated">Best Raited</option>
+                    <option value="low_price">Price : Lowest First</option>
+                    <option value="high_price">Price : Highest First</option>
+                    <option value="a_to_z">Title : A - Z</option>
+                    <option value="z_to_a">Title : Z - A</option>
+                </select>
+                {!! Form::close() !!}
+            </li>
+            <li><span class="category-selections-sign">Items :</span>
+                {!! Form::open(['url'=>'product-sorting-item','method'=>'GET']) !!}
+                <select onchange="this.form.submit()" class="category-selections-select" name="product_item">
+                    <option selected disabled>--Select Item--</option>
+                    <option value="nine_item">9 / page</option>
+                    <option  value="twelve_item">12 / page</option>
+                    <option value="eighteen_item">18 / page</option>
+                    <option value="all_item">All</option>
+                </select>
+                {!! Form::close() !!}
+            </li>
+        </ul>
+    </header>
 
     <div class="row">
         <div class="col-md-3">
@@ -9,26 +50,18 @@
                     <h3 class="widget-title-sm">Category</h3>
                     <input type="hidden" id="category" value="2">
                     <input type="hidden" id="category_level" value="category">
-
-                    <select class="category-selections-select">
-                        <option class="main-category" selected="">Main Category 1</option>
-                        <option class="sub-category">Sub category 1</option>
-                        <option class="sub-category">Sub category 2</option>
-                        <option class="sub-category">Sub category 3</option>
-                        <option class="sub-category">Sub category 4</option>
-
-
-                        <option class="main-category">Main Category 2</option>
-
-                        <option class="sub-category">Sub category 1</option>
-                        <option class="sub-category">Sub category 2</option>
-                        <option class="sub-category">Sub category 3</option>
-                        <option class="sub-category">Sub category 4</option>
-
-
-
+                    {!! Form::open(['url'=>'product-by-category','method'=>'GET']) !!}
+                    <select onchange="this.form.submit()" class="category-selections-select" name="pro_by_cat">
+                        @foreach($all_category as $category)
+                        <option value="{{$category->id}}" class="main-category" selected="">{{$category->cat_name}}</option>
+                            @foreach($all_sub_category as $sub_category)
+                                @if($sub_category->cat_id==$category->id)
+                            <option value="{{$sub_category->id}}" class="sub-category">&nbsp;&nbsp;{{$sub_category->sub_cat_name}}</option>
+                            @endif
+                            @endforeach
+                        @endforeach
                     </select>
-
+                    {!! Form::close() !!}
                 </div>
 
                 <div class="category-filters-section">
@@ -75,7 +108,6 @@
                     <input value="50000" min="500" max="50000" step="500" type="range">-->
 
                     <input type="text" id="price-slider" />
-
 
                 </div>
 
@@ -131,30 +163,6 @@
                 @foreach($all_products as $product)
                 <div class='col-md-4'>
                     <div class="product ">
-                        <ul class="product-labels">
-                            @if($product->hot!=NULL && $product->stuff_pick!=NULL)
-                                <li>stuff pick</li>
-                                <li>hot</li>
-                            @elseif($product->hot!=NULL && $product->discount_price!=NULL)
-                                <li>hot</li>
-                                <li>
-                                    <?php
-                                    if($product->discount_price!=NULL && $product->discount_price<$product->price){
-                                        $discount = $product->price - $product->discount_price;
-                                        $main_price = $product->price;
-                                        $percentage = 100*($discount/$main_price);
-                                        echo $percentage."%";
-                                    }
-                                    ?>
-                                </li>
-                            @elseif($product->hot!=NULL)
-                                <li>hot</li>
-                            @elseif($product->stuff_pick!=NULL)
-                                <li>stuff pick</li>
-                            @elseif($product->discount_price!=NULL)
-                                <li>-30</li>
-                            @endif
-                        </ul>
                         <div class="product-img-wrap">
                             <img class="product-img-primary" width="253" height="253" src="{{asset($product->image)}}" alt="{{$product->name}}" title="{{$product->name}}" />
                             <img class="product-img-alt" width="253" height="253" src="{{asset($product->image)}}" alt="{{$product->name}}" title="{{$product->name}}" />

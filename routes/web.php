@@ -28,6 +28,9 @@ Route::get('/product-manufacturer/{id}','FsortByController@product_by_manufactur
 Route::get('/product-model/{id}','FsortByController@product_by_model')->name('product-model');
 Route::get('/search','FsortByController@search')->name('search');
 Route::get('/search-by-category','FsortByController@advance_search')->name('advance-search');
+Route::get('/product-sorting','FsortByController@product_sorting')->name('product-sorting');
+Route::get('/product-sorting-item','FsortByController@product_sorting_item')->name('product-sorting-item');
+Route::get('/product-by-category','FsortByController@product_by_cat')->name('product-by-category');
 
 //Product sortBy Route End
 
