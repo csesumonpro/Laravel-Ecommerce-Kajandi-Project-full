@@ -163,22 +163,23 @@
                 </a>
             </div>
             <div class="rel">
-                <form class="navbar-form navbar-left navbar-main-search navbar-main-search-category" role="search">
-                    <select class="navbar-main-search-category-select">
+                <form  action="{{url('/search-by-category')}}" class="navbar-form navbar-left navbar-main-search navbar-main-search-category" role="search">
+                    <select class="navbar-main-search-category-select" name="category">
                         <option>All Departmens</option>
                         @foreach($all_category as $category)
-                        <option value="">{{$category->cat_name}}</option>
+                        <option value="{{$category->id}}">{{$category->cat_name}}</option>
                             @foreach($all_sub_category as $sub_category)
                                 @if($sub_category->cat_id==$category->id)
-                                    <option value=""> &nbsp;&nbsp;&nbsp;{{$sub_category->sub_cat_name}}</option>
+                                    <option value="{{$sub_category->id}}"> &nbsp;&nbsp;&nbsp;{{$sub_category->sub_cat_name}}</option>
                                 @endif
                             @endforeach
                         @endforeach
                     </select>
                     <div class="form-group">
-                        <input class="form-control searchbox" id="searchbox" type="text" placeholder="Search the Entire Store..." />
+                        {{--id="searchbox"--}}
+                        <input class="form-control searchbox"  name="keyword" type="text" placeholder="Search the Entire Store..." />
                     </div>
-                    <a class="fa fa-search navbar-main-search-submit" href="#" style="z-index: 4"></a>
+                    <button type="submit" class="fa fa-search navbar-main-search-submit" href="#" style="z-index: 4"></button>
                 </form>
                 <a class="navbar-theme-img" href="#">
                     <img src="{{asset('public/frontend/img/')}}/ecommerce_banner.png" alt="Image Alternative text" style="width: 80px" title="Image Title" />
