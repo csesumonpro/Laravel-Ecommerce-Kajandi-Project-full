@@ -22,7 +22,23 @@
     <link rel="stylesheet" href="{{asset('public/frontend/css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('public/frontend/css/mystyles.css')}}">
     <link rel="stylesheet" href="{{asset('public/frontend/css/jquery-ui.css')}}">
-
+    <style>
+       .advance_search{
+           display: inline-block !important;
+           padding: 0 !important;
+           min-height: 0 !important;
+           max-height: none !important;
+           max-width: 100% !important;
+           margin: 0 !important;
+           text-indent: 0 !important;
+           border: 0 none !important;
+           background: none !important;
+           line-height: inherit !important;
+           -webkit-user-select: auto !important;
+           -webkit-box-shadow: none !important;
+           box-shadow: none !important;
+       }
+    </style>
 </head>
 
 <body>
@@ -163,24 +179,24 @@
                 </a>
             </div>
             <div class="rel">
-                <form  action="{{url('/search-by-category')}}" class="navbar-form navbar-left navbar-main-search navbar-main-search-category" role="search">
-                    <select class="navbar-main-search-category-select" name="category">
-                        <option>All Departmens</option>
-                        @foreach($all_category as $category)
+                {!! Form::open(['method'=>'POST','url'=>'search-by-category','enctype'=>'multipart/form-data','class'=>'navbar-form navbar-left navbar-main-search navbar-main-search-category']) !!}
+                <select class="navbar-main-search-category-select" name="category">
+                    <option>All Departmens</option>
+                    @foreach($all_category as $category)
                         <option value="{{$category->id}}">{{$category->cat_name}}</option>
-                            @foreach($all_sub_category as $sub_category)
-                                @if($sub_category->cat_id==$category->id)
-                                    <option value="{{$sub_category->id}}"> &nbsp;&nbsp;&nbsp;{{$sub_category->sub_cat_name}}</option>
-                                @endif
-                            @endforeach
+                        @foreach($all_sub_category as $sub_category)
+                            @if($sub_category->cat_id==$category->id)
+                                <option value="{{$sub_category->id}}"> &nbsp;&nbsp;&nbsp;{{$sub_category->sub_cat_name}}</option>
+                            @endif
                         @endforeach
-                    </select>
+                    @endforeach
+                </select>
                     <div class="form-group">
                         {{--id="searchbox"--}}
-                        <input class="form-control searchbox"  name="keyword" type="text" placeholder="Search the Entire Store..." />
+                        <input type="text" name="keyword" placeholder="Search Here....." class="form-control searchbox">
                     </div>
-                    <button type="submit" class="fa fa-search navbar-main-search-submit" href="#" style="z-index: 4"></button>
-                </form>
+                <button type="submit" class="fa fa-search navbar-main-search-submit" href="#" style="z-index: 4"></button>
+                {!! Form::close() !!}
                 <a class="navbar-theme-img" href="#">
                     <img src="{{asset('public/frontend/img/')}}/ecommerce_banner.png" alt="Image Alternative text" style="width: 80px" title="Image Title" />
                 </a>

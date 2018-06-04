@@ -1,26 +1,54 @@
 @extends('frontend.front_view.front_master')
-
+@section('page-title','Single Product')
 @section('main_content')
 
     <header class="page-header">
-        <h1 class="page-title">Hot wedge welding</h1>
+        <h1 class="page-title">
+
+                @foreach($all_category as $category)
+                    @if($category->id == $product_by_id->cat_id)
+                    {{$category->cat_name}}
+                    @endif
+                @endforeach
+
+        </h1>
         <ol class="breadcrumb page-breadcrumb">
-            <li><a href="../index.html">Home</a>
+            <li><a href="{{url('/')}}">Home</a>
             </li>
-            <li><a href="#">Welding &amp; Fabrication</a>
+            @if($product_by_id->cat_id!=NULL)
+            <li>
+                @foreach($all_category as $category)
+                    @if($category->id == $product_by_id->cat_id)
+                <a href="{{url('/product-category/'.$category->id)}}">{{$category->cat_name}}</a>
+                    @endif
+                @endforeach
             </li>
-            <li><a href="#">W elding</a>
-            </li>
-            <li><a href="#">Hot wedge welding</a>
-            </li>
+            @endif
+
+            @if($product_by_id->sub_cat_id!=NULL)
+                <li>
+                    @foreach($all_sub_category as $sub_category)
+                        @if($sub_category->id == $product_by_id->sub_cat_id)
+                            @foreach($all_category as $category)
+                                @if($category->id==$sub_category->cat_id && $sub_category->id == $product_by_id->sub_cat_id)
+                            <a href="{{url('/product-sub-category/'.$sub_category->id)}}">{{$sub_category->sub_cat_name}}</a>
+                            @endif
+                            @endforeach
+                        @endif
+                    @endforeach
+                </li>
+            @endif
         </ol>
     </header>
     <div class="row">
         <div class="col-md-5">
             <div class="product-page-product-wrap jqzoom-stage">
                 <div class="clearfix">
-                    <a href="{{asset('public/frontend/img/')}}/products/1499633334.jpg" id="jqzoom" data-rel="gal-1">
-                        <img src="{{asset('public/frontend/img/')}}/products/1499633334.jpg" alt="Image Alternative text" title="Image Title" />
+                    {{--<a href="{{asset('public/frontend/img/')}}/products/1499633334.jpg" id="jqzoom" data-rel="gal-1">--}}
+                        {{--<img src="{{asset('public/frontend/img/')}}/products/1499633334.jpg" alt="Image Alternative text" title="Image Title" />--}}
+                    {{--</a>--}}
+                    <a href="{{asset($product_by_id->image)}}" id="jqzoom" data-rel="gal-1">
+                        <img src="{{asset($product_by_id->image)}}" alt="Image Alternative text" title="Image Title" />
                     </a>
                 </div>
             </div>
@@ -62,9 +90,9 @@
                         </div>
 
 
-
-
-                        <p class="product-page-desc">High welding capacity\r\nDigital display of temperature, velocity and mains voltage\r\nStepless adjustment of welding pressure\r\nClosed-loop control of temperature and drive\r\n\r\nThe ASTRO are used anywhere all over the world. They weld up to 16 feet per minute. Its robust design and easy handling make it the perfect workhorse.</p>
+                        <p class="product-page-desc">
+                           Write Customer Review Here
+                        </p>
                         <table
                                 class="table table-striped product-page-features-table">
                             <tbody>
@@ -82,19 +110,43 @@
                             </tr>
                             <tr>
                                 <td>Manufacturer:</td>
-                                <td>suzuki</td>
+                              <td>
+                                  @foreach($all_manufacturer as $manufacturer)
+                                      @if($manufacturer->id==$product_by_id->manufacturer_id)
+                                      {{$manufacturer->name}}
+                                      @endif
+                                  @endforeach
+                              </td>
                             </tr>
                             <tr>
                                 <td>Model:</td>
-                                <td>Hauwei</td>
+                                <td>
+                                    @foreach($all_product_model as $model)
+                                        @if($model->id==$product_by_id->model_id)
+                                            {{$model->name}}
+                                        @endif
+                                    @endforeach
+                                </td>
                             </tr>
                             <tr>
                                 <td>Availability:</td>
-                                <td>yes</td>
+                                <td>
+                                    @if($product_by_id->availability=='1')
+                                        yes
+                                        @else
+                                        no
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <td>Pay on Delivery:</td>
-                                <td>yes</td>
+                                <td>
+                                    @if($product_by_id->availability=='1')
+                                        yes
+                                    @else
+                                        no
+                                    @endif
+                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -102,7 +154,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="box-highlight">
-                        <p class="product-page-price">₦500,000</p>
+                        <p class="product-page-price">${{$product_by_id->price}}</p>
                         <input type="radio" name="payment" class='payment' value="1" checked="checked" style="display: none;">
                         <ul class="product-page-actions-list">
                             <li class="product-page-qty-item">
@@ -164,11 +216,13 @@
             <div class="tab-pane fade in active" id="tab-1">
                 <div class="row row-eq-height product-overview-section">
                     <div class="col-md-6">
-                        <img class="product-overview-img" src="{{asset('public/frontend/img/')}}/products/1499633334.jpg" alt="Image Alternative text" title="Image Title" />
+                        <img class="product-overview-img" src="{{asset($product_by_id->image)}}" alt="Image Alternative text" title="Image Title" />
                     </div>
                     <div class="col-md-6">
                         <div class="product-overview-text">
-                            <p class="product-overview-desc">durable product</p>
+                            <p class="product-overview-desc">
+                                {!! $product_by_id->name !!}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -178,93 +232,19 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Specs:</th>
-                        <th>Details:</th>
-                        <th>Description:</th>
+                        {{--<th>Specs:</th>--}}
+                        {{--<th>Details:</th>--}}
+                        <th width="100%">Full Description:</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="product-page-features-table-specs">Warranty Terms - Parts:</td>
-                        <td class="product-page-features-table-details">1 Year</td>
-                        <td></td>
+                        {{--<td class="product-page-features-table-specs">Warranty Terms - Parts:</td>--}}
+                        {{--<td class="product-page-features-table-details">1 Year</td>--}}
+                        {{--<td></td>--}}
+                       <td> {!! $product_by_id->description !!}</td>
                     </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Condition:</td>
-                        <td class="product-page-features-table-details">New</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Source:</td>
-                        <td class="product-page-features-table-details">OEM</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Manufacturer:</td>
-                        <td class="product-page-features-table-details">suzuki</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Model:</td>
-                        <td class="product-page-features-table-details">Hauwei</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Availability:</td>
-                        <td class="product-page-features-table-details">yes</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Pay on Delivery:</td>
-                        <td class="product-page-features-table-details">yes</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Phone Style:</td>
-                        <td class="product-page-features-table-details">Bar phone</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Operating System:</td>
-                        <td class="product-page-features-table-details">Android 4.3 Jelly Bean</td>
-                        <td>The master software that controls hardware functions and provides a platform on top of which any software applications will run. Commonly used systems include Microsoft Windows, Mac OS and Chrome OS for computers; Android,
-                            Apple iOS, BlackBerry and Windows Phone for cell phones; and Android, Apple iOS and Windows for tablets.</td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Touch Screen:</td>
-                        <td class="product-page-features-table-details">Yes</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">MMS:</td>
-                        <td class="product-page-features-table-details">Yes</td>
-                        <td>Multimedia Messaging Service enables cell phone users to send text messages, graphics, photos and audio and video clips to other MMS users or to e-mail accounts.</td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Color Display:</td>
-                        <td class="product-page-features-table-details">Yes</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Vibration Alert:</td>
-                        <td class="product-page-features-table-details">Yes</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Build-In GPS:</td>
-                        <td class="product-page-features-table-details">Yes</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Mobile Operating System:</td>
-                        <td class="product-page-features-table-details">Android</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="product-page-features-table-specs">Band and Mode:</td>
-                        <td class="product-page-features-table-details">Quad-band</td>
-                        <td>Number/type of bands and modes the phone can use, which affects coverage and capabilities.</td>
-                    </tr>
+
                     </tbody>
                 </table>
             </div>
@@ -557,94 +537,84 @@
     <div class="gap"></div>
     <h3 class="widget-title">You Might Also Like</h3>
     <div class="row" data-gutter="15">
+        <?php
+          $related_product = DB::table('products')
+              ->where('cat_id',$product_by_id->cat_id)
+              ->where('sub_cat_id',$product_by_id->sub_cat_id)
+              ->where('manufacturer_id',$product_by_id->manufacturer_id)
+              ->where('model_id',$product_by_id->model_id)
+              ->take('4')
+              ->orderBY('id','desc')
+              ->get();
+        ?>
+        @foreach($related_product as $product)
         <div class='col-md-3'>
-            <div class='product '>
-                <ul class='product-labels'></ul>
-                <div class='product-img-wrap'>
-                    <img class='product-img-primary' src='{{asset('public/frontend/img/')}}/products/1499633746.jpg' alt='Image Alternative text' title='Image Title' />
-                    <img class='product-img-alt' src='{{asset('public/frontend/img/')}}/products/1499633746.jpg' alt='Image Alternative text' title='Image Title' />
+            <div class="product ">
+                <ul class="product-labels">
+                    @if($product->hot!=NULL && $product->stuff_pick!=NULL)
+                        <li>stuff pick</li>
+                        <li>hot</li>
+                    @elseif($product->hot!=NULL && $product->discount_price!=NULL)
+                        <li>hot</li>
+                        <li>
+                            <?php
+                            if($product->discount_price!=NULL && $product->discount_price<$product->price){
+                                $discount = $product->price - $product->discount_price;
+                                $main_price = $product->price;
+                                $percentage = 100*($discount/$main_price);
+                                echo $percentage."%";
+                            }
+                            ?>
+                        </li>
+                    @elseif($product->hot!=NULL)
+                        <li>hot</li>
+                    @elseif($product->stuff_pick!=NULL)
+                        <li>stuff pick</li>
+                    @elseif($product->discount_price!=NULL)
+                        <li>-30</li>
+                    @endif
+                </ul>
+                <div class="product-img-wrap">
+                    <img class="product-img-primary" width="253" height="253" src="{{asset($product->image)}}" alt="{{$product->name}}" title="{{$product->name}}" />
+                    <img class="product-img-alt" width="253" height="253" src="{{asset($product->image)}}" alt="{{$product->name}}" title="{{$product->name}}" />
                 </div>
-                <a class='product-link' href='Hot_wedge_welding_5.html'></a>
-                <div class='product-caption'>
-                    <ul class='product-caption-rating'>
-                        <li class='rated'><i class='fa fa-star'></i>
+                <a class="product-link" href="{{url('/product-details/'.$product->id)}}"></a>
+                <div class="product-caption">
+                    <ul class="product-caption-rating">
+                        <li class="rated"><i class="fa fa-star"></i>
                         </li>
-                        <li class='rated'><i class='fa fa-star'></i>
+                        <li class="rated"><i class="fa fa-star"></i>
                         </li>
-                        <li class='rated'><i class='fa fa-star'></i>
+                        <li class="rated"><i class="fa fa-star"></i>
                         </li>
-                        <li class='rated'><i class='fa fa-star'></i>
+                        <li class="rated"><i class="fa fa-star"></i>
                         </li>
-                        <li><i class='fa fa-star'></i>
+                        <li class="rated"><i class="fa fa-star"></i>
                         </li>
                     </ul>
-                    <h5 class='product-caption-title'>Hot wedge welding</h5>
-                    <div class='product-caption-price'><span class='product-caption-price-new'>₦2,000</span>
+                    <h5 class="product-caption-title">{{$product->name}}</h5>
+                    <div class="product-caption-price">
+
+
+                       <span class="product-caption-price-new">
+                          @if($product->discount_price==NULL)
+                               $ {{$product->price}}
+                           @endif
+                        </span>
+                        @if($product->discount_price!=NULL)
+                            <span class="product-caption-price-old">${{$product->price}}</span>
+                            <span class="product-caption-price-new">${{$product->discount_price}}</span>
+                        @endif
                     </div>
-                    <ul class='product-caption-feature-list'>
-                        <li>Free Shipping</li>
-                    </ul>
-                </div>
-            </div>
-        </div><div class='col-md-3'>
-            <div class='product '>
-                <ul class='product-labels'></ul>
-                <div class='product-img-wrap'>
-                    <img class='product-img-primary' src='{{asset('public/frontend/img/')}}/vendorproduct/1509026351.jpg' alt='Image Alternative text' title='Image Title' />
-                    <img class='product-img-alt' src='{{asset('public/frontend/img/')}}/vendorproduct/1509026351.jpg' alt='Image Alternative text' title='Image Title' />
-                </div>
-                <a class='product-link' href='Hot_wedge_welding_7.html'></a>
-                <div class='product-caption'>
-                    <ul class='product-caption-rating'>
-                        <li class='rated'><i class='fa fa-star'></i>
-                        </li>
-                        <li class='rated'><i class='fa fa-star'></i>
-                        </li>
-                        <li class='rated'><i class='fa fa-star'></i>
-                        </li>
-                        <li class='rated'><i class='fa fa-star'></i>
-                        </li>
-                        <li><i class='fa fa-star'></i>
-                        </li>
-                    </ul>
-                    <h5 class='product-caption-title'>Hot wedge welding</h5>
-                    <div class='product-caption-price'><span class='product-caption-price-new'>₦5,000</span>
-                    </div>
-                    <ul class='product-caption-feature-list'>
-                        <li>Free Shipping</li>
-                    </ul>
-                </div>
-            </div>
-        </div><div class='col-md-3'>
-            <div class='product '>
-                <ul class='product-labels'></ul>
-                <div class='product-img-wrap'>
-                    <img class='product-img-primary' src='{{asset('public/frontend/img/')}}/products/1499633746.jpg' alt='Image Alternative text' title='Image Title' />
-                    <img class='product-img-alt' src='{{asset('public/frontend/img/')}}/products/1499633746.jpg' alt='Image Alternative text' title='Image Title' />
-                </div>
-                <a class='product-link' href='Hot_wedge_welding_12.html'></a>
-                <div class='product-caption'>
-                    <ul class='product-caption-rating'>
-                        <li class='rated'><i class='fa fa-star'></i>
-                        </li>
-                        <li class='rated'><i class='fa fa-star'></i>
-                        </li>
-                        <li class='rated'><i class='fa fa-star'></i>
-                        </li>
-                        <li class='rated'><i class='fa fa-star'></i>
-                        </li>
-                        <li><i class='fa fa-star'></i>
-                        </li>
-                    </ul>
-                    <h5 class='product-caption-title'>Hot wedge welding</h5>
-                    <div class='product-caption-price'><span class='product-caption-price-new'>₦150,000</span>
-                    </div>
-                    <ul class='product-caption-feature-list'>
+                    <ul class="product-caption-feature-list">
+                        <li>{{$product->qty}} left</li>
                         <li>Free Shipping</li>
                     </ul>
                 </div>
             </div>
         </div>
+            @endforeach
+
     </div>
     </div>
 

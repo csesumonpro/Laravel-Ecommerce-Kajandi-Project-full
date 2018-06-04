@@ -160,6 +160,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 //        HTml Form provider
         Collective\Html\HtmlServiceProvider::class,
+//        Ck Editor
+        Unisharp\Ckeditor\ServiceProvider::class,
 
     ],
 

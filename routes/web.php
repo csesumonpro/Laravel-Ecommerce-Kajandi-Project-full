@@ -27,7 +27,7 @@ Route::get('/product-sub-category/{id}','FsortByController@product_by_sub_catego
 Route::get('/product-manufacturer/{id}','FsortByController@product_by_manufacturer')->name('product-manufacturer');
 Route::get('/product-model/{id}','FsortByController@product_by_model')->name('product-model');
 Route::get('/search','FsortByController@search')->name('search');
-Route::get('/search-by-category','FsortByController@advance_search')->name('advance-search');
+Route::post('/search-by-category','FsortByController@advance_search')->name('advance-search');
 
 //Product sortBy Route End
 
