@@ -33,6 +33,7 @@ class CreateProductsTable extends Migration
             $table->string('hot',5)->nullable();
             $table->string('stuff_pick',12)->nullable();
             $table->string('image')->nullable();
+            
             $table->timestamps();
         });
     }

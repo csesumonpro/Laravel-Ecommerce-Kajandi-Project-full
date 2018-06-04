@@ -85,47 +85,51 @@
             </li>
         </ul>
     </div>
+
     <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-account-dialog">
+
+
+      <form method="POST" action="{{ route('register') }}">
+          @csrf
+
         <h3 class="widget-title">Create TheBox Account</h3>
         <p>Ready to get best offers? Let's get started!</p>
         <hr />
         <div class="form-group">
             <label>Name</label>
-            <input class="form-control name" type="text" />
-            <p class="alert alert-danger nameerror" style="display: none;">
-                Name field is empty
-            </p>
+            <input class="form-control" name="name" type="text" />
+
         </div>
         <div class="form-group">
             <label>Email</label>
-            <input class="form-control email" type="text" />
-            <p class="alert alert-danger emailerror1" style="display: none;">
-                Email field is empty
-            </p>
-            <p class="alert alert-danger emailerror2" style="display: none;">
-                incorrect email field
-            </p>
+            <input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" type="email" />
+
+
+            @if ($errors->has('email'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+            @endif
         </div>
         <div class="form-group">
             <label>Phone Number</label>
-            <input class="form-control phonenumber" type="text" />
-            <p class="alert alert-danger phoneerror" style="display: none;">
-                Phone field is empty
-            </p>
+            <input class="form-control" name="phone" type="text" />
+
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input class="form-control password" type="password" />
-            <p class="alert alert-danger passworderror" style="display: none;">
-                Password field is empty
-            </p>
+            <input id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" />
+
+            @if ($errors->has('password'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+            @endif
         </div>
         <div class="form-group">
             <label>Repeat Password</label>
-            <input class="form-control repeatpassword" type="password" />
-            <p class="alert alert-danger repeatpassworderror" style="display: none;">
-                Repeat Password field is empty
-            </p>
+            <input id="password-confirm" class="form-control" type="password" name="password_confirmation" required/>
+
         </div>
         <p class="alert alert-danger passwordcorrespond" style="display: none;">
             Password fields must correspond
@@ -134,7 +138,12 @@
             <label>
                 <input class="i-check" type="checkbox" />Subscribe to the Newsletter</label>
         </div>
-        <input class="btn btn-primary createaccount" type="submit" value="Create Account" />
+        <input class="btn btn-primary" type="submit" value="Create Account" />
+
+      </form>
+
+
+
         <div class="gap gap-small"></div>
         <ul class="list-inline">
             <li><a href="#nav-login-dialog" class="popup-text">Already Memeber</a>

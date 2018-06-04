@@ -22,23 +22,7 @@
     <link rel="stylesheet" href="{{asset('public/frontend/css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('public/frontend/css/mystyles.css')}}">
     <link rel="stylesheet" href="{{asset('public/frontend/css/jquery-ui.css')}}">
-    <style>
-       .advance_search{
-           display: inline-block !important;
-           padding: 0 !important;
-           min-height: 0 !important;
-           max-height: none !important;
-           max-width: 100% !important;
-           margin: 0 !important;
-           text-indent: 0 !important;
-           border: 0 none !important;
-           background: none !important;
-           line-height: inherit !important;
-           -webkit-user-select: auto !important;
-           -webkit-box-shadow: none !important;
-           box-shadow: none !important;
-       }
-    </style>
+
 </head>
 
 <body>
@@ -69,88 +53,106 @@
         </div>
     </div>
     <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-login-dialog">
-        <h3 class="widget-title">Member Login</h3>
-        <p>Welcome back, friend. Login to get started</p>
-        <hr />
-        <p class="alert alert-danger loginformerror" style="display: none;">Email or Password incorrect</p>
-        <div class="form-group">
-            <label>Email or Username</label>
-            <input class="form-control loginemail" type="text" />
-            <p class="alert alert-danger emailerror" style="display: none;">
-                Email field is empty
-            </p>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input class="form-control loginpassword" type="password" />
-            <p class="alert alert-danger passworderror" style="display: none;">
-                Password field is empty
-            </p>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input class="i-check" type="checkbox" />Remeber Me</label>
-        </div>
-        <input class="btn btn-primary login" type="submit" value="Sign In" />
+          <form method="POST" action="{{ route('login') }}">
+              @csrf
 
-        <div class="gap gap-small"></div>
-        <ul class="list-inline">
-            <li><a href="#nav-account-dialog" class="popup-text">Not Member Yet</a>
-            </li>
-            <li><a href="#nav-pwd-dialog" class="popup-text">Forgot Password?</a>
-            </li>
-        </ul>
-    </div>
-    <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-account-dialog">
-        <h3 class="widget-title">Create TheBox Account</h3>
-        <p>Ready to get best offers? Let's get started!</p>
-        <hr />
-        <div class="form-group">
-            <label>Name</label>
-            <input class="form-control name" type="text" />
-            <p class="alert alert-danger nameerror" style="display: none;">
-                Name field is empty
-            </p>
+            <h3 class="widget-title">Member Login</h3>
+            <p>Welcome back, friend. Login to get started</p>
+            <hr />
+                <p class="alert alert-danger loginformerror" style="display: none;">Email or Password incorrect</p>
+                <div class="form-group">
+                    <label>Email or Username</label>
+                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}</label>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Sign In" />
+              </form>
+
+            <div class="gap gap-small"></div>
+            <ul class="list-inline">
+                <li><a href="#nav-account-dialog" class="popup-text">Not Member Yet</a>
+                </li>
+                <li><a href="#nav-pwd-dialog" class="popup-text">Forgot Password?</a>
+                </li>
+            </ul>
         </div>
-        <div class="form-group">
-            <label>Email</label>
-            <input class="form-control email" type="text" />
-            <p class="alert alert-danger emailerror1" style="display: none;">
-                Email field is empty
-            </p>
-            <p class="alert alert-danger emailerror2" style="display: none;">
-                incorrect email field
-            </p>
-        </div>
-        <div class="form-group">
-            <label>Phone Number</label>
-            <input class="form-control phonenumber" type="text" />
-            <p class="alert alert-danger phoneerror" style="display: none;">
-                Phone field is empty
-            </p>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input class="form-control password" type="password" />
-            <p class="alert alert-danger passworderror" style="display: none;">
-                Password field is empty
-            </p>
-        </div>
-        <div class="form-group">
-            <label>Repeat Password</label>
-            <input class="form-control repeatpassword" type="password" />
-            <p class="alert alert-danger repeatpassworderror" style="display: none;">
-                Repeat Password field is empty
-            </p>
-        </div>
-        <p class="alert alert-danger passwordcorrespond" style="display: none;">
-            Password fields must correspond
-        </p>
-        <div class="checkbox">
-            <label>
-                <input class="i-check" type="checkbox" />Subscribe to the Newsletter</label>
-        </div>
-        <input class="btn btn-primary createaccount" type="submit" value="Create Account" />
+        <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-account-dialog">
+
+
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
+
+      <h3 class="widget-title">Create TheBox Account</h3>
+      <p>Ready to get best offers? Let's get started!</p>
+      <hr />
+      <div class="form-group">
+          <label>Name</label>
+          <input class="form-control" name="name" type="text" />
+
+      </div>
+      <div class="form-group">
+          <label>Email</label>
+          <input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" type="email" />
+
+
+          @if ($errors->has('email'))
+              <span class="invalid-feedback">
+                  <strong>{{ $errors->first('email') }}</strong>
+              </span>
+          @endif
+      </div>
+      <div class="form-group">
+          <label>Phone Number</label>
+          <input class="form-control" name="phone" type="text" />
+
+      </div>
+      <div class="form-group">
+          <label>Password</label>
+          <input id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" />
+
+          @if ($errors->has('password'))
+              <span class="invalid-feedback">
+                  <strong>{{ $errors->first('password') }}</strong>
+              </span>
+          @endif
+      </div>
+      <div class="form-group">
+          <label>Repeat Password</label>
+          <input id="password-confirm" class="form-control" type="password" name="password_confirmation" required/>
+
+      </div>
+      <p class="alert alert-danger passwordcorrespond" style="display: none;">
+          Password fields must correspond
+      </p>
+      <div class="checkbox">
+          <label>
+              <input class="i-check" type="checkbox" />Subscribe to the Newsletter</label>
+      </div>
+      <input class="btn btn-primary" type="submit" value="Create Account" />
+
+    </form>
+
+
+
         <div class="gap gap-small"></div>
         <ul class="list-inline">
             <li><a href="#nav-login-dialog" class="popup-text">Already Memeber</a>
@@ -179,24 +181,24 @@
                 </a>
             </div>
             <div class="rel">
-                {!! Form::open(['method'=>'POST','url'=>'search-by-category','enctype'=>'multipart/form-data','class'=>'navbar-form navbar-left navbar-main-search navbar-main-search-category']) !!}
-                <select class="navbar-main-search-category-select" name="category">
-                    <option>All Departmens</option>
-                    @foreach($all_category as $category)
+                <form  action="{{url('/search-by-category')}}" class="navbar-form navbar-left navbar-main-search navbar-main-search-category" role="search">
+                    <select class="navbar-main-search-category-select" name="category">
+                        <option>All Departmens</option>
+                        @foreach($all_category as $category)
                         <option value="{{$category->id}}">{{$category->cat_name}}</option>
-                        @foreach($all_sub_category as $sub_category)
-                            @if($sub_category->cat_id==$category->id)
-                                <option value="{{$sub_category->id}}"> &nbsp;&nbsp;&nbsp;{{$sub_category->sub_cat_name}}</option>
-                            @endif
+                            @foreach($all_sub_category as $sub_category)
+                                @if($sub_category->cat_id==$category->id)
+                                    <option value="{{$sub_category->id}}"> &nbsp;&nbsp;&nbsp;{{$sub_category->sub_cat_name}}</option>
+                                @endif
+                            @endforeach
                         @endforeach
-                    @endforeach
-                </select>
+                    </select>
                     <div class="form-group">
                         {{--id="searchbox"--}}
-                        <input type="text" name="keyword" placeholder="Search Here....." class="form-control searchbox">
+                        <input class="form-control searchbox"  name="keyword" type="text" placeholder="Search the Entire Store..." />
                     </div>
-                <button type="submit" class="fa fa-search navbar-main-search-submit" href="#" style="z-index: 4"></button>
-                {!! Form::close() !!}
+                    <button type="submit" class="fa fa-search navbar-main-search-submit" href="#" style="z-index: 4"></button>
+                </form>
                 <a class="navbar-theme-img" href="#">
                     <img src="{{asset('public/frontend/img/')}}/ecommerce_banner.png" alt="Image Alternative text" style="width: 80px" title="Image Title" />
                 </a>
