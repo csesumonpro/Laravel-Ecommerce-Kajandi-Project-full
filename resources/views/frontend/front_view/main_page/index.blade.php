@@ -207,7 +207,7 @@
 <div class="row row-sm-gap" data-gutter="15">
     @foreach($all_category as $category)
     <div class="col-md-2">
-        <a class="banner-category" href="#">
+        <a class="banner-category" href="{{url('/product-category/'.$category->id)}}">
             <img class="banner-category-img" src="{{asset($category->cat_image)}}" alt="{{$category->cat_title}}" title="{{$category->cat_title}}" width="100" height="60" />
             <h5 class="banner-category-title">{{$category->cat_name}}</h5>
           {{--Query for count category by product--}}

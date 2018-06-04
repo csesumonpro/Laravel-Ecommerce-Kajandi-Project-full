@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 use App\Category;
 class CategoryController extends Controller
@@ -82,4 +83,5 @@ class CategoryController extends Controller
         $category->save();
         return redirect('/edit-category/'.$category->id)->with('message_success','Category Updated Successfully');
     }
+
 }

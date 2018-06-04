@@ -24,25 +24,25 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         //Category  Start
         View::composer('*', function($View){
-            $data = Product::all();
+            $data = Product::orderBy('id','desc')->get();
             $View->with('all_product', $data);
         });
         //Category End
         //Category  Start
         View::composer('*', function($View){
-            $data = Category::all();
+            $data = Category::orderBy('id','desc')->get();
             $View->with('all_category', $data);
         });
         //Category End
         //Manufacturer  Start
         View::composer('*', function($View){
-            $data = Manufacter::all();
+            $data = Manufacter::orderBy('id','desc')->get();
             $View->with('all_manufacturer', $data);
         });
         //Manufacturer End
         //Sub Category  Start
         View::composer('*', function($View){
-            $data = Subcategory::all();
+            $data = Subcategory::orderBy('id','desc')->get();
             $View->with('all_sub_category', $data);
         });
         //Sub Category  End

@@ -18,13 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::get('/product-details/{id}','ProductController@product_details')->name('product-single');
+//Product sortBy Route start
+Route::get('/shop','FsortByController@shop_content')->name('shop');
+Route::get('/product-category/{id}','FsortByController@product_by_category')->name('product-category');
+Route::get('/product-sub-category/{id}','FsortByController@product_by_sub_category')->name('product-sub-category');
+Route::get('/product-manufacturer/{id}','FsortByController@product_by_manufacturer')->name('product-manufacturer');
+Route::get('/product-model/{id}','FsortByController@product_by_model')->name('product-model');
+Route::get('/search','FsortByController@search')->name('search');
 
-
-
-
-
-
+//Product sortBy Route End
 
 
 //==========================Front End ==========================//
