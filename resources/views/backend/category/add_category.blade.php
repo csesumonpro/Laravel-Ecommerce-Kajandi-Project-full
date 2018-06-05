@@ -10,31 +10,39 @@
                 </small>
             </div>
             {!! Form::open(['method'=>'POST','url'=>'save-category','enctype'=>'multipart/form-data']) !!}
-                <div class="card-body card-block">
-                    <div class="form-group">
-                        <label for="company" class=" form-control-label">Add Category Title</label>
-                        <input type="text" id="company" name="cat_title" placeholder="Enter Category Title" class="form-control">
-                        @if ($errors->has('cat_title'))
-                            <div class="error">{{ $errors->first('cat_title') }}</div>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="company" class=" form-control-label">Add Category Name</label>
-                        <input type="text" id="company" name="cat_name" placeholder="Enter Category Name" class="form-control">
-                        @if ($errors->has('cat_name'))
-                            <div class="error">{{ $errors->first('cat_name') }}</div>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="company" class=" form-control-label">Add Category Image</label>
-                        <input type="file" id="company" name="cat_image" class="form-control">
-                        @if ($errors->has('cat_image'))
-                            <div class="error">{{ $errors->first('cat_image') }}</div>
-                        @endif
-                    </div>
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">Add</button>
-                 </div>
+            <div class="card-body card-block">
+                <div class="form-group">
+                    <label for="company" class=" form-control-label">Add Category Title</label>
+                    <input type="text" id="company" name="cat_title" placeholder="Enter Category Title" class="form-control">
+                    @if ($errors->has('cat_title'))
+                        <div class="error">{{ $errors->first('cat_title') }}</div>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="company" class=" form-control-label">Add Category Name</label>
+                    <input type="text" id="company" name="cat_name" placeholder="Enter Category Name" class="form-control">
+                    @if ($errors->has('cat_name'))
+                        <div class="error">{{ $errors->first('cat_name') }}</div>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="company" class=" form-control-label">Add Category Image</label>
+                    <input type="file" id="company" name="cat_image" class="form-control">
+                    @if ($errors->has('cat_image'))
+                        <div class="error">{{ $errors->first('cat_image') }}</div>
+                    @endif
+                </div>
+                <div class="form-group form-check-inline form-check">
+                    <label for="inline-checkbox1" class="form-check-label ">
+                        <input type="checkbox" id="inline-checkbox1" name="cat_major"  value="1" class="form-check-input">Set as Major
+                    </label>
+                    @if ($errors->has('cat_major'))
+                        <div class="error">{{ $errors->first('cat_major') }}</div>
+                    @endif
+                </div>
+                <button type="submit" class="btn btn-dark btn-lg btn-block">Add</button>
+            </div>
             {!! Form::close() !!}
         </div>
     </div>
-    @endsection
+@endsection

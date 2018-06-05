@@ -361,296 +361,35 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown yamm-fw"><a href="#"><span >Heating Ventilation</span>HVAC<i class="drop-caret" data-toggle="dropdown"></i></a>
+                    <?php
+                        $all_category = DB::table('categories')->where('cat_major',1)->orderBy('id','desc')->get();
+                    ?>
+                   @foreach($all_category as $category)
+                    <li class="dropdown yamm-fw"><a href="#"><span >{{$category->cat_title}}</span> {{$category->cat_name}}<i class="drop-caret" data-toggle="dropdown"></i></a>
                         <ul class="dropdown-menu">
                             <li class="yamm-content">
                                 <div class="row row-eq-height row-col-border">
                                     <div class="col-md-2">
-                                        <h5>Top Categories</h5>
+                                        <h5>Sub Categories</h5>
                                         <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Mans</a>
-                                                <p class="dropdown-menu-items-list-desc">Facilisi pulvinar vel</p>
-                                            </li>
-                                            <li><a href="#">Womans</a>
-                                                <p class="dropdown-menu-items-list-desc">Gravida magna sapien</p>
-                                            </li>
-                                            <li><a href="#">Kids & Baby</a>
-                                                <p class="dropdown-menu-items-list-desc">Sociosqu cum iaculis</p>
-                                            </li>
-                                            <li><a href="#">Shoes</a>
-                                                <p class="dropdown-menu-items-list-desc">Nascetur posuere aliquet</p>
-                                            </li>
+                                            @foreach($all_sub_category as $sub_category)
+                                            @if($sub_category->cat_id==$category->id)
+                                                    <li><a href="#">{{$sub_category->sub_cat_name}}</a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
                                         </ul>
                                     </div>
-                                    <div class="col-md-2">
-                                        <h5>Shop For</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Designer Collective</a>
-                                                <p class="dropdown-menu-items-list-desc">Interdum cursus risus</p>
-                                            </li>
-                                            <li><a href="#">Jewelry & Watches</a>
-                                                <p class="dropdown-menu-items-list-desc">Suspendisse natoque dapibus</p>
-                                            </li>
-                                            <li><a href="#">Handbags & Accessories</a>
-                                                <p class="dropdown-menu-items-list-desc">Rhoncus vel fermentum</p>
-                                            </li>
-                                            <li><a href="#">Health & Beauty</a>
-                                                <p class="dropdown-menu-items-list-desc">Phasellus tortor curae</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h5>Top Brands</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Vera Bradley</a>
-                                            </li>
-                                            <li><a href="#">Rolex</a>
-                                            </li>
-                                            <li><a href="#">Nike</a>
-                                            </li>
-                                            <li><a href="#">Michael Kors</a>
-                                            </li>
-                                            <li><a href="#">Coach</a>
-                                            </li>
-                                            <li><a href="#">Adidas</a>
-                                            </li>
-                                            <li><a href="#">Zara</a>
-                                            </li>
-                                            <li><a href="#">Fossil</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+
+
                                 </div>
-                                <img class="dropdown-menu-theme-image" src="{{asset('public/frontend/img/')}}/600x317.png" alt="Image Alternative text" title="Image Title" />
+                                <img class="dropdown-menu-theme-image" src="{{asset($category->cat_image)}}" alt="Image Alternative text" title="Image Title" />
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown yamm-fw"><a href="#"><span >Welding & Fabrication</span>Steel & Special Metals<i class="drop-caret" data-toggle="dropdown"></i></a>
-                        <ul class="dropdown-menu">
-                            <li class="yamm-content">
-                                <div class="row row-eq-height row-col-border">
-                                    <div class="col-md-2">
-                                        <h5>Top Categories</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Cars & Trucks</a>
-                                                <p class="dropdown-menu-items-list-desc">Odio euismod tincidunt</p>
-                                            </li>
-                                            <li><a href="#">Motorcycles</a>
-                                                <p class="dropdown-menu-items-list-desc">Senectus vivamus commodo</p>
-                                            </li>
-                                            <li><a href="#">Parts & Accessories</a>
-                                                <p class="dropdown-menu-items-list-desc">Vel sapien felis</p>
-                                            </li>
-                                            <li><a href="#">Auto Tools & Supplies</a>
-                                                <p class="dropdown-menu-items-list-desc">Platea sem interdum</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h5>Additional Categories</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Boats</a>
-                                                <p class="dropdown-menu-items-list-desc">Consequat cursus phasellus</p>
-                                            </li>
-                                            <li><a href="#">Motors Blog</a>
-                                                <p class="dropdown-menu-items-list-desc">Mattis hendrerit congue</p>
-                                            </li>
-                                            <li><a href="#">Other Vehicles</a>
-                                                <p class="dropdown-menu-items-list-desc">Eu libero mattis</p>
-                                            </li>
-                                            <li><a href="#">Powersports</a>
-                                                <p class="dropdown-menu-items-list-desc">Nullam sociosqu at</p>
-                                            </li>
-                                            <li><a href="#">RVs & Campers</a>
-                                                <p class="dropdown-menu-items-list-desc">Molestie fames at</p>
-                                            </li>
-                                            <li><a href="#">Sales & Events</a>
-                                                <p class="dropdown-menu-items-list-desc">Posuere torquent elementum</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h5>Top Models</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Audi</a>
-                                            </li>
-                                            <li><a href="#">BMW</a>
-                                            </li>
-                                            <li><a href="#">Mercedes-Benz</a>
-                                            </li>
-                                            <li><a href="#">Mitubishi</a>
-                                            </li>
-                                            <li><a href="#">Porsche</a>
-                                            </li>
-                                            <li><a href="#">Ford</a>
-                                            </li>
-                                            <li><a href="#">Chevrolete</a>
-                                            </li>
-                                            <li><a href="#">Toyota</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <img class="dropdown-menu-theme-image" src="{{asset('public/frontend/img/')}}/712x350.png" alt="Image Alternative text" title="Image Title" />
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown yamm-fw"><a href="#"><span >Mechanical/Technical Equipment</span>Tools & Workshop Equipment<i class="drop-caret" data-toggle="dropdown"></i></a>
-                        <ul class="dropdown-menu">
-                            <li class="yamm-content">
-                                <div class="row row-eq-height row-col-border">
-                                    <div class="col-md-2">
-                                        <h5>Top Categories</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Cycling</a>
-                                                <p class="dropdown-menu-items-list-desc">Risus ornare hendrerit</p>
-                                            </li>
-                                            <li><a href="#">Golf</a>
-                                                <p class="dropdown-menu-items-list-desc">Semper eleifend sociis</p>
-                                            </li>
-                                            <li><a href="#">Hunting</a>
-                                                <p class="dropdown-menu-items-list-desc">Fusce dapibus fringilla</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h5>Shop For</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Action Figures</a>
-                                                <p class="dropdown-menu-items-list-desc">Nunc hendrerit conubia</p>
-                                            </li>
-                                            <li><a href="#">Bilding Toys</a>
-                                                <p class="dropdown-menu-items-list-desc">Sagittis in urna</p>
-                                            </li>
-                                            <li><a href="#">Dolls & Bears</a>
-                                                <p class="dropdown-menu-items-list-desc">Ridiculus senectus vel</p>
-                                            </li>
-                                            <li><a href="#">Railroads & Trains</a>
-                                                <p class="dropdown-menu-items-list-desc">Viverra potenti cum</p>
-                                            </li>
-                                            <li><a href="#">RC & Control Line</a>
-                                                <p class="dropdown-menu-items-list-desc">Penatibus accumsan aenean</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h5>Shops</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Martha Stewart American Made</a>
-                                                <p class="dropdown-menu-items-list-desc">Volutpat hac vitae</p>
-                                            </li>
-                                            <li><a href="#">Refurbished Shop</a>
-                                                <p class="dropdown-menu-items-list-desc">Felis at in</p>
-                                            </li>
-                                        </ul>
-                                        <hr />
-                                        <h5>Inspiration</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Buying Guides & DIY Tips</a>
-                                                <p class="dropdown-menu-items-list-desc">Fusce phasellus netus</p>
-                                            </li>
-                                            <li><a href="#">Home Center</a>
-                                                <p class="dropdown-menu-items-list-desc">Nisl augue porttitor</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h5>Sales & Events</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">DeWalt Tools</a>
-                                                <p class="dropdown-menu-items-list-desc">Eu fusce pellentesque</p>
-                                            </li>
-                                            <li><a href="#">Daily Deals</a>
-                                                <p class="dropdown-menu-items-list-desc">Luctus hendrerit laoreet</p>
-                                            </li>
-                                            <li><a href="#">Halloween Ideas</a>
-                                                <p class="dropdown-menu-items-list-desc">Amet nisl mus</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h5>Top Brands</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Black + Decker</a>
-                                            </li>
-                                            <li><a href="#">DeWalt</a>
-                                            </li>
-                                            <li><a href="#">Worx</a>
-                                            </li>
-                                            <li><a href="#">Dyson</a>
-                                            </li>
-                                            <li><a href="#">Kitchen Aid</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <img class="dropdown-menu-theme-image" src="{{asset('public/frontend/img/')}}/300x468.png" alt="Image Alternative text" title="Image Title" />
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown yamm-fw"><a href="#"><span >Shipping Operations</span>Drilling & Well Completion<i class="drop-caret" data-toggle="dropdown"></i></a>
-                        <ul class="dropdown-menu">
-                            <li class="yamm-content">
-                                <div class="row row-eq-height row-col-border">
-                                    <div class="col-md-2">
-                                        <h5>Top Categories</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Cycling</a>
-                                                <p class="dropdown-menu-items-list-desc">Est urna arcu</p>
-                                            </li>
-                                            <li><a href="#">Golf</a>
-                                                <p class="dropdown-menu-items-list-desc">Est et ut</p>
-                                            </li>
-                                            <li><a href="#">Hunting</a>
-                                                <p class="dropdown-menu-items-list-desc">Pellentesque venenatis dolor</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h5>Additional Categories</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Exrecise & Fitness</a>
-                                                <p class="dropdown-menu-items-list-desc">Dui sollicitudin curae</p>
-                                            </li>
-                                            <li><a href="#">Fishing</a>
-                                                <p class="dropdown-menu-items-list-desc">Et non nisi</p>
-                                            </li>
-                                            <li><a href="#">PGA Sports</a>
-                                                <p class="dropdown-menu-items-list-desc">Ligula dis litora</p>
-                                            </li>
-                                            <li><a href="#">Outdoor Sports</a>
-                                                <p class="dropdown-menu-items-list-desc">Id vel dis</p>
-                                            </li>
-                                            <li><a href="#">Team Sports</a>
-                                                <p class="dropdown-menu-items-list-desc">Nostra curae eget</p>
-                                            </li>
-                                            <li><a href="#">Sales & Events</a>
-                                                <p class="dropdown-menu-items-list-desc">Volutpat justo integer</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h5>Top Brands</h5>
-                                        <ul class="dropdown-menu-items-list">
-                                            <li><a href="#">Callaway Golf</a>
-                                            </li>
-                                            <li><a href="#">Johnson</a>
-                                            </li>
-                                            <li><a href="#">Quicksilver</a>
-                                            </li>
-                                            <li><a href="#">Sports Authority</a>
-                                            </li>
-                                            <li><a href="#">Nike</a>
-                                            </li>
-                                            <li><a href="#">Mizuno</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <img class="dropdown-menu-theme-image" src="{{asset('public/frontend/img/')}}/897x450.png" alt="Image Alternative text" title="Image Title" />
-                            </li>
-                        </ul>
-                    </li>
+                   @endforeach
+
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-right-no-mar navbar-nav-lg">
                     <li><a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text"><span >Hello, Sign in</span>Your Account</a>
