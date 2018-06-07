@@ -224,6 +224,7 @@
                                             @foreach($all_sub_category as $sub_category)
                                             @if($sub_category->cat_id==$category->id)
                                                     <li><a href="#">{{$sub_category->sub_cat_name}}</a>
+                                                    <li><a href="#">{{$sub_category->sub_cat_name}}</a>
                                                     </li>
                                                 @endif
                                             @endforeach

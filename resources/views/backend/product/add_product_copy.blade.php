@@ -173,14 +173,15 @@
                                         <div class="form-group">
                                             <label for="file-input" class=" form-control-label">Additional Image</label>
                                             <?php
-                                                $product_count = DB::table('products')->count();
-                                                if($product_count>0){
-                                                    $product_id = $product_count+1;
-                                                }else{
-                                                    $product_id = 1;
-                                                }
-                                            ?>
-                                            <input type="hidden" name="product_id" value="{{$product_id}}">
+                                            $all_pro = DB::table('products')->orderBy('id','desc')->take(1)->get();
+                                             foreach($all_pro as $p){ ?>
+                                                <?php
+                                                    if($p->id!=NULL){ ?>
+                                            <input type="text" name="product_id" value="<?php  echo $p->id+1;?>">
+                                            <?php }else{ ?>
+                                            <input type="text" name="product_id" value="1">
+                                            <?php } ?>
+                                           <?php  } ?>
                                             <input type="file" id="file-input" name="product_image[]" class="form-control-file" multiple>
                                             @if ($errors->has('product_image'))
                                                 <div class="error">{{ $errors->first('product_image') }}</div>

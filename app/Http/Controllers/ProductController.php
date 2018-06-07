@@ -6,7 +6,7 @@ use App\Accessories;
 use App\ProductImage;
 use Illuminate\Http\Request;
 use App\Product;
-
+use DB;
 class productController extends Controller {
 
     public function add_product(){
@@ -88,8 +88,24 @@ class productController extends Controller {
         $product_list = Product::all()->sortByDesc('id');
         return view('backend.product.product_list')->with(compact('product_list'));
     }
-    public function product_delete($id){
-        $product = product::where('id',$id)->first();
+    public function product_delete($id)
+    {
+
+        $p_image = ProductImage::where('product_id', $id)->get();
+        if ($p_image != NULL){
+            foreach ($p_image as $pro_image) {
+                if ($pro_image->product_image != null) {
+                    unlink($pro_image->product_image);
+                }
+                $pro_image->delete();
+            }
+         }
+        $acc = Accessories::where('product_id',$id)->first();
+        if($acc!=NULL) {
+            $acc->delete();
+        }
+
+        $product = Product::where('id',$id)->first();
         if ( $product->image != null ) {
             unlink( $product->image );
         }
