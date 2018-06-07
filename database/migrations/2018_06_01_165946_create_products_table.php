@@ -33,7 +33,11 @@ class CreateProductsTable extends Migration
             $table->string('hot',5)->nullable();
             $table->string('stuff_pick',12)->nullable();
             $table->string('image')->nullable();
-            
+            $table->string('keyword')->nullable();
+            $table->text('special_feature')->nullable();
+            $table->text('more_description')->nullable();
+            $table->text('more_specification')->nullable();
+
             $table->timestamps();
         });
     }

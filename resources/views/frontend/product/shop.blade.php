@@ -56,7 +56,7 @@
                         <option value="{{$category->id}}" class="main-category" selected="">{{$category->cat_name}}</option>
                             @foreach($all_sub_category as $sub_category)
                                 @if($sub_category->cat_id==$category->id)
-                            <option value="{{$sub_category->id}}" class="sub-category">&nbsp;&nbsp;{{$sub_category->sub_cat_name}}</option>
+                            <option value="{{$sub_category->id}}" class="sub-category" >&nbsp;&nbsp;{{$sub_category->sub_cat_name}}</option>
                             @endif
                             @endforeach
                         @endforeach
