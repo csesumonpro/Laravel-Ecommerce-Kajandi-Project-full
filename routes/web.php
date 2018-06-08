@@ -37,7 +37,18 @@ Route::get('/product-by-category','FsortByController@product_by_cat')->name('pro
 
 //==========================Front End ==========================//
 
+// Seller Panel Route
+Route::GET('seller/home','SellerController@index');
+Route::GET('seller/editor','EditorController@index');
+Route::GET('seller/test','EditorController@test');
+Route::GET('seller','Seller\LoginController@showLoginForm')->name('seller.login');
+Route::POST('seller','Seller\LoginController@login');
 
+Route::POST('seller-password/email','Seller\ForgotPasswordController@sendResetLinkEmail')->name('seller.password.email');
+Route::GET('seller-password/reset','Seller\ForgotPasswordController@showLinkRequestForm')->name('seller.password.request');
+Route::POST('seller-password/reset','Seller\ResetPasswordController@reset');
+Route::GET('seller-password/reset/{token}','Seller\ResetPasswordController@showResetForm')->name('seller.password.reset');
+//End Seller Panel Route
 
 
 

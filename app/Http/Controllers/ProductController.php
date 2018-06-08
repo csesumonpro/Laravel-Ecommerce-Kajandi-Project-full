@@ -115,7 +115,7 @@ class productController extends Controller {
     public function product_edit($id){
 
         $product_by_id = Product::where('id',$id)->first();
-        return view('backend.product.edit_product')->with(compact('product_by_id','all_category','all_brand','all_material','all_menu'));
+        return view('backend.product.edit_product_copy')->with(compact('product_by_id','all_category','all_brand','all_material','all_menu'));
     }
     public function product_view($id){
         $product_by_id = Product::where('id',$id)->first();
