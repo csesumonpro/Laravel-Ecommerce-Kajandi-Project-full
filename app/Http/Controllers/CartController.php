@@ -34,4 +34,10 @@ class CartController extends Controller{
         Cart::update($id, $request->qty);
         return redirect('/cart');
     }
+    public function checkout(){
+        return view('frontend.cart.checkout');
+    }
+    public function compare(){
+        return view('frontend.cart.compare');
+    }
 }

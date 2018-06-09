@@ -77,7 +77,7 @@
             <div class="col-md-12">
                 <div class="shopping654">
                     <a href="{{route('shop')}}">Continue shopping</a>
-                    <a href="{{url('/update-cart/')}}">Update Bag</a>
+                    <a href="#">Update Bag</a>
                 </div>
             </div>
         </div>
