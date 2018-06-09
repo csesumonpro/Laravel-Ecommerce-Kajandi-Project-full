@@ -331,7 +331,7 @@
                                     <div class="col-md-2">
                                         <h5>Misc</h5>
                                         <ul class="dropdown-menu-items-list">
-                                            <li><a href="shopping-cart.html">Shopping Cart</a>
+                                            <li><a href="{{route('cart')}}">Shopping Cart</a>
                                             </li>
                                             <li><a href="shopping-cart-empty.html">Cart Empty</a>
                                             </li>
@@ -377,11 +377,54 @@
                     </li>
 
                     <li class="dropdown">
-                        <a class="fa fa-shopping-cart" href="mycart.html"></a>
+                        <a class="fa fa-shopping-cart"  href="{{route('cart')}}">
+                            @if(Cart::count()!=NULL)
+                                ({{Cart::count()}})
+                                @endif
+                        </a>
                         <ul class='dropdown-menu dropdown-menu-shipping-cart'>
+                            @if(Cart::count()==NULL)
                             <div class='text-center'><i class='fa fa-cart-arrow-down fa-4x'></i>
-                                <p class='lead' style='font-size: 16px'>You haven't Fill Your Shopping Cart Yet</p><a class='btn btn-primary btn-lg' href='#'>Start Shopping <i class='fa fa-long-arrow-right'></i></a>
-                            </div></ul>                        </li>
+                                <p class='lead' style='font-size: 16px'>You haven't Fill Your Shopping Cart Yet</p><a class='btn btn-primary btn-lg' href='{{route('shop')}}'>Start Shopping <i class='fa fa-long-arrow-right'></i></a>
+                            </div>
+                                @else
+                                <table class="table table-striped table-hover table-bordered">
+                                    <tbody>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>QTY</th>
+                                        <th>Unit Price</th>
+                                        <th>Total Price</th>
+                                    </tr>
+                                    @foreach(Cart::Content() as $item)
+                                    <tr>
+                                        <td>{{$item->name}}</td>
+                                        <td>{{$item->qty}} <a href="{{url('/remove-cart-item/'.$item->rowId)}}">X</a></td>
+                                        <td>${{$item->price}}</td>
+                                        <td>${{$item->qty*$item->price}}</td>
+                                    </tr>
+                                    @endforeach
+                                    <tr>
+                                        <th colspan="3"><span class="pull-right">Sub Total</span></th>
+                                        <th>${{Cart::subtotal()}}</th>
+                                    </tr>
+                                    {{--<tr>--}}
+                                        {{--<th colspan="3"><span class="pull-right">VAT 0%</span></th>--}}
+                                        {{--<th>$0.00</th>--}}
+                                    {{--</tr>--}}
+                                    <tr>
+                                        <th colspan="3"><span class="pull-right">Total</span></th>
+                                        <th>${{Cart::total()}}</th>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="{{route('shop')}}" class="btn btn-primary">Continue Shopping</a></td>
+                                        <td colspan="3"><a href="{{route('checkout')}}" class="pull-right btn btn-success">Checkout</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            @endif
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

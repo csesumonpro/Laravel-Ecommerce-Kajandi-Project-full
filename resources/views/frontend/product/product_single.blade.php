@@ -152,17 +152,20 @@
                 </div>
                 <div class="col-md-4">
                     <div class="box-highlight">
-                        <p class="product-page-price">${{$product_by_id->price}}</p>
-                        <input type="radio" name="payment" class='payment' value="1" checked="checked" style="display: none;">
+                        {!! Form::open(['method'=>'POST','url'=>'add-to-cart']) !!}
+                        <p class="product-page-price" >${{$product_by_id->price}}</p>
+                        <input type="hidden" name="product_id" value="{{$product_by_id->id}}">
+                        {{--<input type="radio" name="payment" class='payment' value="1" checked="checked" style="display: none;">--}}
                         <ul class="product-page-actions-list">
                             <li class="product-page-qty-item">
-                                <button class="product-page-qty product-page-qty-minus">-</button>
-                                <input class="product-page-qty product-page-qty-input productqty" type="number" value="1" size="1" maxlength="2" max="2">
-                                <button class="product-page-qty product-page-qty-plus">+</button>
+                                <a class="product-page-qty product-page-qty-minus">-</a>
+                                <input class="product-page-qty product-page-qty-input productqty" type="number" value="1" name="qty" size="1" maxlength="10" max="10">
+                                <a class="product-page-qty product-page-qty-plus">+</a>
                             </li>
                         </ul>
                         <br>
-                        <a class="btn btn-block btn-primary addvendorproduct" href="#" id="1"><i class="fa fa-shopping-cart" ></i>Add to Cart</a>
+                        <button class="btn btn-block btn-primary addvendorproduct" href="#" id="1"><i class="fa fa-shopping-cart" ></i>Add to Cart</button>
+                        {!! Form::close() !!}
                         <div class="product-page-side-section">
                             <h5 class="product-page-side-title">Share This Item</h5>
                             <ul class="product-page-share-item">

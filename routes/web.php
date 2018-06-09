@@ -34,6 +34,17 @@ Route::get('/product-by-category','FsortByController@product_by_cat')->name('pro
 
 //Product sortBy Route End
 
+//Cart Route Start
+Route::POST('add-to-cart','CartController@add_to_cart')->name('add-to-cart');
+Route::get('/cart','CartController@view_cart')->name('cart');
+Route::get('/remove-cart-item/{id}','CartController@remove_cart_item')->name('remove-cart-item');
+Route::POST('/update-cart','CartController@update_cart')->name('update-cart');
+Route::get('/checkout', function () {
+    return "Checkout page";
+})->name('checkout');
+
+//Cart Route End
+
 
 //==========================Front End ==========================//
 
@@ -116,5 +127,7 @@ Route::get('delete-product/{id}','ProductController@product_delete')->name('dele
 Route::get('edit-product/{id}','ProductController@product_edit')->name('edit-product');
 Route::post('update-product','ProductController@product_update')->name('update-product');
 //Product  Route End
+
+
 
 //==========================BackEnd End ==========================//

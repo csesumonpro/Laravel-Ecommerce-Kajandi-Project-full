@@ -162,6 +162,10 @@ return [
         Collective\Html\HtmlServiceProvider::class,
 		//Ckeditor
 		Unisharp\Ckeditor\ServiceProvider::class,
+//        shopping Cart
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
+
+
 
 
     ],
@@ -215,6 +219,11 @@ return [
 //        Html Form Alises
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+//        Shopping Cart
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+
+
+
     ],
 
 ];
