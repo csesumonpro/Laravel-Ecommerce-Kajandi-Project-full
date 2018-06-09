@@ -55,6 +55,9 @@ Route::GET('seller/test','EditorController@test');
 Route::GET('seller','Seller\LoginController@showLoginForm')->name('seller.login');
 Route::POST('seller','Seller\LoginController@login');
 
+Route::get('seller-regi', 'Seller\RegisterController@showRegPage');
+Route::POST('seller-reg-post','Seller\RegisterController@register')->name('sellerReg');
+
 Route::POST('seller-password/email','Seller\ForgotPasswordController@sendResetLinkEmail')->name('seller.password.email');
 Route::GET('seller-password/reset','Seller\ForgotPasswordController@showLinkRequestForm')->name('seller.password.request');
 Route::POST('seller-password/reset','Seller\ResetPasswordController@reset');

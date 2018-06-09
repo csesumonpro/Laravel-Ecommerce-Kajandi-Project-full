@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Seller;
 
-use App\User;
+use App\Seller;
+use App\RoleSeller;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/seller/home';
 
     /**
      * Create a new controller instance.
@@ -40,6 +41,10 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegPage(){
+      return view('seller.Auth.registration');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -49,10 +54,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-	        'name' => 'required|string|max:25|min:2',
+
 	        'email' => 'required|string|email|max:100|unique:users',
+          'vendorname' => 'required|string|max:25|min:2',
+          'address' => 'required|string|min:5',
+          'country' => 'required|string|max:255|min:2',
+          'contactname' => 'required|string|max:25|min:2',
 	        'password' => 'required|string|min:6|confirmed|max:19',
-	       
+
         ]);
     }
 
@@ -60,15 +69,22 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Seller
      */
     protected function create(array $data)
     {
-        return User::create([
-	        'name' => $data['name'],
+
+
+        return Seller::create([
 	        'email' => $data['email'],
+	        'vendorname' => $data['vendorname'],
+          'address' => $data['address'],
+          'country' => $data['country'],
+          'contactname' => $data['contactname'],
 	        'password' => Hash::make($data['password']),
-	      
+
         ]);
+
+
     }
 }

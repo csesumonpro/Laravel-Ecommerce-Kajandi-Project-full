@@ -28,6 +28,6 @@ class CreateRoleSellersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role_admins');
+        Schema::dropIfExists('role_sellers');
     }
 }

@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Manufacter;
 class ManufacturerController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-        $this->middleware('admin');
-    }
+  public function __construct()
+  {
+      $this->middleware('auth:admin');
+      $this->middleware('admin');
+  }
+
     public function add_manufacturer(){
         return view('backend.manufacturer.add_manufacturer');
     }
+
     public function save_manufacturer(Request $request){
         $request->validate([
             'name' => 'required|max:255|min:2',

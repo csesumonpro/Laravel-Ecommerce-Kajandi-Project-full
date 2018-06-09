@@ -9,6 +9,12 @@ use App\Product;
 use DB;
 class productController extends Controller {
 
+  public function __construct()
+  {
+      $this->middleware('auth:admin');
+      $this->middleware('admin');
+  }
+  
     public function add_product(){
         return view('backend.product.add_product_copy');
     }

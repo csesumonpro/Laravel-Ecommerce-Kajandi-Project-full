@@ -31,7 +31,7 @@ class Seller extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','lastname',
+         'email', 'vendorname', 'address', 'country', 'contactname', 'password',
     ];
 
     /**
