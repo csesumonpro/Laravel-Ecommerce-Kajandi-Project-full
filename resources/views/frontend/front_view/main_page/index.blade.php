@@ -66,9 +66,11 @@
     <div class="owl-item">
         <div class="product  owl-item-slide">
             <div class="product-img-wrap">
+                <a href="{{url('/product-details/'.$product->id)}}">
                 <img width="250" height="150" class="product-img" src="{{asset($product->image)}}" alt="{{$product->name}}" title="{{$product->name}}" />
+                </a>
             </div>
-            <a class="product-link" href="{{url('/product-details/'.$product->id)}}"></a>
+            {{--<a class="product-link" href="{{url('/product-details/'.$product->id)}}"></a>--}}
             <div class="product-caption">
                 <ul class="product-caption-rating">
                     <li class="rated"><i class="fa fa-star"></i>
@@ -84,7 +86,7 @@
                 </ul>
                 <h5 class="product-caption-title">{{$product->name}}</h5>
                 <div class="product-caption-price"><span class="product-caption-price-new">${{$product->price}}</span>
-  <a class="wishlist98" href="#"><i class="fa fa-heart"></i></a>
+  <a class="wishlist98" href="{{url('/add-to-wishlist/'.$product->id)}}"><i class="fa fa-heart"></i></a>
                 </div>
             </div>
         </div>

@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->string('partnumber')->nullable();
             $table->integer('qty')->nullable();
-            $table->string('availability')->nullable();
+            $table->string('availability')->nullable()->comment('1 for in stock 2 out of stock 0 inactive');
             $table->float('price',8,2)->nullable();
             $table->string('unit')->nullable();
             $table->string('weight')->nullable();

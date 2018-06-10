@@ -48,6 +48,12 @@ Route::POST('add-to-compare','CompareController@add_to_compare')->name('add-to-c
 Route::get('/remove-compare-item/{id}','CompareController@remove_compare_item')->name('remove-compare-item');
 
 //Compare Route End
+//Wishlist Route Start
+Route::get('/wishlist','WishlistController@my_wishlish')->name('wishlist');
+Route::GET('add-to-wishlist/{id}','WishlistController@add_to_wishlist')->name('add-to-wishlist');
+Route::GET('remove-wishlist-item/{id}','WishlistController@remove_wishlist_item')->name('remove-wishlist-item');
+
+//Wishlist Route End
 
 
 

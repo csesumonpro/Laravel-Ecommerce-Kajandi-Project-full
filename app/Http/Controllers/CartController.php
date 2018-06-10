@@ -11,6 +11,7 @@ class CartController extends Controller{
         return view('frontend.cart.cart');
     }
     public function add_to_cart(Request $request){
+
         $qty = $request->qty;
         $id = $request->product_id;
         $pro_by_id = Product::find($id);
@@ -22,8 +23,7 @@ class CartController extends Controller{
         $data['options']['image']= $pro_by_id->image;
 
 //		Cart::destroy();
-//        Cart::add($data);
-        Cart::instance('compare')->add($data);
+        Cart::add($data);
         return redirect('/shop');
     }
     public function remove_cart_item($id){

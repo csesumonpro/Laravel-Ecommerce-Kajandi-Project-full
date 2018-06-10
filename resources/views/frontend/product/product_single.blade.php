@@ -152,7 +152,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="box-highlight">
-                        {!! Form::open(['method'=>'POST','url'=>'add-to-compare']) !!}
+                        {!! Form::open(['method'=>'POST','url'=>'add-to-cart']) !!}
                         <p class="product-page-price" >${{$product_by_id->price}}</p>
                         <input type="hidden" name="product_id" value="{{$product_by_id->id}}">
                         {{--<input type="radio" name="payment" class='payment' value="1" checked="checked" style="display: none;">--}}
