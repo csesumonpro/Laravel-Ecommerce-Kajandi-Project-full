@@ -378,7 +378,7 @@
 
                     <li class="dropdown">
                         <a class="fa fa-shopping-cart"  href="{{route('cart')}}">
-                            @if(Cart::count()!=NULL)
+                            @if(Cart::count('default')!=NULL)
                                 ({{Cart::count()}})
                                 @endif
                         </a>

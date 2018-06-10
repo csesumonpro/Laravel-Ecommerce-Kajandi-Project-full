@@ -47,18 +47,22 @@
                                 <i class="fa fa-angle-left"></i>
                             </div>
                         </th>
+                        @foreach(Cart::instance('compare')->content() as $item)
+                            <?php
+                            $cp = DB::table('products')->where('id',$item->id)->first();
+                            ?>
                         <th class="product-item product-item-content">
                             <div class="product-cell">
                                 <div class="remove-area">
-                                    <a class="button remove-item" href="#" title="Remove item"><span><span><i class="fa fa-times-circle"></i></span></span></a>
+                                    <a class="button remove-item" href="" title="Remove item"><span><span><i class="fa fa-times-circle"></i></span></span></a>
                                 </div>
                                 <div class="product-introduction">
                                     <a href="#" class="product-img">
-                                        <img title="Product Name" src="{{asset('public/frontend/img/')}}/products/1499634563.png">
+                                        <img title="Product Name" src="{{asset($cp->image)}}">
                                     </a>
                                     <div class="title-wrapper">
-                                        <a class="product-name" href="#">
-                                            Custom Logo Breathable and Durable
+                                        <a class="product-name" href="{{url('/remove-compare-item/'.$item->rowId)}}">
+                                           {{$item->name}}
                                         </a>
                                         <a class="contact-item-btn" href="#"><i class="fa fa-envelope-o"></i>Contact Supplier</a>
                                     </div>
@@ -71,78 +75,7 @@
                                 </ul>
                             </div>
                         </th>
-                        <th class="product-item product-item-content">
-                            <div class="product-cell">
-                                <div class="remove-area">
-                                    <a class="button remove-item" href="#" title="Remove item"><span><span><i class="fa fa-times-circle"></i></span></span></a>
-                                </div>
-                                <div class="product-introduction">
-                                    <a href="#" class="product-img">
-                                        <img title="Product Name" src="{{asset('public/frontend/img/')}}/products/1499634563.png">
-                                    </a>
-                                    <div class="title-wrapper">
-                                        <a class="product-name" href="#">
-                                            Custom Logo Breathable and Durable
-                                        </a>
-                                        <a class="contact-item-btn" href="#"><i class="fa fa-envelope-o"></i>Contact Supplier</a>
-                                    </div>
-                                </div>
-
-                                <ul class="product-tags">
-                                    <li><i class="fa fa-star"></i>60+</li>
-                                    <li><i class="fa fa-star"></i>10+</li>
-                                    <li><i class="fa fa-clock-o"></i>24h</li>
-                                </ul>
-                            </div>
-                        </th>
-                        <th class="product-item product-item-content">
-                            <div class="product-cell">
-                                <div class="remove-area">
-                                    <a class="button remove-item" href="#" title="Remove item"><span><span><i class="fa fa-times-circle"></i></span></span></a>
-                                </div>
-                                <div class="product-introduction">
-                                    <a href="#" class="product-img">
-                                        <img title="Product Name" src="{{asset('public/frontend/img/')}}/products/1499634563.png">
-                                    </a>
-                                    <div class="title-wrapper">
-                                        <a class="product-name" href="#">
-                                            Custom Logo Breathable and Durable
-                                        </a>
-                                        <a class="contact-item-btn" href="#"><i class="fa fa-envelope-o"></i>Contact Supplier</a>
-                                    </div>
-                                </div>
-
-                                <ul class="product-tags">
-                                    <li><i class="fa fa-star"></i>60+</li>
-                                    <li><i class="fa fa-star"></i>10+</li>
-                                    <li><i class="fa fa-clock-o"></i>24h</li>
-                                </ul>
-                            </div>
-                        </th>
-                        <th class="product-item product-item-content">
-                            <div class="product-cell">
-                                <div class="remove-area">
-                                    <a class="button remove-item" href="#" title="Remove item"><span><span><i class="fa fa-times-circle"></i></span></span></a>
-                                </div>
-                                <div class="product-introduction">
-                                    <a href="#" class="product-img">
-                                        <img title="Product Name" src="{{asset('public/frontend/img/')}}/products/1499634563.png">
-                                    </a>
-                                    <div class="title-wrapper">
-                                        <a class="product-name" href="#">
-                                            Custom Logo Breathable and Durable
-                                        </a>
-                                        <a class="contact-item-btn" href="#"><i class="fa fa-envelope-o"></i>Contact Supplier</a>
-                                    </div>
-                                </div>
-
-                                <ul class="product-tags">
-                                    <li><i class="fa fa-star"></i>60+</li>
-                                    <li><i class="fa fa-star"></i>10+</li>
-                                    <li><i class="fa fa-clock-o"></i>24h</li>
-                                </ul>
-                            </div>
-                        </th>
+                        @endforeach
                         <th class="pagination-icon">
                             <div class="product-cell">
                                 <i class="fa fa-angle-right"></i>
@@ -151,7 +84,6 @@
                     </tr>
                     </tbody>
                 </table>
-
 
 
                 <table class="compare-product-details">
@@ -166,399 +98,81 @@
                         <td class="operate-area"></td>
                     </tr>
 
-                    <tr data-type="compareProductView" data-key="minOrderQuanity">
-                        <td class="params-title"><div class="product-cell">Min.Order Quantity</div></td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                50 Pieces
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                3 Pieces
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                3 Pieces
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                5 Pieces
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                5 Pieces
-                            </div>
-                        </td>
-                        <td class="operate-area"></td>
-                    </tr>
+
 
                     <tr data-type="compareProductView" data-key="fobPrice">
-                        <td class="params-title"><div class="product-cell">FOB Price</div></td>
+                        <td class="params-title"><div class="product-cell"> Price</div></td>
+                        @foreach(Cart::instance('compare')->content() as $item)
+                            <?php
+                            $cp = DB::table('products')->where('id',$item->id)->first();
+                            ?>
                         <td class="product-item product-item-content ">
                             <div class="product-cell">
-                                US $ 5-7/Piece
+                                US $ {{$cp->price}}
                             </div>
                         </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                /
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                /
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                US $ /Piece
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                US $ /Piece
-                            </div>
-                        </td>
+                        @endforeach
                         <td class="operate-area"></td>
                     </tr>
-
                     <tr>
-                        <td class="params-title"><div class="product-cell">Port</div></td>
+                        <td class="params-title"><div class="product-cell">Brand Name</div></td>
+                        @foreach(Cart::instance('compare')->content() as $item)
+                            <?php
+                            $cp = DB::table('products')->where('id',$item->id)->first();
+                            ?>
+
                         <td class="product-item product-item-content ">
                             <div class="product-cell">
-                                Shanghai or Ningbo
+                                <?php
+                            $cm = DB::table('manufacters')->where('id',$cp->manufacturer_id)->get();
+                                    ?>
+                                 @foreach($cm as $cpm)
+                                    {{$cpm->name}}
+                                @endforeach
                             </div>
                         </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-
-                            </div>
-                        </td>
+                       @endforeach
                         <td class="operate-area"></td>
                     </tr>
-
+                    <tr>
+                        <td class="params-title"><div class="product-cell">Model</div></td>
+                        @foreach(Cart::instance('compare')->content() as $item)
+                            <?php
+                            $cp = DB::table('products')->where('id',$item->id)->first();
+                            ?>
+                        <td class="product-item product-item-content ">
+                            <div class="product-cell">
+                                <?php
+                                $cm = DB::table('product_models')->where('id',$cp->model_id)->get();
+                                ?>
+                                @foreach($cm as $cpm)
+                                    {{$cpm->name}}
+                                @endforeach
+                            </div>
+                        </td>
+                      @endforeach
+                        <td class="operate-area"></td>
+                    </tr>
                     <tr class="sub-detail-head quick-detail">
                         <td class="params-title"><div class="product-cell">Quick Details<br>
                             </div>
                         </td>
-                        <td class="product-item product-item-content "></td>
-                        <td class="product-item product-item-content "></td>
-                        <td class="product-item product-item-content "></td>
-                        <td class="product-item product-item-content "></td>
+                        @foreach(Cart::instance('compare')->content() as $item)
+                            <?php
+                            $cp = DB::table('products')->where('id',$item->id)->first();
+                            ?>
+                        <td class="product-item product-item-content ">
+                            <article>
+                             {!! $cp->description !!}
+
+                            </article></td>
+                       @endforeach
                         <td class="product-item product-item-content  hide"></td>
                         <td class="operate-area"></td>
                     </tr>
 
-                    <tr>
-                        <td class="params-title"><div class="product-cell">Brand Name</div></td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                SIER
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Nikon
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Nikon
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Canon
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                Canon
-                            </div>
-                        </td>
-                        <td class="operate-area"></td>
-                    </tr>
-                    <tr>
-                        <td class="params-title"><div class="product-cell">Model Number</div></td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                S-264
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                D5300 18-55mm
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  highlight-cell">
-                            <div class="product-cell">
-                                D5300
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                5D Mark III
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                EF 70-200mm f2.8L IS USM II
-                            </div>
-                        </td>
-                        <td class="operate-area"></td>
-                    </tr>
-                    <tr>
-                        <td class="params-title"><div class="product-cell">Color</div></td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Black ,  Cyan
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Black
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Black
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Black
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="operate-area"></td>
-                    </tr>
-                    <tr>
-                        <td class="params-title"><div class="product-cell">Type</div></td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                DSLR
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                DSLR
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                DSLR
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                Zoom Lens
-                            </div>
-                        </td>
-                        <td class="operate-area"></td>
-                    </tr>
-                    <tr>
-                        <td class="params-title"><div class="product-cell">Battery Type</div></td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Rechargeable Battery Pack
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Rechargeable Battery Pack
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Rechargeable Battery Pack
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="operate-area"></td>
-                    </tr>
-                    <tr>
-                        <td class="params-title"><div class="product-cell">Image Stabilization</div></td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Yes
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Yes
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                No
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="operate-area"></td>
-                    </tr>
-                    <tr class="fold">
-                        <td class="params-title"><div class="product-cell">Memory Card Type</div></td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                SD Card
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                SD Card
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                SD Card
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="operate-area"></td>
-                    </tr>
-                    <tr class="fold">
-                        <td class="params-title"><div class="product-cell">Place of Origin</div></td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                CN;ZHE
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                JP
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                JP
-                            </div>
-                        </td>
-                        <td class="operate-area"></td>
-                    </tr>
-                    <tr class="fold">
-                        <td class="params-title"><div class="product-cell">Screen Size</div></td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                &gt; 3"
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                &gt; 3"
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                2" - 3"
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="operate-area"></td>
-                    </tr>
-                    <tr class="fold">
-                        <td class="params-title"><div class="product-cell">Video Capture</div></td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Yes
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Yes
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content ">
-                            <div class="product-cell">
-                                Yes
-                            </div>
-                        </td>
-                        <td class="product-item product-item-content  hide">
-                            <div class="product-cell">
-                                -
-                            </div>
-                        </td>
-                        <td class="operate-area"></td>
-                    </tr>
 
+            <!--
                     <tr data-type="compareCompanyView" class="detail-head">
                         <th class="params-title"><div class="product-cell">Supplier Features</div></th>
                         <th class="product-item product-item-content "></th>
@@ -1008,7 +622,7 @@
                         <td></td>
                         <td></td>
                         <td class="operate-area"></td>
-                    </tr>
+                    </tr> -->
                     </tbody>
                 </table>
 

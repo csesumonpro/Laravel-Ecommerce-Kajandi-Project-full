@@ -8,9 +8,13 @@ use App\Product;
 use DB;
 
 class FSortByController extends Controller{
+    public function product_details($id){
+        $product_by_id = Product::find($id);
+        return view('frontend.product.product_single')->with(compact('product_by_id'));
+    }
     public function shop_content(){
         $all_products = Product::orderBy('id','desc')->paginate(12);
-        return view('frontend.Product.shop')
+        return view('frontend.product.shop')
             ->with(compact('all_products'));
     }
     public function product_by_category($id){

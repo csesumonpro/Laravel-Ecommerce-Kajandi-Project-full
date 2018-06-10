@@ -19,19 +19,18 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/product-details/{id}','ProductController@product_details')->name('product-single');
 //Product sortBy Route start
-Route::get('/shop','FsortByController@shop_content')->name('shop');
-Route::get('/product-category/{id}','FsortByController@product_by_category')->name('product-category');
-Route::get('/product-sub-category/{id}','FsortByController@product_by_sub_category')->name('product-sub-category');
-Route::get('/product-manufacturer/{id}','FsortByController@product_by_manufacturer')->name('product-manufacturer');
-Route::get('/product-model/{id}','FsortByController@product_by_model')->name('product-model');
-Route::get('/search','FsortByController@search')->name('search');
-Route::get('/search-by-category','FsortByController@advance_search')->name('advance-search');
-Route::get('/product-sorting','FsortByController@product_sorting')->name('product-sorting');
-Route::get('/product-sorting-item','FsortByController@product_sorting_item')->name('product-sorting-item');
-Route::get('/product-by-category','FsortByController@product_by_cat')->name('product-by-category');
-
+Route::get('/shop','FSortByController@shop_content')->name('shop');
+Route::get('/product-category/{id}','FSortByController@product_by_category')->name('product-category');
+Route::get('/product-sub-category/{id}','FSortByController@product_by_sub_category')->name('product-sub-category');
+Route::get('/product-manufacturer/{id}','FSortByController@product_by_manufacturer')->name('product-manufacturer');
+Route::get('/product-model/{id}','FSortByController@product_by_model')->name('product-model');
+Route::get('/search','FSortByController@search')->name('search');
+Route::get('/search-by-category','FSortByController@advance_search')->name('advance-search');
+Route::get('/product-sorting','FSortByController@product_sorting')->name('product-sorting');
+Route::get('/product-sorting-item','FSortByController@product_sorting_item')->name('product-sorting-item');
+Route::get('/product-by-category','FSortByController@product_by_cat')->name('product-by-category');
+Route::get('/product-details/{id}','FSortByController@product_details')->name('product-single');
 //Product sortBy Route End
 
 //Cart Route Start
@@ -39,10 +38,17 @@ Route::POST('add-to-cart','CartController@add_to_cart')->name('add-to-cart');
 Route::get('/cart','CartController@view_cart')->name('cart');
 Route::get('/remove-cart-item/{id}','CartController@remove_cart_item')->name('remove-cart-item');
 Route::POST('/update-cart','CartController@update_cart')->name('update-cart');
-Route::get('/compare','CartController@compare')->name('compare');
 Route::get('/checkout','CartController@checkout')->name('checkout');
 
 //Cart Route End
+
+//Compare Route Start
+Route::get('/compare','CompareController@compare')->name('compare');
+Route::POST('add-to-compare','CompareController@add_to_compare')->name('add-to-compare');
+Route::get('/remove-compare-item/{id}','CompareController@remove_compare_item')->name('remove-compare-item');
+
+//Compare Route End
+
 
 
 //==========================Front End ==========================//

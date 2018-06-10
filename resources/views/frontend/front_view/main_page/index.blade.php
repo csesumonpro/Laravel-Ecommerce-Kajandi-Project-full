@@ -5,7 +5,7 @@
 @section('page-title',  'Global Source || Main')
 
 @section('main_sidebar')
-  @include('frontend.front_view.includes.Sidebar')
+  @include('frontend.front_view.includes.sidebar')
 @endsection
 
 @section('main_slider')

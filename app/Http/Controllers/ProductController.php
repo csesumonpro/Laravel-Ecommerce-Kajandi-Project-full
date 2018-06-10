@@ -164,17 +164,17 @@ class productController extends Controller {
         $product->hot = $request->hot;
         $product->stuff_pick = $request->stuff_pick;
         $product->discount_price = $request->discount_price;
+        $product->keyword = $request->keyword;
+        $product->special_feature = $request->special_feature;
+        $product->more_description = $request->more_description;
+        $product->more_specification = $request->more_specification;
         $product->image = $product_image;
         $product->save();
 
         return redirect('/edit-product/'.$product->id)->with('message_success','product Updated Successfully');
     }
-//	FrontEnd Function Start
-///
-    public function product_details($id){
-        $product_by_id = Product::find($id);
-        return view('frontend.product.product_single')->with(compact('product_by_id'));
-    }
+
+
 //    public function product_by_menu($id){
 //        $all_product = product::where('menu_id',$id)->paginate(12);
 //        return view('FrontEnd.product.shop_content')->with(compact('all_product'));

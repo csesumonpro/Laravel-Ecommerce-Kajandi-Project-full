@@ -21,8 +21,9 @@ class CartController extends Controller{
         $data['qty'] = $qty;
         $data['options']['image']= $pro_by_id->image;
 
-//		Cart::clear();
-        Cart::add($data);
+//		Cart::destroy();
+//        Cart::add($data);
+        Cart::instance('compare')->add($data);
         return redirect('/shop');
     }
     public function remove_cart_item($id){
@@ -36,8 +37,5 @@ class CartController extends Controller{
     }
     public function checkout(){
         return view('frontend.cart.checkout');
-    }
-    public function compare(){
-        return view('frontend.cart.compare');
     }
 }
