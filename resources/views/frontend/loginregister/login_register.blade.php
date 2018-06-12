@@ -4,7 +4,7 @@
 
     <div class="container">
         <header class="page-header">
-            <h1 class="page-title">Login & Register</h1>
+            <h1 class="page-title text-center" >Login & Registration</h1>
         </header>
         <div class="row">
              <div class="col-md-12">
