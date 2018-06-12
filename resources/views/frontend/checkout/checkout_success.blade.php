@@ -1,5 +1,5 @@
 @extends('frontend.front_view.front_master')
-@section('page-title','Order Success')
+@section('page-title','order')
 @section('main_content')
 
     <!-- cart start -->

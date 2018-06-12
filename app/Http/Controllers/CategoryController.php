@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 use App\Category;
 class CategoryController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth:admin');
-      $this->middleware('admin');
-  }
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('admin');
+    }
     public function add_category(){
         return view('backend.category.add_category');
     }

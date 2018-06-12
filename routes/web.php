@@ -153,6 +153,13 @@ Route::get('edit-product/{id}','ProductController@product_edit')->name('edit-pro
 Route::post('update-product','ProductController@product_update')->name('update-product');
 //Product  Route End
 
+//order Route Start
+Route::get('/manage-order','OrderController@manage_order')->name('manage-order');
+Route::get('/order-status/{id}','OrderController@order_status');
+Route::get('/order-delete/{id}','OrderController@order_delete');
+Route::get('/view-order/{id}','OrderController@view_order');
+Route::get('/download-pdf/{id}','OrderController@download_pdf');
+//order Route Start
 
 
 //==========================BackEnd End ==========================//
