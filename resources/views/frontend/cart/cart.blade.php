@@ -67,7 +67,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-6"><span class="price">${{Cart::total()}}</span></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12"><a class="btn btn-primary" href="{{route('checkout')}}">Checkout</a></div>
+                    <div class="col-md-12"><a class="btn btn-primary" href="{{route('billing')}}">Checkout</a></div>
                 </div>
             </div>
         </div>

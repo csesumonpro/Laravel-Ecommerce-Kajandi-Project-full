@@ -57,8 +57,13 @@ Route::GET('remove-wishlist-item/{id}','WishlistController@remove_wishlist_item'
 
 //Checkout Controller Start
 Route::get('/checkout','CheckoutController@checkout')->name('checkout');
+Route::get('/shipping','CheckoutController@shipping')->name('shipping');
+Route::get('/billing','CheckoutController@billing')->name('billing');
+Route::post('/save-billing','CheckoutController@save_billing')->name('save-billing');
+Route::post('/save-shipping','CheckoutController@save_shipping')->name('save-shipping');
+Route::POST('/place-order','CheckoutController@place_order')->name('place-order');
+Route::get('/order-complete','CheckoutController@order_complete')->name('order-complete');
 
-Route::POST('place-order','CheckoutController@place_order')->name('place-order');
 //Checkout Controller End
 
 

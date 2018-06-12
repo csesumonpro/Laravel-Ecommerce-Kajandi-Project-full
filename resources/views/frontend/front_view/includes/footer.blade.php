@@ -154,7 +154,7 @@
 <script type="text/javascript" src="{{asset('public/frontend/js/')}}/dataTables.bootstrap.min.js"></script>
 <script src="{{asset('public/frontend/js/')}}/star-rating.min.js" type="text/javascript"></script>
 <script src="{{asset('public/frontend/js/')}}/locales/de.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/country-region-dropdown-menu/1.2.1/geodatasource-cr.min.js" charset="utf-8"></script>
 <script type="text/javascript">
     $(document).on('ready', function(){
         $('.input-3').rating({displayOnly: true, step: 0.1});
