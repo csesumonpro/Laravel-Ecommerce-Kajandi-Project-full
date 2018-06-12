@@ -43,7 +43,7 @@
                         </li>
                         <li><a href="#">FAQ</a>
                         </li>
-                        <li><a href="#">Wishlist</a>
+                        <li><a href="{{route('wishlist')}}">Wishlist</a>
                         </li>
                         <li><a href="#">Help</a>
                         </li>
@@ -214,7 +214,7 @@
                         $all_category = DB::table('categories')->where('cat_major',1)->orderBy('id','desc')->get();
                     ?>
                    @foreach($all_category as $category)
-                    <li class="dropdown yamm-fw"><a href="#"><span >{{$category->cat_title}}</span> {{$category->cat_name}}<i class="drop-caret" data-toggle="dropdown"></i></a>
+                    <li class="dropdown yamm-fw"><a href="{{url('/product-category/'.$category->id)}}"><span >{{$category->cat_title}}</span> {{$category->cat_name}}<i class="drop-caret" data-toggle="dropdown"></i></a>
                         <ul class="dropdown-menu">
                             <li class="yamm-content">
                                 <div class="row row-eq-height row-col-border">
@@ -223,8 +223,7 @@
                                         <ul class="dropdown-menu-items-list">
                                             @foreach($all_sub_category as $sub_category)
                                             @if($sub_category->cat_id==$category->id)
-                                                    <li><a href="#">{{$sub_category->sub_cat_name}}</a>
-                                                    <li><a href="#">{{$sub_category->sub_cat_name}}</a>
+                                                    <li><a href="{{route('product-sub-category',$sub_category->id)}}">{{$sub_category->sub_cat_name}}</a>
                                                     </li>
                                                 @endif
                                             @endforeach

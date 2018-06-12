@@ -209,7 +209,8 @@
                     border-color: #CE3F51;
                 }
             </style>
-           <span class="text-center"> {{ $all_products->links() }}</span>
+           {{--{{ $all_products->count()}}--}}
+            <span class="text-center"> {{ $all_products->links() }}</span>
 
         </div>
     </div>

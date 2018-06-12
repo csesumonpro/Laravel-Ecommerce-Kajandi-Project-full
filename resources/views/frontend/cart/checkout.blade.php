@@ -50,16 +50,46 @@
         </div>
 
         <div class="col-md-6 pay-order986">
-            <div class="row">
-                <div class="col-md-12">
-                    <button class="btn btn-primary" href="#">Pay with card</button>
-                    <button class="btn btn-primary" href="#">Pay on delevary</button>
-                    <button class="btn btn-primary" href="#">Pay direct to bank </button>
-                    <button class="btn btn-primary" href="#">Paypal Payment</button>
-                    <button class="btn btn-primary" href="#">Pay with wallet</button>
-                </div>
-
+            <div class="section-title mt-50 mb-25">
+                <h4 class="text-uppercase">Payment Method</h4>
+                <p class="text-center  alert-danger">{{Session::get('message_error')}}</p>
             </div>
+            {!! Form::open(['url'=>'place-order','method'=>'POST']) !!}
+            <div class="your-order">
+                <div class="order-table">
+                    <ul>
+
+                        <li>
+                            <label class="checkbox-title">
+                                <input id="transfer" value="cash" name="payment" type="radio">
+                                <button class="btn btn-primary" href="#">Cash On Delivery</button>
+                            </label>
+
+                        </li>
+                        <li>
+                            <label class="checkbox-title">
+                                <input id="payment" value="card" name="payment" type="radio">
+                                <button class="btn btn-primary" href="#">Card Payment</button>
+                            </label>
+
+                        </li>
+                        <li>
+                            <label class="checkbox-title">
+                                <input id="paypal" value="paypal" name="payment" type="radio">
+                                <button class="btn btn-primary" href="#">Paypal</button>
+                            </label>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            @if(Cart::total()>0)
+                <button type="submit" class="btn btn-success">Place Order</button>
+            @else
+                <h3 class="alert alert-danger">Please add one or more product in your cart, for enable order option</h3>
+                <h4><a href="{{route('shop')}}">Continue Shopping</a></h4>
+            @endif
+            {!! Form::close() !!}
         </div>
 
     </div>

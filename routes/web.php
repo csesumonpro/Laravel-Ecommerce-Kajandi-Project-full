@@ -38,7 +38,6 @@ Route::POST('add-to-cart','CartController@add_to_cart')->name('add-to-cart');
 Route::get('/cart','CartController@view_cart')->name('cart');
 Route::get('/remove-cart-item/{id}','CartController@remove_cart_item')->name('remove-cart-item');
 Route::POST('/update-cart','CartController@update_cart')->name('update-cart');
-Route::get('/checkout','CartController@checkout')->name('checkout');
 
 //Cart Route End
 
@@ -57,7 +56,9 @@ Route::GET('remove-wishlist-item/{id}','WishlistController@remove_wishlist_item'
 //Wishlist Route End
 
 //Checkout Controller Start
+Route::get('/checkout','CheckoutController@checkout')->name('checkout');
 
+Route::POST('place-order','CheckoutController@place_order')->name('place-order');
 //Checkout Controller End
 
 
