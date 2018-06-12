@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-9 ">
                 <div class="table-responsive">
-                    <form method="post" action="#updatePost/">
+                    {{--<form method="post" action="#updatePost/">--}}
                         <div class="form-wrapper">
                             <table border="0">
                                 <tr>
@@ -29,17 +29,17 @@
                                     <td><span class="cart-price"> <span class="price">${{$item->price*$item->qty}}</span> </span></td>
                                     <td><a class="button remove-item" title="Remove item" href="{{url('/remove-cart-item/'.$item->rowId)}}"><span><span><i class="fa fa-times-circle"></i></span></span></a></td>
 
-                                    {{--{!! Form::open(['url'=>'update-cart','method'=>'POST']) !!}--}}
-                                    {{--<input type="text" value="{{$item->qty}}" name="qty">--}}
-                                    {{--<input type="hidden" value="{{$item->rowId}}" name="id">--}}
-                                    {{--<button type="submit">Update</button>--}}
-                                    {{--{!! Form::close() !!}--}}
+                                    {!! Form::open(['url'=>'update-cart','method'=>'POST']) !!}
+                                    <input type="text" value="{{$item->qty}}" name="qty">
+                                    <input type="hidden" value="{{$item->rowId}}" name="id">
+                                    <button type="submit">Update</button>
+                                    {!! Form::close() !!}
 
                                 </tr>
                                 @endforeach
                             </table>
                         </div>
-                    </form>
+                    {{--</form>--}}
                 </div>
 
 

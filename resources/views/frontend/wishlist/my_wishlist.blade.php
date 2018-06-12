@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-9">
             <div class="table-responsive">
-                <form action="#updatePost/" method="post">
+                {{--<form action="#updatePost/" method="post">--}}
                     <div class="form-wrapper">
                         <table border="0">
                             <tr>
@@ -50,7 +50,7 @@
 
                         </table>
                     </div>
-                </form>
+                {{--</form>--}}
             </div>
         </div>
 

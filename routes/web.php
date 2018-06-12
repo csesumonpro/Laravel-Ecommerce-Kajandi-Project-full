@@ -46,6 +46,7 @@ Route::get('/checkout','CartController@checkout')->name('checkout');
 Route::get('/compare','CompareController@compare')->name('compare');
 Route::POST('add-to-compare','CompareController@add_to_compare')->name('add-to-compare');
 Route::get('/remove-compare-item/{id}','CompareController@remove_compare_item')->name('remove-compare-item');
+Route::get('/login-register','CartController@login_register')->name('login-register');
 
 //Compare Route End
 //Wishlist Route Start
@@ -54,6 +55,10 @@ Route::GET('add-to-wishlist/{id}','WishlistController@add_to_wishlist')->name('a
 Route::GET('remove-wishlist-item/{id}','WishlistController@remove_wishlist_item')->name('remove-wishlist-item');
 
 //Wishlist Route End
+
+//Checkout Controller Start
+
+//Checkout Controller End
 
 
 

@@ -11,7 +11,6 @@ class CartController extends Controller{
         return view('frontend.cart.cart');
     }
     public function add_to_cart(Request $request){
-
         $qty = $request->qty;
         $id = $request->product_id;
         $pro_by_id = Product::find($id);
@@ -37,5 +36,8 @@ class CartController extends Controller{
     }
     public function checkout(){
         return view('frontend.cart.checkout');
+    }
+    public function login_register(){
+        return view('frontend.loginregister.login_register');
     }
 }

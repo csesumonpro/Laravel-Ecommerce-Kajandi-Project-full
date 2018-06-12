@@ -7,7 +7,7 @@ use App\ProductImage;
 use Illuminate\Http\Request;
 use App\Product;
 use DB;
-class productController extends Controller {
+class ProductController extends Controller {
 
   public function __construct()
   {

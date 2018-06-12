@@ -153,6 +153,7 @@
                 <div class="col-md-4">
                     <div class="box-highlight">
                         {!! Form::open(['method'=>'POST','url'=>'add-to-cart']) !!}
+
                         <p class="product-page-price" >${{$product_by_id->price}}</p>
                         <input type="hidden" name="product_id" value="{{$product_by_id->id}}">
                         {{--<input type="radio" name="payment" class='payment' value="1" checked="checked" style="display: none;">--}}
@@ -165,7 +166,9 @@
                         </ul>
                         <br>
                         <button class="btn btn-block btn-primary addvendorproduct" href="#" id="1"><i class="fa fa-shopping-cart" ></i>Add to Cart</button>
+
                         {!! Form::close() !!}
+                        <a class="btn btn-block btn-default" href="{{url('/add-to-wishlist/'.$product_by_id->id)}}"><i class="fa fa-star"></i>Wishlist</a>
                         <div class="product-page-side-section">
                             <h5 class="product-page-side-title">Share This Item</h5>
                             <ul class="product-page-share-item">
