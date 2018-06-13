@@ -155,7 +155,6 @@ class CheckoutController extends Controller{
             $order->save();
             $order_id = $order->id;
             Session::put('order_id',$order_id);
-
             $payment = new Payment();
             $payment->order_id = Session::get('order_id');
             $payment->payment_type = $request->payment;

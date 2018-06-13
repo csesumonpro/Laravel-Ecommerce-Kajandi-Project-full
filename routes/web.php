@@ -35,6 +35,7 @@ Route::get('/product-details/{id}','FSortByController@product_details')->name('p
 
 //Cart Route Start
 Route::POST('add-to-cart','CartController@add_to_cart')->name('add-to-cart');
+Route::GET('accessories-add-to-cart/{id}','CartController@acc_add_to_cart')->name('accessories-add-to-cart');
 Route::get('/cart','CartController@view_cart')->name('cart');
 Route::get('/remove-cart-item/{id}','CartController@remove_cart_item')->name('remove-cart-item');
 Route::POST('/update-cart','CartController@update_cart')->name('update-cart');

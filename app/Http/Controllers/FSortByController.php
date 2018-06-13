@@ -119,19 +119,19 @@ class FSortByController extends Controller{
     public function product_sorting_item(Request $request){
         if($request->product_item=='nine_item'){
             $all_products = Product::take('9')->orderBY('id','desc')->get();
-            return view('frontend.product.shop')
+            return view('frontend.product.item_page')
                 ->with(compact('all_products'));
         }elseif($request->product_item=='twelve_item'){
             $all_products = Product::take('12')->orderBY('id','desc')->get();
-            return view('frontend.product.shop')
+            return view('frontend.product.item_page')
                 ->with(compact('all_products'));
         }elseif($request->product_item=='eighteen_item'){
             $all_products = Product::take('18')->orderBY('id','desc')->get();
-            return view('frontend.product.shop')
+            return view('frontend.product.item_page')
                 ->with(compact('all_products'));
         }elseif($request->product_item=='all_item'){
             $all_products = Product::all();
-            return view('frontend.product.shop')
+            return view('frontend.product.item_page')
                 ->with(compact('all_products'));
         }
     }

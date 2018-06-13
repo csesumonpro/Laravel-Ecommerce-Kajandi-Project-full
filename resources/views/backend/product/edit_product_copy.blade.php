@@ -220,25 +220,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="file-input" class=" form-control-label">Additional Image</label>
-                                            <?php
-                                            $all_pro = DB::table('products')->orderBy('id','desc')->take(1)->get();
-                                            foreach($all_pro as $p){ ?>
-                                            <?php
-                                            if($p->id!=NULL){ ?>
-                                            <input type="hidden" name="product_id" value="<?php  echo $p->id;?>">
-                                            <?php }else{ ?>
-                                            <input type="hidden" name="product_id" value="1">
-                                            <?php } ?>
-                                            <?php  } ?>
-                                            <input type="file" id="file-input" name="product_image[]" class="form-control-file" multiple>
-                                             <?php
-                                                $add_image = DB::table('product_images')->get();
-                                            ?>
 
-                                            @foreach($add_image as $sing_img)
-                                                @if($sing_img->product_id==$product_by_id->id)
-                                                    <img src="{{asset($sing_img->product_image)}}" alt="" width="60" height="40">
-                                                    @endif
+                                            <input type="file" id="file-input" name="product_image[]" class="form-control-file" multiple>
+                                            <?php $all_images = explode('|',$product_by_id->product_image);?>
+                                            @foreach($all_images as $sing_img)
+                                                    <img src="{{asset($sing_img)}}" alt="" width="60" height="40">
                                                 @endforeach
                                             @if ($errors->has('product_image'))
                                                 <div class="error">{{ $errors->first('product_image') }}</div>
@@ -283,31 +269,22 @@
                                                 <div class="form-check" style="margin-top: 15px">
                                                     {{--<h6 class="text-left"> <i class="fa fa-check-square-o"></i>Set As Accessories Product</h6>--}}
                                                     <div class="checkbox">
-                                                       <?php
-                                                        $all_acc = DB::table('accessories')->get();
-                                                        $i=0;
-                                                      ?>
-                                                        @foreach($all_acc as $single_acc)
-                                                           @if($single_acc->product_id==$product_by_id->id)
-                                                               <?php
-                                                                   $all_accs = DB::table('accessories')->where('product_id',$product_by_id->id)->get();
-                                                                   ?>
-                                                                   <label for="checkbox2" class="form-check-label ">
-                                                                       <input type="checkbox" id="checkbox2" name="accessories_id[]" value="{{$product->id}}" class="form-check-input"
-                                                                       @foreach($all_accs as $cc)
-                                                                           @if($cc->accessories_id==$product->id)
-                                                                               checked
-                                                                                   @endif
-                                                                               @endforeach
-                                                                       > Check
-                                                                   </label>
-                                                                <?php if($i=1){break;}?>
-                                                               @endif
-                                                            @endforeach
+                                                        <?php $all_accessories = explode('|',$product_by_id->accessories_id);  ?>
+                                                        <label for="checkbox2" class="form-check-label ">
 
-                                                        {{--<label for="checkbox2" class="form-check-label ">--}}
-                                                            {{--<input type="checkbox" id="checkbox2" name="accessories_id[]" value="{{$product_by_id->id}}" class="form-check-input"> Check--}}
-                                                        {{--</label>--}}
+                                                            <input type="checkbox" id="checkbox2" name="accessories_id[]" value="{{$product->id}}" class="form-check-input"
+                                                            <?php $all_accessories = explode('|',$product_by_id->accessories_id);?>
+                                                            @foreach($all_accessories as $accs)
+                                                                @if($product->id==$accs)
+                                                                    checked
+                                                                    @endif
+                                                                @endforeach
+                                                            >
+
+                                                            Check
+
+
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </td>

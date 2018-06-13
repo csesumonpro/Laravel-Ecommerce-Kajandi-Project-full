@@ -25,6 +25,20 @@ class CartController extends Controller{
         Cart::add($data);
         return redirect('/shop');
     }
+    public function acc_add_to_cart($id){
+
+        $pro_by_id = Product::find($id);
+        $data = array();
+        $data['id'] = $id;
+        $data['name'] = $pro_by_id->name;
+        $data['price'] = $pro_by_id->price;
+        $data['qty'] = 1;
+        $data['options']['image']= $pro_by_id->image;
+
+//		Cart::destroy();
+        Cart::add($data);
+        return redirect('/shop');
+    }
     public function remove_cart_item($id){
         Cart::remove($id);
         return redirect('/cart');

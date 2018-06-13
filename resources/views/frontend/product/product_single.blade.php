@@ -51,26 +51,16 @@
                 </div>
             </div>
             <ul class="jqzoom-list">
+                <?php $zoom_image = explode('|',$product_by_id->product_image);?>
+
+               @foreach($zoom_image as $small_image)
+                    <?php $i=1;?>
                 <li>
-                    <a class="zoomThumbActive" href="javascript:void(0)" data-rel="{gallery:'gal-1', smallimage: '/img/products/1499633334.jpg', largeimage: '/img/products/1499633334.jpg'}">
-                        <img src="{{asset('public/frontend/img/')}}/products/1499633334.jpg" alt="Image Alternative text" title="Image Title" />
+                    <a href="javascript:void(0)" data-rel="{gallery:'gal-1', smallimage: '{{asset($small_image)}}', largeimage: '{{asset($small_image)}}'}">
+                        <img width="70" height="70" src="{{asset($small_image)}}" alt="Image Alternative text" title="Image Title" />
                     </a>
                 </li>
-                <li>
-                    <a href="javascript:void(0)" data-rel="{gallery:'gal-1', smallimage: '/img/products/1499633334.jpg', largeimage: '/img/products/1499633334.jpg'}">
-                        <img src="{{asset('public/frontend/img/')}}/products/1499633334.jpg" alt="Image Alternative text" title="Image Title" />
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)" data-rel="{gallery:'gal-1', smallimage: '/img/products/1499633334.jpg', largeimage: '/img/products/1499633334.jpg'}">
-                        <img src="{{asset('public/frontend/img/')}}/products/1499633334.jpg" alt="Image Alternative text" title="Image Title" />
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)" data-rel="{gallery:'gal-1', smallimage: '/img/products/1499633334.jpg', largeimage: '/img/products/1499633334.jpg'}">
-                        <img src="{{asset('public/frontend/img/')}}/products/1499633334.jpg" alt="Image Alternative text" title="Image Title" />
-                    </a>
-                </li>
+               @endforeach
             </ul>
         </div>
         <div class="col-md-7">
@@ -297,141 +287,43 @@
                     <div class="col-md-8">
                         <h3>Additional Accessories</h3>
                         <ul class="product-accessory-list">
-                            <li class="product-accessory">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <a href="#">
-                                            <img class="product-accessory-img" src="img/500x500.html" alt="Image Alternative text" title="Image Title" />
-                                        </a>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <ul class="product-page-product-rating">
-                                            <li class="rated"><i class="fa fa-star"></i>
+                            <?php $all_accessories = explode('|',$product_by_id->accessories_id);?>
+                           @foreach($all_accessories as $accs)
+                               @foreach($all_product as $product)
+                                   @if($product->id==$accs)
+                                            <li class="product-accessory">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <a href="#">
+                                                            <img class="product-accessory-img" src="{{asset($product->image)}}" alt="{{$product->name}}" title="{{$product->name}}" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <ul class="product-page-product-rating">
+                                                            <li class="rated"><i class="fa fa-star"></i>
+                                                            </li>
+                                                            <li class="rated"><i class="fa fa-star"></i>
+                                                            </li>
+                                                            <li class="rated"><i class="fa fa-star"></i>
+                                                            </li>
+                                                            <li class="rated"><i class="fa fa-star"></i>
+                                                            </li>
+                                                            <li class="rated"><i class="fa fa-star"></i>
+                                                            </li>
+                                                        </ul>
+                                                        <h5 class="product-accessory-title"><a href="#">{{$product->name}}</a></h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="product-accessory-price">${{$product->price}}</p>
+                                                        <a class="btn btn-primary" href="{{route('accessories-add-to-cart',$product->id)}}"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+
+                                                    </div>
+                                                </div>
                                             </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                        </ul>
-                                        <h5 class="product-accessory-title"><a href="#">High Quality For Sony XPERIA Z AC Wall Charger USB Cable ORIGINAl OEM</a></h5>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="product-accessory-price">$10.99</p><a class="btn btn-primary" href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-accessory">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <a href="#">
-                                            <img class="product-accessory-img" src="img/500x500.html" alt="Image Alternative text" title="Image Title" />
-                                        </a>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <ul class="product-page-product-rating">
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                        </ul>
-                                        <h5 class="product-accessory-title"><a href="#">1x USB Cable For XPERIA Z Ultra Charger Data 8Pin Cord</a></h5>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="product-accessory-price">$36.99</p><a class="btn btn-primary" href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-accessory">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <a href="#">
-                                            <img class="product-accessory-img" src="img/500x500.html" alt="Image Alternative text" title="Image Title" />
-                                        </a>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <ul class="product-page-product-rating">
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                        </ul>
-                                        <h5 class="product-accessory-title"><a href="#">Fire Skull HAPPY Protective Shell Hard Skin Case Back Cover for Sony XPERIA Z</a></h5>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="product-accessory-price">$44.99</p><a class="btn btn-primary" href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-accessory">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <a href="#">
-                                            <img class="product-accessory-img" src="img/500x500.html" alt="Image Alternative text" title="Image Title" />
-                                        </a>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <ul class="product-page-product-rating">
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                        </ul>
-                                        <h5 class="product-accessory-title"><a href="#">Leather Flip Painted For Sony XPERIA Z Ultra Stand Wallet Case Cover Card Holder</a></h5>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="product-accessory-price">$47.99</p><a class="btn btn-primary" href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-accessory">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <a href="#">
-                                            <img class="product-accessory-img" src="img/500x500.html" alt="Image Alternative text" title="Image Title" />
-                                        </a>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <ul class="product-page-product-rating">
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="rated"><i class="fa fa-star"></i>
-                                            </li>
-                                        </ul>
-                                        <h5 class="product-accessory-title"><a href="#">20000mAh Portable Powerbank External Battery Charger for Sony, iPhone, Samsung, HTC, LG</a></h5>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="product-accessory-price">$40.99</p><a class="btn btn-primary" href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-                                    </div>
-                                </div>
-                            </li>
+                                       @endif
+                                   @endforeach
+
+                           @endforeach
                         </ul>
                     </div>
                     <div class="col-md-4">

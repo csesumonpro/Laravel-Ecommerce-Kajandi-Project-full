@@ -37,6 +37,8 @@ class CreateProductsTable extends Migration
             $table->text('special_feature')->nullable();
             $table->text('more_description')->nullable();
             $table->text('more_specification')->nullable();
+            $table->string('accessories_id')->nullable();
+            $table->text('product_image')->nullable();
 
             $table->timestamps();
         });
