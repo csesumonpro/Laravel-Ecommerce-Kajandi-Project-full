@@ -1,16 +1,7 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-//==========================Front End ==========================//
+
+//==========================Front Start ==========================//
 Route::get('/', function () {
     return view('frontend.front_view.main_page.index');
 });
@@ -68,7 +59,6 @@ Route::get('/order-complete','CheckoutController@order_complete')->name('order-c
 //Checkout Controller End
 
 
-
 //==========================Front End ==========================//
 //Custom Authenticatation
 Route::post('/store-user', 'CustomUserController@storeUser')->name('storeUser');
@@ -91,6 +81,8 @@ Route::GET('seller-password/reset','Seller\ForgotPasswordController@showLinkRequ
 Route::POST('seller-password/reset','Seller\ResetPasswordController@reset');
 Route::GET('seller-password/reset/{token}','Seller\ResetPasswordController@showResetForm')->name('seller.password.reset');
 //End Seller Panel Route
+
+Route::get('my-account/{id}','MyAccountController@my_account')->name('my-account');
 
 
 

@@ -198,7 +198,7 @@
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-nav-collapse" area_expanded="false"><span class="sr-only">Main Menu</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{asset('public/frontend/img/')}}/logo.png">
                 </a>
             </div>
@@ -262,8 +262,21 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-right-no-mar navbar-nav-lg">
-                    <li><a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text"><span >Hello, Sign in</span>Your Account</a>
+                    @if(Auth::check())
+                    <li><a href="{{route('my-account',Auth::user()->id)}}"> <span>
+                                Hello,
+                                          {{ Auth::user()->name}}
+
+                            </span>Your Account</a>
                     </li>
+                   @else
+                        <li><a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text"><span >
+                                Hello, Sign in
+
+
+                            </span>Your Account</a>
+                        </li>
+                    @endif
 
                     <li class="dropdown"><a href="mycart.html"><span ></span><i class="fa fa-shopping-cart"></i></a>
                         <ul class='dropdown-menu dropdown-menu-shipping-cart'>

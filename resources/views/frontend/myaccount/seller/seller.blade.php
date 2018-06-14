@@ -1,0 +1,1 @@
+This is Seller {{Auth::user()->name}}

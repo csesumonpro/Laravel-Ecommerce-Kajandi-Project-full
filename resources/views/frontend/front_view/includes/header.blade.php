@@ -403,10 +403,15 @@
 
                 </div>
                 <ul class="nav navbar-nav navbar-right" >
+                    @if(Auth::check())
+                        <li><a href="{{route('my-account',Auth::user()->id)}}" class="text-uppercase">{{Auth::user()->name}}</a>
+                        </li>
+                        @else
                     <li><a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text">Sign In</a>
                     </li>
                     <li><a href="#nav-account-dialog" data-effect="mfp-move-from-top" class="popup-text">Create Account</a>
                     </li>
+                    @endif
 
                     <li class="dropdown">
                         <a class="fa fa-shopping-cart"  href="{{route('cart')}}">

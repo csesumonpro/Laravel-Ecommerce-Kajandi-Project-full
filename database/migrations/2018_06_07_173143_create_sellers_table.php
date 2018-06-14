@@ -15,6 +15,7 @@ class CreateSellersTable extends Migration
     {
         Schema::create('Sellers', function (Blueprint $table) {
           $table->increments('id');
+          $table->integer('admin_id')->nullable();
           $table->string('email')->unique();
           $table->string('vendorname');
           $table->text('address');
@@ -27,6 +28,7 @@ class CreateSellersTable extends Migration
           $table->string('contactname');
           $table->string('contactphone')->nullable();
           $table->string('contactemail')->nullable();
+          $table->string('chairmanname')->nullable();
           $table->string('chairmanphone')->nullable();
           $table->string('chairmanemail')->nullable();
           $table->string('producttype')->nullable();
