@@ -98,11 +98,12 @@
         <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-account-dialog">
 
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('storeUser') }}">
         @csrf
 
       <h3 class="widget-title">Create TheBox Account</h3>
       <p>Ready to get best offers? Let's get started!</p>
+      <p class="text-center  alert-success">{{Session::get('message_success')}}</p>
       <hr />
       <div class="form-group">
           <label>Name</label>
@@ -122,7 +123,27 @@
       </div>
       <div class="form-group">
           <label>Phone Number</label>
-          <input class="form-control" name="phone" type="text" />
+          <input class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" type="text" />
+          @if ($errors->has('phone'))
+              <span class="invalid-feedback">
+                  <strong>{{ $errors->first('phone') }}</strong>
+              </span>
+          @endif
+
+      </div>
+      <div class="form-group">
+          <label>User Type</label>
+
+          <select class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="user_type">
+            <option value="1">Buyer</option>
+            <option value="2">Supplier</option>
+            <option value="3">Both</option>
+          </select>
+          @if ($errors->has('phone'))
+              <span class="invalid-feedback">
+                  <strong>{{ $errors->first('phone') }}</strong>
+              </span>
+          @endif
 
       </div>
       <div class="form-group">
@@ -135,6 +156,7 @@
               </span>
           @endif
       </div>
+
       <div class="form-group">
           <label>Repeat Password</label>
           <input id="password-confirm" class="form-control" type="password" name="password_confirmation" required/>
@@ -214,7 +236,7 @@
                         $all_category = DB::table('categories')->where('cat_major',1)->orderBy('id','desc')->get();
                     ?>
                    @foreach($all_category as $category)
-                    <li class="dropdown yamm-fw"><a href="{{url('/product-category/'.$category->id)}}"><span >{{$category->cat_title}}</span> {{$category->cat_name}}<i class="drop-caret" data-toggle="dropdown"></i></a>
+                    <li class="dropdown yamm-fw"><a href="{{route('product-category',$category->id)}}"><span >{{$category->cat_title}}</span> {{$category->cat_name}}<i class="drop-caret" data-toggle="dropdown"></i></a>
                         <ul class="dropdown-menu">
                             <li class="yamm-content">
                                 <div class="row row-eq-height row-col-border">

@@ -70,6 +70,11 @@ Route::get('/order-complete','CheckoutController@order_complete')->name('order-c
 
 
 //==========================Front End ==========================//
+//Custom Authenticatation
+Route::post('/store-user', 'CustomUserController@storeUser')->name('storeUser');
+Route::get('customer-login', function(){
+    return view('frontend.loginregister.login_register');
+})->name('custLog');
 
 // Seller Panel Route
 Route::GET('seller/home','SellerController@index');
@@ -161,6 +166,19 @@ Route::get('/order-delete/{id}','OrderController@order_delete');
 Route::get('/view-order/{id}','OrderController@view_order');
 Route::get('/download-pdf/{id}','OrderController@download_pdf');
 //order Route Start
+
+//Vendor Route Start
+
+Route::get('/add-vendor', 'AdminAddSellerController@addVendor')->name('addVendor');
+Route::post('/store-vendor', 'AdminAddSellerController@storeVendor')->name('storeVendor');
+Route::get('/vendor-list', 'AdminAddSellerController@vendorList')->name('vendorList');
+Route::get('/vendor-blocked-list', 'AdminAddSellerController@vendorBlockedList')->name('vendorBlockedList');
+Route::get('/edit-vendor/{id}', 'AdminAddSellerController@editVendor')->name('editVendor');
+Route::post('/update-vendor/{id}', 'AdminAddSellerController@updateVendor')->name('updateVendor');
+Route::get('/delete-vendor/{id}', 'AdminAddSellerController@deleteVendor')->name('deleteVendor');
+Route::get('/block-vendor/{id}', 'AdminAddSellerController@blockVendor')->name('blockVendor');
+Route::get('/unblock-vendor/{id}', 'AdminAddSellerController@unblockVendor')->name('unblockVendor');
+//Vendor Route End
 
 
 //==========================BackEnd End ==========================//

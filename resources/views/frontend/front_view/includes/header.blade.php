@@ -53,29 +53,39 @@
         </div>
     </div>
     <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-login-dialog">
-        <h3 class="widget-title">Member Login</h3>
-        <p>Welcome back, friend. Login to get started</p>
-        <hr />
-        <p class="alert alert-danger loginformerror" style="display: none;">Email or Password incorrect</p>
-        <div class="form-group">
-            <label>Email or Username</label>
-            <input class="form-control loginemail" type="text" />
-            <p class="alert alert-danger emailerror" style="display: none;">
-                Email field is empty
-            </p>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input class="form-control loginpassword" type="password" />
-            <p class="alert alert-danger passworderror" style="display: none;">
-                Password field is empty
-            </p>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input class="i-check" type="checkbox" />Remeber Me</label>
-        </div>
-        <input class="btn btn-primary login" type="submit" value="Sign In" />
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+
+            <h3 class="widget-title">Member Login</h3>
+            <p>Welcome back, friend. Login to get started</p>
+            <hr />
+            <p class="alert alert-danger loginformerror" style="display: none;">Email or Password incorrect</p>
+            <div class="form-group">
+                <label>Email or Username</label>
+                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                @endif
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                @endif
+
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}</label>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Sign In" />
+        </form>
 
         <div class="gap gap-small"></div>
         <ul class="list-inline">
@@ -89,58 +99,80 @@
     <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-account-dialog">
 
 
-      <form method="POST" action="{{ route('register') }}">
-          @csrf
+        <form method="POST" action="{{ route('storeUser') }}">
+            @csrf
 
-        <h3 class="widget-title">Create TheBox Account</h3>
-        <p>Ready to get best offers? Let's get started!</p>
-        <hr />
-        <div class="form-group">
-            <label>Name</label>
-            <input class="form-control" name="name" type="text" />
+            <h3 class="widget-title">Create TheBox Account</h3>
+            <p>Ready to get best offers? Let's get started!</p>
+            <p class="text-center  alert-success">{{Session::get('message_success')}}</p>
+            <hr />
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" name="name" type="text" />
 
-        </div>
-        <div class="form-group">
-            <label>Email</label>
-            <input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" type="email" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" type="email" />
 
 
-            @if ($errors->has('email'))
-                <span class="invalid-feedback">
-                    <strong>{{ $errors->first('email') }}</strong>
-                </span>
-            @endif
-        </div>
-        <div class="form-group">
-            <label>Phone Number</label>
-            <input class="form-control" name="phone" type="text" />
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback">
+                  <strong>{{ $errors->first('email') }}</strong>
+              </span>
+                @endif
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" type="text" />
+                @if ($errors->has('phone'))
+                    <span class="invalid-feedback">
+                  <strong>{{ $errors->first('phone') }}</strong>
+              </span>
+                @endif
 
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" />
+            </div>
+            <div class="form-group">
+                <label>User Type</label>
 
-            @if ($errors->has('password'))
-                <span class="invalid-feedback">
-                    <strong>{{ $errors->first('password') }}</strong>
-                </span>
-            @endif
-        </div>
-        <div class="form-group">
-            <label>Repeat Password</label>
-            <input id="password-confirm" class="form-control" type="password" name="password_confirmation" required/>
+                <select class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="user_type">
+                    <option value="1">Buyer</option>
+                    <option value="2">Supplier</option>
+                    <option value="3">Both</option>
+                </select>
+                @if ($errors->has('phone'))
+                    <span class="invalid-feedback">
+                  <strong>{{ $errors->first('phone') }}</strong>
+              </span>
+                @endif
 
-        </div>
-        <p class="alert alert-danger passwordcorrespond" style="display: none;">
-            Password fields must correspond
-        </p>
-        <div class="checkbox">
-            <label>
-                <input class="i-check" type="checkbox" />Subscribe to the Newsletter</label>
-        </div>
-        <input class="btn btn-primary" type="submit" value="Create Account" />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" />
 
-      </form>
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback">
+                  <strong>{{ $errors->first('password') }}</strong>
+              </span>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <label>Repeat Password</label>
+                <input id="password-confirm" class="form-control" type="password" name="password_confirmation" required/>
+
+            </div>
+            <p class="alert alert-danger passwordcorrespond" style="display: none;">
+                Password fields must correspond
+            </p>
+            <div class="checkbox">
+                <label>
+                    <input class="i-check" type="checkbox" />Subscribe to the Newsletter</label>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Create Account" />
+
+        </form>
 
 
 

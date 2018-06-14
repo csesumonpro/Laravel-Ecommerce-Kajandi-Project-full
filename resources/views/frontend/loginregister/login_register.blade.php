@@ -5,6 +5,8 @@
     <div class="container">
         <header class="page-header">
             <h1 class="page-title text-center" >Login & Registration</h1>
+            <p class="text-center alert-success">{{Session::get('message_success')}}</p>
+            <p class="text-center  alert-danger">{{Session::get('message_error')}}</p>
         </header>
         <div class="row">
              <div class="col-md-12">
@@ -44,10 +46,11 @@
                         </div>
                         <input class="btn btn-primary" type="submit" value="Sign In" />
                     </form>
-                    <br /><a href="#">Forgot Your Password?</a>
+                    <br />
+                    <a href="#nav-pwd-dialog" class="popup-text">Forgot Password?</a>
                 </div>
                 <div class="col-md-6">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('storeUser') }}">
                         @csrf
 
                         <h3 class="widget-title">Create Account</h3>
@@ -75,32 +78,32 @@
 
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
-                            <input id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" />
-
-                            @if ($errors->has('password'))
-                                <span class="invalid-feedback">
-                  <strong>{{ $errors->first('password') }}</strong>
-              </span>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <label>Repeat Password</label>
-                            <input id="password-confirm" class="form-control" type="password" name="password_confirmation" required/>
-
-                        </div>
-                        <div class="form-group">
                             <label>Select User Type</label>
                             @if ($errors->has('user_type'))
                                 <span class="invalid-feedback">
                            <strong>{{ $errors->first('user_type') }}</strong>
                                  </span>
                             @endif
-                            <select  class="form-control" name="user_type">
-                                <option value="supplier">Supplier</option>
-                                <option value="buyer">Buyer</option>
-                                <option value="both">Both</option>
+                            <select class="form-control" name="user_type">
+                                <option value="1">Buyer</option>
+                                <option value="2">Supplier</option>
+                                <option value="3">Both</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" />
+
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback">
+                  <strong>{{ $errors->first('password') }}</strong>
+
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label>Repeat Password</label>
+                            <input id="password-confirm" class="form-control" type="password" name="password_confirmation" required/>
+
                         </div>
                         <p class="alert alert-danger passwordcorrespond" style="display: none;">
                             Password fields must correspond
