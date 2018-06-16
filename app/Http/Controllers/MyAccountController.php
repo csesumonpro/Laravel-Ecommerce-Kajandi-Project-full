@@ -6,7 +6,14 @@ use Illuminate\Http\Request;
 use App\User;
 
 class MyAccountController extends Controller{
-   public function my_account($id){
+    public function  __construct(){
+        {
+            $this->middleware('auth');
+//            $this->middleware('admin');
+        }
+    }
+
+    public function my_account($id){
        $user = User::find($id);
       if ($user->user_type=='1'){
           return view('frontend.myaccount.buyer.buyer');

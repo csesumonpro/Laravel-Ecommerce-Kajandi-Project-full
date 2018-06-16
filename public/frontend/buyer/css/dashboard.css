@@ -1,0 +1,138 @@
+.breadcoumb-wrap {
+    padding: 15px 0;
+}
+
+.breadcoumb > a {
+    color:  #333;
+    display:  inline-block;
+    margin-right: 5px;
+}
+
+.breadcoumb span {
+    font-weight:  700;
+}
+
+.dashboard-wrap {
+    background-color:  #fff;
+    position:  relative;
+}
+
+.dash-navigation-wrap {
+    position:  absolute;
+    left:  0;
+    top:  0;
+    width: 16.66667%;
+    height: 100%;
+    background-color: #ce3f51;
+    padding: 20px 15px;
+    min-height: 500px;
+}
+
+.dash-navigation-wrap ul li a {
+    color:  #fff;
+    padding: 10px 10px;
+    display:  block;
+    text-transform:  capitalize;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 3px;
+}
+
+.dash-navigation-wrap ul li a:hover, .dash-navigation-wrap ul li.active {
+    color:  #fff;
+    background-color:  #1c6e94;
+    text-decoration:  none;
+}
+
+.dash-navigation-wrap ul li {
+    display:  block;
+}
+
+.dashboard-content-wrap {
+    min-height: 500px;
+    background-color:  #fff;
+    padding:  15px;
+}
+
+.dashborad-heading {
+	margin-bottom: 10px;
+}
+
+.dashboard-content-wrap .p-status {
+    padding: 4px;
+    text-align: center;
+}
+
+.dashboard-content-wrap .form-control {
+    display:  inline-block;
+    width:  auto;
+}
+
+.single-dash-product {
+    position:  relative;
+    padding-left: 55px;
+}
+
+.single-dash-product .image {
+    position:  absolute;
+    left:  0;
+    top:  0;
+    width:  50px;
+}
+
+.single-dash-product h4 {
+    font-size:  15px;
+    font-weight:  700;
+}
+
+.single-dash-product h4 span {
+    font-weight:  400;
+    display:  block;
+    margin-top: 3px;
+}
+
+.single-dash-product .p-color {
+    color: #777;
+}
+
+.dash-report-table td, .dash-report-table th {
+    border: 1px solid #e3e3e3;
+}
+
+.dash-report-table tbody tr:nth-child(odd) {
+    background-color: #f8f8f8;
+}
+
+.no-data-cell {
+    position:  absolute;
+    width: 100%;
+    padding: 15px;
+    background-color: #f0f0f0;
+    left: 0;
+    text-align:  center;
+    top: 0;
+}
+
+tr.no-data {
+    position: relative;
+    overflow:  hidden;
+    height: 53px;
+}
+
+tr.no-data td {
+    position:  absolute;
+    width: 94%;
+    left: 30px;
+    border: none;
+}
+
+.table-pagination {
+    margin: 10px 0;
+}
+
+.btn.transparent-btn {
+    background-color:  transparent;
+    border:  1px solid;
+    color: #777;
+}

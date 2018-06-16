@@ -144,6 +144,7 @@ class CheckoutController extends Controller{
         return view('frontend.checkout.checkout_content');
     }
     public function place_order(Request $request){
+
         $request->validate([
             'payment' => 'required',
         ]);
@@ -152,6 +153,7 @@ class CheckoutController extends Controller{
             $order->cus_id = Auth::user()->id;
             $order->ship_id = Session::get('shipping_id');
             $order->order_total = Session::get('grand_total');
+            $order->total_qty = Cart::count();
             $order->save();
             $order_id = $order->id;
             Session::put('order_id',$order_id);

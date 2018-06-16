@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('public/frontend/css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('public/frontend/css/mystyles.css')}}">
     <link rel="stylesheet" href="{{asset('public/frontend/css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{asset('public/frontend/buyer/css/dashboard.css')}}">
 
 </head>
 

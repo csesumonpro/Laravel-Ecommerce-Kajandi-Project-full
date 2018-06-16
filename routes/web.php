@@ -60,11 +60,22 @@ Route::get('/order-complete','CheckoutController@order_complete')->name('order-c
 
 
 //==========================Front End ==========================//
+//CustomUserController route start
 //Custom Authenticatation
 Route::post('/store-user', 'CustomUserController@storeUser')->name('storeUser');
 Route::get('customer-login', function(){
     return view('frontend.loginregister.login_register');
 })->name('custLog');
+Route::get('customer-orders/{id}','CustomUserController@customer_orders')->name('customer-orders');
+Route::get('customer-report/{id}','CustomUserController@customer_report')->name('customer-report');
+Route::get('customer-accounting/{id}','CustomUserController@customer_accounting')->name('customer-accounting');
+Route::get('customer-wallet/{id}','CustomUserController@customer_wallet')->name('customer-wallet');
+Route::get('customer-payment/{id}','CustomUserController@customer_payment')->name('customer-payment');
+Route::get('customer-research/{id}','CustomUserController@customer_research')->name('customer-research');
+Route::get('view-each-order/{id}','CustomUserController@view_each_order')->name('view-each-order');
+
+//CustomUserController route end
+
 
 // Seller Panel Route
 Route::GET('seller/home','SellerController@index');
@@ -155,7 +166,7 @@ Route::post('update-product','ProductController@product_update')->name('update-p
 Route::get('/manage-order','OrderController@manage_order')->name('manage-order');
 Route::get('/order-status/{id}','OrderController@order_status');
 Route::get('/order-delete/{id}','OrderController@order_delete');
-Route::get('/view-order/{id}','OrderController@view_order');
+Route::get('/view-order/{id}','OrderController@view_order')->name('view-order');
 Route::get('/download-pdf/{id}','OrderController@download_pdf');
 //order Route Start
 
