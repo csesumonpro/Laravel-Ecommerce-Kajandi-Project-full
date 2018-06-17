@@ -70,7 +70,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <input class="input-3" name="input-3" value="4.3" class="rating-loading" data-size="xs">
-                                <p class="product-page-product-rating-sign">1 customer reviews</p>
+                                <p class="product-page-product-rating-sign">1 customer reviews </p>
                             </div>
                             <div class="col-md-6 pull-right">
                                 <h6 class="pull-right">Sold by <a href="../vendors/13.html">Leister</a></h6>
@@ -249,36 +249,96 @@
                     </div>
                 </div>
                 <hr />
-                <article class='product-review'>
+                {{--<article class='product-review'>--}}
 
-                    <div class='product-review-content'>
-                        <input class='input-3' name='input-3' value=4.3 class='rating-loading' data-size='xs'>
-                        <p class='product-review-meta'>by ebere chukwu uche on 19/11/2017</p>
-                        <p class='product-review-body'>Good one</p>
+                    {{--<div class='product-review-content'>--}}
+                        {{--<input class='input-3' name='input-3' value=4.3 class='rating-loading' data-size='xs'>--}}
+                        {{--<p class='product-review-meta'>by ebere chukwu uche on 19/11/2017</p>--}}
+                        {{--<p class='product-review-body'>Good one</p>--}}
+
+                    {{--</div>--}}
+                {{--</article>                      --}}
+                <article class="product-review">
+
+                    <div class="row">
+                        <div class="col-md-7">
+                        <?php
+                            $all_review =  DB::table('customer_reviews')
+
+                                ->where('product_id',$product_by_id->id)
+//                                ->where('user_id',Auth::user()->id)
+//                                ->get();
+                                ->paginate(2)
+                        ?>
+                            <?php $all_users = DB::table('users')->get();?>
+                            @foreach($all_review as $review)
+
+                            <div class='product-review-content'>
+                                <input class='input-3' name='input-3' value={{$review->rating}} class='rating-loading' data-size='xs'>
+                                <p class='product-review-meta'>
+                                    by @foreach($all_users as $user)
+                                           @if($user->id==$review->user_id)
+                                               {{$user->name}}
+                                           @endif
+                                        @endforeach
+                                    on
+                                   <?php
+                                       $dt = new DateTime($review->created_at);
+                                      echo $dt->format('d/m/y');
+                                    ?>
+
+
+
+                                </p>
+                                <p class='product-review-body'>{{$review->review}}</p>
+                            </div>
+                            @endforeach
+
+                        </div>
+                        <div class="col-md-5">
+                            {{Form::open(['url'=>'write-customer-review','method'=>'POST'])}}
+                                <h4>Have you used this product before?</h4>
+                                <div class="stars">
+                                    <input type="radio" name="star" class="star-1" id="star-1" value="1">
+                                    <label class="star-1" for="star-1">1</label>
+                                    <input type="radio" name="star" class="star-2" id="star-2" value="2">
+                                    <label class="star-2" for="star-2">2</label>
+                                    <input type="radio" name="star" class="star-3" id="star-3" value="3">
+                                    <label class="star-3" for="star-3">3</label>
+                                    <input type="radio" name="star" class="star-4" id="star-4" value="4">
+                                    <label class="star-4" for="star-4">4</label>
+                                    <input type="radio" name="star" class="star-5" id="star-5" value="5">
+                                    <label class="star-5" for="star-5">5</label>
+                                    <span></span>
+                                </div><br>
+                                <input type="text" name="review" id="review" class="form-control" placeholder="Write your review">
+                            <input type="hidden" name="product_id" value="{{$product_by_id->id}}">
+                            <br><button href="#" class="btn btn-primary">submit review</button>
+                           {!! Form::close() !!}
+
+                        </div>
+                    </div>
+                </article>
+                <div class="row">
+                    <div class="col-md-6">
+                        <?php
+                             $all_review->toArray();
+                        ?>
+                        <p class="category-pagination-sign"> {{$all_review->total()}} customer reviews found. Showing
+                            {{ $all_review->currentPage()}} - {{$all_review->lastPage()}}
+                        </p>
 
                     </div>
-                </article>                        <div class="row">
                     <div class="col-md-6">
-                        <p class="category-pagination-sign">1 customer reviews found. Showing 1 - 5</p>
+                        <style>
+                            .pagination > .active > span{
+                                background-color:#CE3F51;
+                                border-color: #CE3F51;
+                            }
+                        </style>
+                        {{--{{ $all_products->count()}}--}}
+                        <span class="text-center"> {{ $results = $all_review->links() }}</span>
 
-                    </div>
-                    <div class="col-md-6">
-                        <nav>
-                            <ul class="pagination category-pagination pull-right">
-                                <li class="active"><a href="#">1</a>
-                                </li>
-                                <li><a href="#">2</a>
-                                </li>
-                                <li><a href="#">3</a>
-                                </li>
-                                <li><a href="#">4</a>
-                                </li>
-                                <li><a href="#">5</a>
-                                </li>
-                                <li class="last"><a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -311,6 +371,13 @@
                                                             <li class="rated"><i class="fa fa-star"></i>
                                                             </li>
                                                         </ul>
+                                                        <input class='input-3' name='input-3'
+
+                                                               <?php $average_rating = DB::table('customer_reviews')
+                                                                   ->where('product_id',$product_by_id->id)->get();?>
+                                                               value=4
+                                                               class='rating-loading' data-size='xs'>
+
                                                         <h5 class="product-accessory-title"><a href="#">{{$product->name}}</a></h5>
                                                     </div>
                                                     <div class="col-md-3">

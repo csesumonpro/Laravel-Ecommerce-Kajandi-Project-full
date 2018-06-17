@@ -11,6 +11,9 @@ use App\Shipping;
 use App\Customer;
 class CustomUserController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function storeUser(Request $request){
         $this->validate($request, [
             'name' => 'required|min:3|max:30',

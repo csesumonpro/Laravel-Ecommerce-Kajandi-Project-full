@@ -58,6 +58,10 @@ Route::get('/order-complete','CheckoutController@order_complete')->name('order-c
 
 //Checkout Controller End
 
+//Customer Review Start
+Route::POST('/write-customer-review','CustomerReviewController@write_customer_review')->name('write-customer-review');
+//Customer Review End
+
 
 //==========================Front End ==========================//
 //CustomUserController route start

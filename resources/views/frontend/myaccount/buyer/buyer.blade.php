@@ -10,13 +10,18 @@
         <!-- Navigation -->
         <nav class="dash-navigation-wrap">
             <ul>
-                <li class="active"><a href="{{route('my-account',Auth::user()->id)}}">Dashboard</a></li>
+                <li class="active"><a  href="{{route('my-account',Auth::user()->id)}}">Dashboard</a></li>
                 <li><a href="{{route('customer-orders',Auth::user()->id)}}">orders</a></li>
                 <li><a href="{{route('customer-report',Auth::user()->id)}}">Report</a></li>
                 <li><a href="{{route('customer-accounting',Auth::user()->id)}}">Accounting</a></li>
                 <li><a href="{{route('customer-wallet',Auth::user()->id)}}">Wallet</a></li>
+                <li><a href="{{route('wishlist')}}">Wishlist</a></li>
                 <li><a href="{{route('customer-payment',Auth::user()->id)}}">Date &amp; Time Outstanding Payments</a></li>
-                <li><a href="{{route('customer-research',Auth::user()->id)}}">Supplier Research &amp; Selection</a></li>
+                <li><a href="{{route('customer-research',Auth::user()->id)}}">Supplier Research </a></li>
+                <li><a href="{{route('customer-research',Auth::user()->id)}}">Reviews & Ratings</a></li>
+                <li class="settings-menu"><a href="">Personal Information</a></li>
+                <li class="settings-menu"><a href="">Change Password</a></li>
+
                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">

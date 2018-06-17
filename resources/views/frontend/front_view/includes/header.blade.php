@@ -19,10 +19,11 @@
     <link rel="stylesheet" href="{{asset('public/frontend/css/star-rating.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/frontend/css/table-responsive01.css')}}">
     <link rel="stylesheet" href="{{asset('public/frontend/css/table-responsive02.css')}}">
+    <link rel="stylesheet" href="{{asset('public/frontend/buyer/css/dashboard.css')}}">
     <link rel="stylesheet" href="{{asset('public/frontend/css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('public/frontend/css/mystyles.css')}}">
     <link rel="stylesheet" href="{{asset('public/frontend/css/jquery-ui.css')}}">
-    <link rel="stylesheet" href="{{asset('public/frontend/buyer/css/dashboard.css')}}">
+
 
 </head>
 
