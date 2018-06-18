@@ -71,6 +71,46 @@ class MyAccountController extends Controller{
        }
 
     }
+    public function customer_personal_info(){
+        return view('frontend.myaccount.buyer.customer_personal_info');
+    }
+    public function update_personal_info(Request $request){
+
+        $request->validate([
+            'bil_address_1' => 'required|max:255|min:5',
+            'bil_phone' => 'required',
+            'bil_first_name' => 'required',
+            'bil_last_name' => 'required',
+            'bil_city' => 'required|min:2|max:100',
+            'bil_zipcode' => 'required|min:4|max:5',
+        ]);
+      $customer = Customer::where('cus_id',Auth::user()->id)->first();
+      $customer->bil_first_name = $request->bil_first_name;
+      $customer->bil_last_name = $request->bil_last_name;
+      $customer->bil_phone = $request->bil_phone;
+      $customer->bil_address_1 = $request->bil_address_1;
+      $customer->bil_address_2 = $request->bil_address_2;
+      $customer->bil_city = $request->bil_city;
+      $customer->bil_country = $request->bil_country;
+      $customer->bil_zipcode = $request->bil_zipcode;
+      $customer->save();
+      $user = User::find(Auth::user()->id);
+      $user->phone = $request->bil_phone;
+      $user->save();
+        return redirect('/customer-personal-info/'.Auth::user()->id)->with('message_success','Personal Information Changed Successfully..');
+    }
+    public function change_customer_email(Request $request){
+        $this->validate($request, [
+            'email' => 'required|email|unique:users,email',
+        ]);
+        $user = User::find(Auth::user()->id);
+        $user->email = $request->email;
+        $user->save();
+        $customer = Customer::where('cus_id',Auth::user()->id)->first();
+        $customer->bil_email = $request->email;
+        $customer->save();
+        return redirect('/customer-personal-info/'.Auth::user()->id)->with('message_success','Email Changed Successfully..');
+    }
 
 
 

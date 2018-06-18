@@ -79,7 +79,9 @@ Route::get('customer-research/{id}','MyAccountController@customer_research')->na
 Route::get('view-each-order/{id}','MyAccountController@view_each_order')->name('view-each-order');
 Route::get('customer-review/{id}','MyAccountController@customer_review')->name('customer-review');
 Route::get('customer-personal-info/{id}','MyAccountController@customer_personal_info')->name('customer-personal-info');
+Route::post('update-personal-info','MyAccountController@update_personal_info')->name('update-personal-info');
 Route::get('customer-change-password/{id}','MyAccountController@customer_change_password')->name('customer-change-password');
+Route::post('change-customer-email','MyAccountController@change_customer_email')->name('change-customer-email');
 Route::post('customer-password-change','MyAccountController@customer_password_change')->name('customer-password-change');
 
 //CustomUserController route end
