@@ -69,8 +69,20 @@
                     <div class="box">
                         <div class="row">
                             <div class="col-md-6">
-                                <input class="input-3" name="input-3" value="4.3" class="rating-loading" data-size="xs">
-                                <p class="product-page-product-rating-sign">1 customer reviews </p>
+                                <?php $average_rating = DB::table('customer_reviews')
+                                    ->where('product_id',$product_by_id->id)->get();?>
+                                <?php
+                                $avg = 0;
+                                foreach ($average_rating as $avgr){
+                                    $result = $avgr->rating;
+                                    $avg = $avg+$result;
+                                }?>
+                                <input class="input-3" name="input-3" value="<?php
+                                if($avg>0){
+                                    echo  $rate_by_product = $avg/$average_rating->count();
+                                }
+                                ?>" class="rating-loading" data-size="xs">
+                                <p class="product-page-product-rating-sign">{{$average_rating->count()}} customer reviews </p>
                             </div>
                             <div class="col-md-6 pull-right">
                                 <h6 class="pull-right">Sold by <a href="../vendors/13.html">Leister</a></h6>
@@ -249,15 +261,6 @@
                     </div>
                 </div>
                 <hr />
-                {{--<article class='product-review'>--}}
-
-                    {{--<div class='product-review-content'>--}}
-                        {{--<input class='input-3' name='input-3' value=4.3 class='rating-loading' data-size='xs'>--}}
-                        {{--<p class='product-review-meta'>by ebere chukwu uche on 19/11/2017</p>--}}
-                        {{--<p class='product-review-body'>Good one</p>--}}
-
-                    {{--</div>--}}
-                {{--</article>                      --}}
                 <article class="product-review">
 
                     <div class="row">
@@ -359,23 +362,24 @@
                                                         </a>
                                                     </div>
                                                     <div class="col-md-7">
-                                                        <ul class="product-page-product-rating">
-                                                            <li class="rated"><i class="fa fa-star"></i>
-                                                            </li>
-                                                            <li class="rated"><i class="fa fa-star"></i>
-                                                            </li>
-                                                            <li class="rated"><i class="fa fa-star"></i>
-                                                            </li>
-                                                            <li class="rated"><i class="fa fa-star"></i>
-                                                            </li>
-                                                            <li class="rated"><i class="fa fa-star"></i>
-                                                            </li>
-                                                        </ul>
-                                                        <input class='input-3' name='input-3'
 
-                                                               <?php $average_rating = DB::table('customer_reviews')
-                                                                   ->where('product_id',$product_by_id->id)->get();?>
-                                                               value=4
+                                                        <?php $average_rating = DB::table('customer_reviews')
+                                                            ->where('product_id',$product->id)->get();?>
+                                                        <?php
+                                                       $avg = 0;
+                                                        foreach ($average_rating as $avgr){
+                                                            $result = $avgr->rating;
+                                                            $avg = $avg+$result;
+                                                        }?>
+
+
+
+                                                        <input class='input-3' name='input-3'
+                                                               value= "<?php
+                                                               if($avg>0){
+                                                                 echo  $rate_by_product = $avg/$average_rating->count();
+                                                               }
+                                                               ?>"
                                                                class='rating-loading' data-size='xs'>
 
                                                         <h5 class="product-accessory-title"><a href="#">{{$product->name}}</a></h5>

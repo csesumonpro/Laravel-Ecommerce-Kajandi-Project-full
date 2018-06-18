@@ -169,6 +169,42 @@
                             <a class="product-link" href="{{url('/product-details/'.$product->id)}}"></a>
                             <div class="product-caption">
                                 <ul class="product-caption-rating">
+                                    <?php $average_rating = DB::table('customer_reviews')
+                                        ->where('product_id',$product->id)->get();?>
+                                    <?php
+                                    $avg = 0;
+                                    foreach ($average_rating as $avgr){
+                                        $result = $avgr->rating;
+                                        $avg = $avg+$result;
+                                    }?>
+                                    <?php if($avg>0){
+                                    $rate_by_product = $avg/$average_rating->count();
+                                    if($rate_by_product>0 && $rate_by_product<=1){?>
+                                    <li class="rated"><i class="fa fa-star"></i>
+                                    </li>
+                                    <?php    }elseif($rate_by_product>1 && $rate_by_product<=2){?>
+                                    <li class="rated"><i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="rated"><i class="fa fa-star"></i>
+                                    </li>
+                                    <?php } elseif($rate_by_product>2 && $rate_by_product<=3){?>
+                                    <li class="rated"><i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="rated"><i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="rated"><i class="fa fa-star"></i>
+                                    </li>
+                                    <?php     }elseif ($rate_by_product>3 && $rate_by_product<=4){?>
+
+                                    <li class="rated"><i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="rated"><i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="rated"><i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="rated"><i class="fa fa-star"></i>
+                                    </li>
+                                    <?php } elseif($rate_by_product>4 && $rate_by_product<=5){?>
                                     <li class="rated"><i class="fa fa-star"></i>
                                     </li>
                                     <li class="rated"><i class="fa fa-star"></i>
@@ -179,6 +215,8 @@
                                     </li>
                                     <li class="rated"><i class="fa fa-star"></i>
                                     </li>
+
+                                    <?php } }?>
                                 </ul>
                                 <h5 class="product-caption-title">{{$product->name}}</h5>
                                 <div class="product-caption-price">
