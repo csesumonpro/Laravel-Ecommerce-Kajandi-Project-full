@@ -70,13 +70,17 @@ Route::post('/store-user', 'CustomUserController@storeUser')->name('storeUser');
 Route::get('customer-login', function(){
     return view('frontend.loginregister.login_register');
 })->name('custLog');
-Route::get('customer-orders/{id}','CustomUserController@customer_orders')->name('customer-orders');
-Route::get('customer-report/{id}','CustomUserController@customer_report')->name('customer-report');
-Route::get('customer-accounting/{id}','CustomUserController@customer_accounting')->name('customer-accounting');
-Route::get('customer-wallet/{id}','CustomUserController@customer_wallet')->name('customer-wallet');
-Route::get('customer-payment/{id}','CustomUserController@customer_payment')->name('customer-payment');
-Route::get('customer-research/{id}','CustomUserController@customer_research')->name('customer-research');
-Route::get('view-each-order/{id}','CustomUserController@view_each_order')->name('view-each-order');
+Route::get('customer-orders/{id}','MyAccountController@customer_orders')->name('customer-orders');
+Route::get('customer-report/{id}','MyAccountController@customer_report')->name('customer-report');
+Route::get('customer-accounting/{id}','MyAccountController@customer_accounting')->name('customer-accounting');
+Route::get('customer-wallet/{id}','MyAccountController@customer_wallet')->name('customer-wallet');
+Route::get('customer-payment/{id}','MyAccountController@customer_payment')->name('customer-payment');
+Route::get('customer-research/{id}','MyAccountController@customer_research')->name('customer-research');
+Route::get('view-each-order/{id}','MyAccountController@view_each_order')->name('view-each-order');
+Route::get('customer-review/{id}','MyAccountController@customer_review')->name('customer-review');
+Route::get('customer-personal-info/{id}','MyAccountController@customer_personal_info')->name('customer-personal-info');
+Route::get('customer-change-password/{id}','MyAccountController@customer_change_password')->name('customer-change-password');
+Route::post('customer-password-change','MyAccountController@customer_password_change')->name('customer-password-change');
 
 //CustomUserController route end
 

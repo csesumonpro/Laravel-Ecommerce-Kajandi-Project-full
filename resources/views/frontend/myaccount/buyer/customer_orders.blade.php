@@ -18,9 +18,9 @@
                 <li><a href="{{route('wishlist')}}">Wishlist</a></li>
                 <li><a href="{{route('customer-payment',Auth::user()->id)}}">Date &amp; Time Outstanding Payments</a></li>
                 <li><a href="{{route('customer-research',Auth::user()->id)}}">Supplier Research </a></li>
-                <li><a href="{{route('customer-research',Auth::user()->id)}}">Reviews & Ratings</a></li>
-                <li class="settings-menu"><a href="">Personal Information</a></li>
-                <li class="settings-menu"><a href="">Change Password</a></li>
+                <li><a href="{{route('customer-review',Auth::user()->id)}}">Reviews & Ratings</a></li>
+                <li class="settings-menu"><a href="{{route('customer-personal-info',Auth::user()->id)}}">Personal Information</a></li>
+                <li class="settings-menu"><a href="{{route('customer-change-password',Auth::user()->id)}}">Change Password</a></li>
 
                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
