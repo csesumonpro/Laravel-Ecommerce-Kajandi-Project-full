@@ -1,66 +1,54 @@
+<h6 class="title-divider text-muted mt40 mb20"> Site Statistics
+    <span class="pull-right text-primary fw600">Today</span>
+</h6>
+</div>
+</div>
+</aside>
+<!--  /Sidebar Right  -->
 
+</div>
+<!--  /Body Wrap   -->
 
-</div><!-- /#right-panel -->
+<!--  Scripts  -->
 
-<!-- Right Panel -->
+<!--  jQuery  -->
+<script src="{{asset('public/seller')}}/assets/js/jquery/jquery-1.11.3.min.js"></script>
+<script src="{{asset('public/seller')}}/assets/js/jquery/jquery_ui/jquery-ui.min.js"></script>
 
-<script src="{{asset('/public/backend/assets/')}}/js/vendor/jquery-2.1.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-<script src="{{asset('/public/backend/assets/')}}/js/plugins.js"></script>
-<script src="{{asset('/public/backend/assets/')}}/js/main.js"></script>
+<!--  HighCharts Plugin  -->
+<script src="{{asset('public/seller')}}/assets/js/plugins/highcharts/highcharts.js"></script>
+<script src="{{asset('public/seller')}}/assets/js/plugins/c3charts/d3.min.js"></script>
+<script src="{{asset('public/seller')}}/assets/js/plugins/c3charts/c3.min.js"></script>
 
+<!--  Simple Circles Plugin  -->
+<script src="{{asset('public/seller')}}/assets/js/plugins/circles/circles.js"></script>
 
-<script src="{{asset('/public/backend/assets/')}}/js/lib/chart-js/Chart.bundle.js"></script>
-<script src="{{asset('/public/backend/assets/')}}/js/dashboard.js"></script>
-<script src="{{asset('/public/backend/assets/')}}/js/widgets.js"></script>
-<script src="{{asset('/public/backend/assets/')}}/js/lib/vector-map/jquery.vmap.js"></script>
-<script src="{{asset('/public/backend/assets/')}}/js/lib/vector-map/jquery.vmap.min.js"></script>
-<script src="{{asset('/public/backend/assets/')}}/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
-<script src="{{asset('/public/backend/assets/')}}/js/lib/vector-map/country/jquery.vmap.world.js"></script>
-{{--Datable Script Start--}}
-<script src="{{asset('public/backend/assets/')}}/js/lib/data-table/datatables.min.js"></script>
-<script src="{{asset('public/backend/assets/')}}/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-<script src="{{asset('public/backend/assets/')}}/js/lib/data-table/dataTables.buttons.min.js"></script>
-<script src="{{asset('public/backend/assets/')}}/js/lib/data-table/buttons.bootstrap.min.js"></script>
-<script src="{{asset('public/backend/assets/')}}/js/lib/data-table/jszip.min.js"></script>
-<script src="{{asset('public/backend/assets/')}}/js/lib/data-table/pdfmake.min.js"></script>
-<script src="{{asset('public/backend/assets/')}}/js/lib/data-table/vfs_fonts.js"></script>
-<script src="{{asset('public/backend/assets/')}}/js/lib/data-table/buttons.html5.min.js"></script>
-<script src="{{asset('public/backend/assets/')}}/js/lib/data-table/buttons.print.min.js"></script>
-<script src="{{asset('public/backend/assets/')}}/js/lib/data-table/buttons.colVis.min.js"></script>
-<script src="{{asset('public/backend/assets/')}}/js/lib/data-table/datatables-init.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#bootstrap-data-table-export').DataTable();
-    } );
-</script>
+<!--  Maps JSs  -->
+<script src="{{asset('public/seller')}}/assets/js/plugins/jvectormap/jquery.jvectormap.min.js"></script>
+<script src="{{asset('public/seller')}}/assets/js/plugins/jvectormap/assets/jquery-jvectormap-us-lcc-en.js"></script>
 
-{{--Datable Script End--}}
-<script>
-    ( function ( $ ) {
-        "use strict";
+<!--  FullCalendar Plugin  -->
+<script src="{{asset('public/seller')}}/assets/js/plugins/fullcalendar/lib/moment.min.js"></script>
+<script src="{{asset('public/seller')}}/assets/js/plugins/fullcalendar/fullcalendar.min.js"></script>
 
-        jQuery( '#vmap' ).vectorMap( {
-            map: 'world_en',
-            backgroundColor: null,
-            color: '#ffffff',
-            hoverOpacity: 0.7,
-            selectedColor: '#1de9b6',
-            enableZoom: true,
-            showTooltip: true,
-            values: sample_data,
-            scaleColors: [ '#1de9b6', '#03a9f5' ],
-            normalizeFunction: 'polynomial'
-        } );
-    } )( jQuery );
-</script>
-{{--Ck Editor Script--}}
-<script src="{{asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
-<script src="{{asset('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
-<script>
-    $('textarea').ckeditor();
-    // $('.textarea').ckeditor(); // if class is prefered.
-</script>
+<!--  Date/Month - Pickers  -->
+<script src="{{asset('public/seller')}}/assets/allcp/forms/js/jquery-ui-monthpicker.min.js"></script>
+<script src="{{asset('public/seller')}}/assets/allcp/forms/js/jquery-ui-datepicker.min.js"></script>
+
+<!--  Magnific Popup Plugin  -->
+<script src="{{asset('public/seller')}}/assets/js/plugins/magnific/jquery.magnific-popup.js"></script>
+
+<!--  Theme Scripts  -->
+<script src="{{asset('public/seller')}}/assets/js/utility/utility.js"></script>
+<script src="{{asset('public/seller')}}/assets/js/demo/demo.js"></script>
+<script src="{{asset('public/seller')}}/assets/js/main.js"></script>
+
+<!--  Widget JS  -->
+<script src="{{asset('public/seller')}}/assets/js/demo/widgets.js"></script>
+<script src="{{asset('public/seller')}}/assets/js/demo/widgets_sidebar.js"></script>
+<script src="{{asset('public/seller')}}/assets/js/pages/dashboard1.js"></script>
+<!--  /Scripts  -->
 
 </body>
+
 </html>

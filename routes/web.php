@@ -187,5 +187,25 @@ Route::get('/block-vendor/{id}', 'AdminAddSellerController@blockVendor')->name('
 Route::get('/unblock-vendor/{id}', 'AdminAddSellerController@unblockVendor')->name('unblockVendor');
 //Vendor Route End
 
+//Home featured By Vendor
+Route::get('/add-home-advert', 'AdvertController@addHomeAdvert')->name('addHomeAdvert');
+Route::post('/select-pro', ['as'=>'select-pro','uses'=>'AdvertController@selectPro']);
+Route::post('/post-home-advert', 'AdvertController@storeAdvert')->name('storeAdvert');
+Route::get('/home-advert-list', 'AdvertController@adrvertList')->name('adrvertList');
+Route::get('/edit-advert/{id}', 'AdvertController@editAdvert')->name('editAdvert');
+Route::post('/update-advert/{id}', 'AdvertController@updateAdvert')->name('updateAdvert');
+Route::get('/delete-advert/{id}', 'AdvertController@deleteAdvert')->name('deleteAdvert');
+
+//End Home featured By Vendor
+
 
 //==========================BackEnd End ==========================//
+//==========================Vendor Start ==========================//
+Route::get('/vendors', function(){
+  return view('seller.seller_master');
+});
+Route::get('/seller/add-product', 'SellerProductController@index')->name('add-product');
+Route::post('/seller/post-product', 'SellerProductController@postSellerProduct')->name('postSellerProduct');
+Route::get('/seller/product-list', 'SellerProductController@productList')->name('productList');
+Route::get('/seller/edit-product/{id}', 'SellerProductController@editProduct')->name('editProduct');
+Route::get('/seller/delete-product/{id}', 'SellerProductController@deleteProduct')->name('deleteProduct');

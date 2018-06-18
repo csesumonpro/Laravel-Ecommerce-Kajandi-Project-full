@@ -24,7 +24,7 @@ class SellerController extends Controller
      */
     public function index()
     {
-        return view('seller.seller_master');
+        return view('seller.dashboard');
     }
 
 
