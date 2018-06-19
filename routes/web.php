@@ -60,6 +60,7 @@ Route::get('/order-complete','CheckoutController@order_complete')->name('order-c
 
 //Customer Review Start
 Route::POST('/write-customer-review','CustomerReviewController@write_customer_review')->name('write-customer-review');
+
 //Customer Review End
 
 
@@ -70,19 +71,9 @@ Route::post('/store-user', 'CustomUserController@storeUser')->name('storeUser');
 Route::get('customer-login', function(){
     return view('frontend.loginregister.login_register');
 })->name('custLog');
-Route::get('customer-orders/{id}','MyAccountController@customer_orders')->name('customer-orders');
-Route::get('customer-report/{id}','MyAccountController@customer_report')->name('customer-report');
-Route::get('customer-accounting/{id}','MyAccountController@customer_accounting')->name('customer-accounting');
-Route::get('customer-wallet/{id}','MyAccountController@customer_wallet')->name('customer-wallet');
-Route::get('customer-payment/{id}','MyAccountController@customer_payment')->name('customer-payment');
-Route::get('customer-research/{id}','MyAccountController@customer_research')->name('customer-research');
-Route::get('view-each-order/{id}','MyAccountController@view_each_order')->name('view-each-order');
-Route::get('customer-review/{id}','MyAccountController@customer_review')->name('customer-review');
-Route::get('customer-personal-info/{id}','MyAccountController@customer_personal_info')->name('customer-personal-info');
-Route::post('update-personal-info','MyAccountController@update_personal_info')->name('update-personal-info');
-Route::get('customer-change-password/{id}','MyAccountController@customer_change_password')->name('customer-change-password');
-Route::post('change-customer-email','MyAccountController@change_customer_email')->name('change-customer-email');
-Route::post('customer-password-change','MyAccountController@customer_password_change')->name('customer-password-change');
+Route::get('show-contact-form','CustomUserController@show_contact_form')->name('show-contact-form');
+Route::post('save-contact-form','CustomUserController@save_contact_form')->name('save-contact-form');
+
 
 //CustomUserController route end
 
@@ -102,9 +93,33 @@ Route::GET('seller-password/reset','Seller\ForgotPasswordController@showLinkRequ
 Route::POST('seller-password/reset','Seller\ResetPasswordController@reset');
 Route::GET('seller-password/reset/{token}','Seller\ResetPasswordController@showResetForm')->name('seller.password.reset');
 //End Seller Panel Route
-
+//My Account route Start
 Route::get('my-account/{id}','MyAccountController@my_account')->name('my-account');
-
+Route::get('customer-orders/{id}','MyAccountController@customer_orders')->name('customer-orders');
+Route::get('customer-report/{id}','MyAccountController@customer_report')->name('customer-report');
+Route::get('customer-accounting/{id}','MyAccountController@customer_accounting')->name('customer-accounting');
+Route::get('customer-wallet/{id}','MyAccountController@customer_wallet')->name('customer-wallet');
+Route::get('customer-payment/{id}','MyAccountController@customer_payment')->name('customer-payment');
+Route::get('customer-research/{id}','MyAccountController@customer_research')->name('customer-research');
+Route::get('view-each-order/{id}','MyAccountController@view_each_order')->name('view-each-order');
+Route::get('customer-review/{id}','MyAccountController@customer_review')->name('customer-review');
+Route::get('customer-personal-info/{id}','MyAccountController@customer_personal_info')->name('customer-personal-info');
+Route::post('update-personal-info','MyAccountController@update_personal_info')->name('update-personal-info');
+Route::get('customer-change-password/{id}','MyAccountController@customer_change_password')->name('customer-change-password');
+Route::post('change-customer-email','MyAccountController@change_customer_email')->name('change-customer-email');
+Route::post('customer-password-change','MyAccountController@customer_password_change')->name('customer-password-change');
+//My account Route End
+//Footer Route start
+Route::get('/social-option','FooterController@social_option')->name('social-option');
+Route::post('/save-social','FooterController@save_social')->name('save-social');
+Route::get('/apps-download-option','FooterController@apps_download_option')->name('apps-download-option');
+Route::post('/save-apps-download-link','FooterController@save_apps_download_link')->name('save-apps-download-link');
+Route::get('/contact-option','FooterController@contact_option')->name('contact-option');
+Route::get('/view-contact-message/{id}','FooterController@view_contact_messsage')->name('view-contact-message');
+Route::get('/replay-contact-message/{id}','FooterController@replay_contact_messsage')->name('replay-contact-message');
+Route::get('/delete-contact-message/{id}','FooterController@delete_contact_message')->name('delete-contact-message');
+Route::post('/replay-contact-message','FooterController@replay_contact_message')->name('replay-contact-message');
+//Footer Route End
 
 
 

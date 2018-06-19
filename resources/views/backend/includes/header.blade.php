@@ -131,13 +131,14 @@
                         <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Vector Maps</a></li>
                     </ul>
                 </li>
-                <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
+                <h3 class="menu-title">Footer Part</h3><!-- /.menu-title -->
+
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Footer Bottom</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
-                        <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>
+                        <li><i class="fa fa-puzzle-piece"></i><a href="{{route('social-option')}}">Social Option </a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="{{route('contact-option')}}">Contatc Option</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="{{route('apps-download-option')}}">Apps Download LInk</a></li>
                     </ul>
                 </li>
             </ul>
@@ -194,42 +195,87 @@
                                 id="message"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="ti-email"></i>
-                            <span class="count bg-primary">9</span>
+                           <?php $count_unread =  DB::table('contact_forms')->where('status','unread')->count();?>
+                            <span class="count bg-primary">{{$count_unread}}</span>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="message">
-                            <p class="red">You have 4 Mails</p>
-                            <a class="dropdown-item media bg-flat-color-1" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="{{asset('/public/backend/images/')}}/avatar/1.jpg"></span>
+                            <?php
+                                 $count = DB::table('contact_forms')->count()
+                            ?>
+                                @if($count_unread>0)
+                            <p class="red">You have{{ $count}}  Mails</p>
+                                @endif
+                        <?php
+                                $all_message = DB::table('contact_forms')->orderBy('id','desc')->where('status','unread')->get()->take(5);
+
+                            ?>
+                           @foreach($all_message as $contact)
+                                <?php
+                                $time_message = "";
+                                $date_time = $contact->created_at;
+                                $date_time_now = date('Y-m-d H:i:s');
+                                $start_date = new DateTime($date_time); //Time of Post
+                                $end_date = new DateTime($date_time_now); //current Time
+                                $interval = $start_date->diff($end_date);
+                                if($interval->y >=1){
+                                    if($interval->y ==1){
+                                        $time_message = $interval->y." year ago";
+                                    }else{
+                                        $time_message = $interval->y." years ago";
+                                    }
+                                }elseif($interval->m >=1){
+                                    if($interval->d ==0){
+                                        $days = " ago";
+                                    }elseif($interval->d ==1){
+                                        $days = $interval->d." day ago";
+                                    }else{
+                                        $days = $interval->d." days ago";
+                                    }
+                                    if($interval->m ==1){
+                                        $time_message = $interval->m." month".$days;
+                                    }else{
+                                        $time_message = $interval->m." months".$days;
+                                    }
+                                }elseif($interval->d >=1){
+                                    if($interval->d ==1){
+                                        $time_message = " Yesterday";
+                                    }else{
+                                        $time_message = $interval->d." days ago";
+                                    }
+                                }elseif($interval->h >=1){
+                                    if($interval->h ==1){
+                                        $time_message = $interval->h." hour ago";
+                                    }else{
+                                        $time_message = $interval->h." hours ago";
+                                    }
+                                }elseif($interval->i >=1){
+                                    if($interval->i ==1){
+                                        $time_message = $interval->i." minute ago";
+                                    }else{
+                                        $time_message = $interval->i." minutes ago";
+                                    }
+                                }else{
+                                    if($interval->s <30){
+                                        $time_message = " Just now";
+                                    }else{
+                                        $time_message = $interval->s." seconds ago";
+                                    }
+                                }
+
+                                ?>
+                            <a class="dropdown-item media bg-flat-color-5" href="{{route('view-contact-message',$contact->id)}}">
+                                <span class="photo media-left"><img alt="avatar" src="{{asset('/public/backend/images/')}}/avatar/3.png"></span>
                                 <span class="message media-body">
-                                    <span class="name float-left">Jonathan Smith</span>
-                                    <span class="time float-right">Just now</span>
-                                        <p>Hello, this is an example msg</p>
+                                    <span class="name float-left">{{$contact->name}}</span>
+                                    <span class="time float-right">{{$time_message}}</span>
+                                        <p> {!! \Illuminate\Support\Str::words($contact->message, 5,'....')  !!}</p>
                                 </span>
                             </a>
-                            <a class="dropdown-item media bg-flat-color-4" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="{{asset('/public/backend/images/')}}/avatar/2.jpg"></span>
-                                <span class="message media-body">
-                                    <span class="name float-left">Jack Sanders</span>
-                                    <span class="time float-right">5 minutes ago</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                </span>
-                            </a>
-                            <a class="dropdown-item media bg-flat-color-5" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="{{asset('/public/backend/images/')}}/avatar/3.jpg"></span>
-                                <span class="message media-body">
-                                    <span class="name float-left">Cheryl Wheeler</span>
-                                    <span class="time float-right">10 minutes ago</span>
-                                        <p>Hello, this is an example msg</p>
-                                </span>
-                            </a>
-                            <a class="dropdown-item media bg-flat-color-3" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="{{asset('/public/backend/images/')}}/avatar/4.jpg"></span>
-                                <span class="message media-body">
-                                    <span class="name float-left">Rachel Santos</span>
-                                    <span class="time float-right">15 minutes ago</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                </span>
-                            </a>
+
+                           @endforeach
+                                @if($count_unread>0)
+                            <a href="{{route('contact-option')}}" class="text-primary text-center">See All Message</a>
+                        @endif
                         </div>
                     </div>
                 </div>

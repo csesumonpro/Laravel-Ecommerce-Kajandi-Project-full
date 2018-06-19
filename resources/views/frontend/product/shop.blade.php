@@ -1,5 +1,5 @@
 @extends('frontend.front_view.front_master')
-
+@section('page-title','Product Page')
 @section('main_content')
  <header class="page-header">
         <h1 class="page-title">Welding &amp; Fabrication</h1>
