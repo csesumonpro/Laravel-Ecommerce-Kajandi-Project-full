@@ -101,6 +101,11 @@
                         <li><i class="fa fa-id-badge"></i><a href="{{route('vendorBlockedList')}}">Pending/Block List</a></li>
                     </ul>
                 </li>
+                <h3 class="menu-title">Customer Q & A</h3><!-- /.menu-title -->
+
+                <li>
+                    <a href="{{route('manage-q-a')}}"> <i class="menu-icon ti-email"></i>Manage Q & A </a>
+                </li>
                 <h3 class="menu-title">Advert Section</h3><!-- /.menu-title -->
 
               <li class="menu-item-has-children dropdown">

@@ -121,6 +121,11 @@ Route::get('/delete-contact-message/{id}','FooterController@delete_contact_messa
 Route::post('/replay-contact-message','FooterController@replay_contact_message')->name('replay-contact-message');
 //Footer Route End
 
+//Customer Q&A Route Start
+Route::get('/ask-a-question','CustomerQAController@ask_a_question')->name('ask-a-question');
+Route::get('/answer-a-question','CustomerQAController@answer_a_question')->name('answer-a-question');
+//Customer Q&A Route End
+
 
 
 
@@ -218,6 +223,13 @@ Route::post('/update-advert/{id}', 'AdvertController@updateAdvert')->name('updat
 Route::get('/delete-advert/{id}', 'AdvertController@deleteAdvert')->name('deleteAdvert');
 
 //End Home featured By Vendor
+
+//Amin Qa Route Start
+Route::get('/manage-q-a','AdminQAController@manage_q_a')->name('manage-q-a');
+Route::get('/delete-qa/{id}','AdminQAController@delete_qa')->name('delete-qa');
+Route::get('/view-qa/{id}','AdminQAController@view_qa')->name('view-qa');
+Route::get('/delete-answer/{id}/{question_id}','AdminQAController@delete_answer')->name('delete-answer');
+//Amin Qa Route End
 
 
 //==========================BackEnd End ==========================//

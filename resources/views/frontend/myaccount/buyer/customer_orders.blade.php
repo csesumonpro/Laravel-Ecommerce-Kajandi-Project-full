@@ -48,7 +48,7 @@
                         </div>
                     </div>
 
-                    <table class="table table table-shopping-cart dash-order-table">
+                    <table id="bootstrap-data-table" class="table table-striped table-bordered" >
                         <thead>
                         <tr>
                             <th>S/N</th>

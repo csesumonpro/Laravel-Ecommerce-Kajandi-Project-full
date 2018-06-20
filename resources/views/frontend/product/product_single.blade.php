@@ -290,8 +290,6 @@
                                       echo $dt->format('d/m/y');
                                     ?>
 
-
-
                                 </p>
                                 <p class='product-review-body'>{{$review->review}}</p>
                             </div>
@@ -414,88 +412,83 @@
             <div class="tab-pane fade" id="tab-5">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <form class="product-page-qa-form">
+                            {!! Form::open(['method'=>'GET','url'=>'ask-a-question','class'=>'product-page-qa-form']) !!}
                             <div class="row" data-gutter="10">
                                 <div class="col-md-10">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Have a question? Feel free to ask." />
+                                        <input type="hidden" name="product_id" value="{{$product_by_id->id}}">
+                                        <input class="form-control" type="text" name="question" placeholder="Have a question? Feel free to ask." />
+                                        @if ($errors->has('question'))
+                                            <div class="error">{{ $errors->first('question') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <input class="btn btn-primary btn-block" type="submit" value="Ask" />
                                 </div>
                             </div>
-                        </form>
+                            {!! Form::close() !!}
+
+                        <?php $all_q_a = DB::table('customer_questions')->where('product_id',$product_by_id->id)->orderBy('question','desc')->paginate('5');?>
+                        @foreach($all_q_a as $qa)
+                            <?php
+                            $dt = new DateTime($qa->created_at);
+                            $date = $dt->format('d/m/y');
+                            ?>
                         <article class="product-page-qa">
                             <div class="product-page-qa-question">
-                                <p class="product-page-qa-text">Is this the 6.6 inch screen?</p>
-                                <p class="product-page-qa-meta">asked by Richard Jones on 08/14/2015</p>
+                                <p class="product-page-qa-text">{{$qa->question}}</p>
+                                <p class="product-page-qa-meta">asked by
+                                    <?php
+                                        $user = DB::table('users')->where('id',$qa->user_id)->first();
+                                    ?>
+                                    {{$user->name}}
+                                    on {{$date}}</p>
                             </div>
+                            <?php $all_ans = DB::table('customer_answers')
+                                ->where('product_id',$product_by_id->id)
+                                ->where('question_id',$qa->id)
+                                ->orderBy('answer','desc')
+                                ->get();?>
+                            @if($all_ans!=NULL)
+                                @foreach($all_ans as $ans)
                             <div class="product-page-qa-answer">
-                                <p class="product-page-qa-text">No, this is the 6.4 inch screen</p>
-                                <p class="product-page-qa-meta">answered on 08/14/2015</p>
+
+                                <p class="product-page-qa-text">
+                                       {{$ans->answer}}
+                                </p>
+                                <?php
+                                $dt = new DateTime($ans->created_at);
+                                $date = $dt->format('d/m/y');
+                                ?>
+                                <?php
+                                $user = DB::table('users')->where('id',$ans->user_id)->first();
+                                ?>
+                                <p class="product-page-qa-meta">answered by {{$user->name}} {{$date}}</p>
                             </div>
+                                @endforeach
+                            @endif
+
+                              <div class="row">
+                                  {!! Form::open(['url'=>'answer-a-question','method'=>'GET']) !!}
+                                  <div class="col-md-10">
+                                      <div class="form-group">
+                                          <input type="hidden" name="product_id" value="{{$product_by_id->id}}">
+                                          <input type="hidden" name="question_id" value="{{$qa->id}}">
+                                          <input class="form-control" type="text" name="answer" placeholder="Provie Your Answer Here" />
+                                          @if ($errors->has('answer'))
+                                              <div class="error">{{ $errors->first('answer') }}</div>
+                                          @endif
+                                      </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                      <input class="btn btn-primary btn-block" type="submit" value="Answer" />
+                                  </div>
+                                  {!! Form::close() !!}
+                              </div>
                         </article>
-                        <article class="product-page-qa">
-                            <div class="product-page-qa-question">
-                                <p class="product-page-qa-text">for those who owns this model phone in USA, may I know if this phone has the 4G LTE in Tmobile's network? Thank you in advance.</p>
-                                <p class="product-page-qa-meta">asked by Joseph Hudson on 08/14/2015</p>
-                            </div>
-                            <div class="product-page-qa-answer">
-                                <p class="product-page-qa-text">Yes. can use TMobile LTE 1700MHZ.</p>
-                                <p class="product-page-qa-meta">answered on 08/14/2015</p>
-                            </div>
-                        </article>
-                        <article class="product-page-qa">
-                            <div class="product-page-qa-question">
-                                <p class="product-page-qa-text">I'm from Puerto Rico! this phone work for me???</p>
-                                <p class="product-page-qa-meta">asked by Neil Davidson on 08/14/2015</p>
-                            </div>
-                            <div class="product-page-qa-answer">
-                                <p class="product-page-qa-text">Yes... It will work with any gsm radio system in the world... It does not work, however on any cdma radio system...</p>
-                                <p class="product-page-qa-meta">answered on 08/14/2015</p>
-                            </div>
-                        </article>
-                        <article class="product-page-qa">
-                            <div class="product-page-qa-question">
-                                <p class="product-page-qa-text">so this phone works on tmobile current network ll i have to do is switch the sim card?</p>
-                                <p class="product-page-qa-meta">asked by Blake Hardacre on 08/14/2015</p>
-                            </div>
-                            <div class="product-page-qa-answer">
-                                <p class="product-page-qa-text">the phone works fine with T-mobile's 4G LTE network, all you have to do is get a micro-sim card and insert it to start using your phone, if you already have a micro-sim sized card then just plug in.</p>
-                                <p class="product-page-qa-meta">answered on 08/14/2015</p>
-                            </div>
-                        </article>
-                        <article class="product-page-qa">
-                            <div class="product-page-qa-question">
-                                <p class="product-page-qa-text">does it work on the boost mobile network?</p>
-                                <p class="product-page-qa-meta">asked by John Mathis on 08/14/2015</p>
-                            </div>
-                            <div class="product-page-qa-answer">
-                                <p class="product-page-qa-text">It only works on gms networks so you have to check I think boost mobile is cmd network like verizon towers not sure</p>
-                                <p class="product-page-qa-meta">answered on 08/14/2015</p>
-                            </div>
-                        </article>
-                        <article class="product-page-qa">
-                            <div class="product-page-qa-question">
-                                <p class="product-page-qa-text">Is this version waterproof?</p>
-                                <p class="product-page-qa-meta">asked by Brandon Burgess on 08/14/2015</p>
-                            </div>
-                            <div class="product-page-qa-answer">
-                                <p class="product-page-qa-text">All Sony Xperia z lines are water proof the Sony Xperia z1,z2,z3,z ultra all of those</p>
-                                <p class="product-page-qa-meta">answered on 08/14/2015</p>
-                            </div>
-                        </article>
-                        <article class="product-page-qa">
-                            <div class="product-page-qa-question">
-                                <p class="product-page-qa-text">how strong is the phone..does the screen crack easily ?</p>
-                                <p class="product-page-qa-meta">asked by Blake Abraham on 08/14/2015</p>
-                            </div>
-                            <div class="product-page-qa-answer">
-                                <p class="product-page-qa-text">Is strong enough to keep running even if it drops a few times, but I reckon if you kick it it Will smash, as any smartphone in the World. I had it for 3 months and it hasn't got a scratch.</p>
-                                <p class="product-page-qa-meta">answered on 08/14/2015</p>
-                            </div>
-                        </article>
+                        @endforeach
+                        <span class="text-center"> {{ $all_q_a->links() }}</span>
                     </div>
                 </div>
             </div>

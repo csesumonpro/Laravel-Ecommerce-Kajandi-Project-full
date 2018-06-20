@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\ContactForm;
 use Illuminate\Http\Request;
+use App\User;
 
 
 class CustomUserController extends Controller{
